@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="en-us">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Provisio</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
+
+    <script>
+        function onClick(element) {
+            console.log("onClick function called");
+            var modal = document.getElementById("modal01");
+            var img = document.getElementById("img01");
+            var caption = document.querySelector('.caption');
+            var overlay = document.querySelector('.overlay');
+            var closeButton = document.querySelector('.close');
+
+            console.log("Element src is " + element.src);
+
+            const srcParts = element.src.split('/');
+            console.log("srcParts is " + srcParts);
+            const lastSrcPart = srcParts.pop();
+            console.log("lastSrcPart is " + lastSrcPart);
+            var domain = window.location.protocol + "//" + window.location.hostname;
+            console.log("domain is " + domain);
+            if (lastSrcPart === "dbl_full.jpg") {
+                img.src = domain + "/provisio/images/dbl_full_lg.jpg";
+            } else if (lastSrcPart === "queen.jpg") {
+                img.src = domain + "/provisio/images/queen_lg.jpg";
+            } else if (lastSrcPart === "dbl_queen.jpg") {
+                img.src = domain + "/provisio/images/dbl_queen_lg.jpg";
+            } else if (lastSrcPart === "king.jpg") {
+                img.src = domain + "/provisio/images/king_lg.jpg";
+            }
+
+
+
+
+            img.onload = function () {
+                modal.style.display = 'block';
+                modal.style.textAlign = "center";
+                modal.style.marginLeft = "0px auto";
+                modal.style.marginRight = "0px auto";
+                modal.style.marginTop = "0px";
+                overlay.style.display = 'block'; // Show the overlay
+                closeButton.style.display = 'block'; // Show the 'x' button
+                caption.style.display = 'block'; // Show the caption element
+                console.log("caption display set to block");
+            };
+
+            console.log("img src set to " + img.src);
+
+            if (modal.style.display === 'block') {
+                return;
+            }
+        }
+
+        function closeImage() {
+            var modal = document.getElementById("modal01");
+            var img = document.getElementById("img01");
+            var caption = document.querySelector('.caption');
+            var overlay = document.querySelector('.overlay');
+            var closeButton = document.querySelector('.close');
+
+            img.style.transform = "none";
+            img.style.marginTop = "0px";
+            modal.style.width = "auto";
+            modal.style.height = "auto";
+            modal.style.display = 'none';
+            caption.style.display = 'none';
+            overlay.style.display = 'none';
+            closeButton.style.display = 'none';
+
+            // Reset the src attribute to an empty string
+            img.src = '';
+        }
+    </script>
+
+</head>
+
+<body>
+    <header id="top">
+        <h1 class="h1">Provisio</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="locations.html">Locations</a>
+        <a href="rooms.html">Rooms</a>
+        <a href="amenities.html">Amenities</a>
+        <a href="contact.html">Contact Us</a>
+        <button onclick="window.location.href='login.html';" class="login-btn">Login</button>
+        <button onclick="window.location.href='reservation.html';" class="book-now-btn">Book Now</button>
+    </nav>
+    <div class="nav2">
+        <p>
+            Earn 150 points for every night booked!&nbsp;&nbsp;
+            <button onclick="window.location.href='rewards_summary.html';" class="rewards-btn">View Rewards</button>
+        </p>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Premier Hotel Booking</h1>
+        </div>
+    </div>
+
+    <div class="align-center">
+        <h1>Top Choice For Hotel Accomodations</h1>
+        <img src="images/locations.jpg" alt="locations">
+        <h4>Multiple Locations</h4>
+    </div>
+
+
+    <!--icon block--->
+    <div class="icon-grid">
+        <div class="align-center">
+            <img alt="wifi icon" class="img-icon" src="../images/wifi.png">
+            <h4>wifi</h4>
+        </div>
+        <div class="align-center">
+            <img alt="keys icon" class="img-icon" src="../images/key.png">
+            <h4>room service</h4>
+        </div>
+        <div class="align-center">
+            <img alt="parking icon" class="img-icon" src="../images/car.png">
+            <h4>parking</h4>
+        </div>
+        <div class="align-center">
+            <img alt="dinner plate icon" class="img-icon" src="../images/breakfast.png">
+            <h4>breakfast</h4>
+        </div>
+        <div class="align-center">
+            <img alt="customer support icon" class="img-icon" src="../images/user.png">
+            <h4>front desk support</h4>
+        </div>
+    </div>
+    <p></p>
+
+    <!--rooms block-->
+    <div class="room-grid">
+        <div class="align-center">
+            <img src="../images/dbl_full.jpg" onclick="onClick(this)">
+            <h4 class="room-font">Double Full</h4>
+        </div>
+        <div class="align-center">
+            <img src="../images/queen.jpg" onclick="onClick(this)">
+            <h4 class="room-font">Queen</h4>
+        </div>
+        <div class="align-center">
+            <img src="../images/dbl_queen.jpg" onclick="onClick(this)">
+            <h4 class="room-font">Double Queen</h4>
+        </div>
+        <div class="align-center">
+            <img src="../images/king.jpg" onclick="onClick(this)">
+            <h4 class="room-font">King</h4>
+        </div>
+    </div>
+
+    <div class="overlay" style="display:none;"></div>
+
+    <div class="modal-parent">
+        <div id="modal01"
+            onclick="this.style.display='none'; document.querySelector('.caption').style.display='none'; document.querySelector('.overlay').style.display = 'none';">
+            <span class="close">&times;</span>
+            <img id="img01" style="max-width: 100%; max-height: 100%;" onclick="onClick(this)">
+            <div class="caption" style="display:none">
+                <h1>Provisio<br> Hotel Booking</h1>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>
+        &copy; 2023 Provisio Booking | Website by Bravo Team
+    </footer>
+</body>
+
+</html>
