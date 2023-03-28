@@ -28,7 +28,7 @@
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    font-family: 'Nunito';
+    font-family: 'verdana';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -52,7 +52,7 @@
     background: linear-gradient(90deg, rgba(0, 128, 128, 0.588542) 0%, rgba(0, 216, 216, 0.588542) 100%);
     border-radius: 30px;
 
-    font-family: 'Nunito';
+    font-family: 'verdana';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -85,21 +85,21 @@
     grid-template-rows: auto;
     gap: 1rem;
     width: 35%;
-    top: 50%;
+    top: 42.5%;
     right: 7.5%;
-    transform: translate(0%, -50%);
+    transform: translate(0%, -40%);
 }
 
 label {
-    font-family: 'Nunito';
+    font-family: 'calibri';
     font-style: normal;
     font-weight: 200;
     font-size: 1rem;
     color: rgba(72, 72, 72, 0.9);
 }
 
-#fName,
-#lName,
+#firstname,
+#lastname,
 input[type="email"],
 input[type="tel"],
 input[type="password"] {
@@ -114,13 +114,26 @@ input[type="password"] {
     margin-top: 5px;
 }
 
+/* Style the placeholder text */
+#firstname::placeholder {
+    color: red;
+}
+
+#lastname::placeholder {
+    color: red;
+}
+
+input[type="password"]::placeholder {
+    color: red;
+}
+
+
 #password-criteria-box {
     display: none;
     position: absolute;
     background-color: #ffffff;
     padding: 15px;
     z-index: 1;
-    font-family: 'Nunito';
     font-size: 0;
     border-radius: 10px;
     width: 100%;
@@ -131,7 +144,7 @@ input[type="password"] {
     right: 0%;
     left: 0%;
     top: 50%;
-    transform: translate(0%, 80%);
+    transform: translate(0%, 100%);
 }
 
 #password-criteria-box p {
@@ -141,6 +154,7 @@ input[type="password"] {
 
     width: 90%;
 
+    font-family: 'calibri';
     font-size: 14px;
 
     /* remove space between p tags */
@@ -159,24 +173,34 @@ input[type="password"] {
     cursor: pointer;
     font-family: 'Nunito';
     font-size: 1rem;
-    
+
     border-radius: 0px 10px 0 0px;
 
     /* position in top right corner */
     position: absolute;
     top: 0;
     right: 0;
-  }
-  
+}
+
 
 #close-password-criteria-box:hover {
     background-color: #005757;
 }
 
+span.error {
+    color: red;
+}
+
+.email-error::placeholder {
+    color: red;
+}
+
+
+
 /* at 540px, the input fields should be 100% width */
 @media (max-width: 540px) {
 
-    #password-criteria-box{
+    #password-criteria-box {
         width: 50%;
 
         /* move to the left */
@@ -194,9 +218,9 @@ input[type="password"] {
         grid-column-gap: 0px;
     }
 
-    #fName,
-    #lName,
-    input[type="email"],
+    #firstname,
+    #lastname,
+    input[type="email_input"],
     input[type="tel"],
     input[type="password"] {
         width: 80%;
@@ -210,57 +234,9 @@ input[type="password"] {
         font-size: 1rem !important;
     }
 
-    label[for="confirm-password"] {
+    label[for="confirm_password"] {
         margin-left: 0 !important;
         /* remove the margin */
-    }
-}
-
-@media (max-width: 540px) and (max-height: 630px) {
-
-    /* hide the subheader */
-    #subheader {
-        display: none;
-    }
-
-    /* move the input fields up */
-    #input_fields_container {
-        top: 52.5%;
-    }
-}
-
-@media (max-width: 540px) and (max-height: 545px) {
-
-    /* move the input fields up */
-    #input_fields_container {
-        top: 45%;
-    }
-}
-
-
-/* if the screen is greater than 485, and the height is less than 830*/
-@media (min-width: 540px) and (max-height: 660px) {
-
-    /* move the input fields up */
-    #input_fields_container {
-        top: 45%;
-    }
-
-}
-
-@media (max-width: 540px) and (max-height: 630px) {
-
-    /* move the input fields up */
-    #input_fields_container {
-        top: 52.5%;
-    }
-}
-
-@media (max-width: 540px) and (max-height: 545px) {
-
-    /* move the input fields up */
-    #input_fields_container {
-        top: 45%;
     }
 }
 
@@ -280,7 +256,7 @@ input[type="password"] {
 }
 
 @media (max-width: 600px) {
-    label[for="confirm-password"] {
+    label[for="confirm_password"] {
         /* move it to the left */
         margin-left: -12.5px;
     }
