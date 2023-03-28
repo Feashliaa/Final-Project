@@ -1,0 +1,515 @@
+body, html {
+  height: 100%;
+}
+
+/* header styles*/
+header {
+	background-color: teal;
+	padding: 50px;
+	text-align: center;
+}
+
+.h1 {
+  text-align: center;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.nav {
+	overflow: hidden;
+	text-align: center;
+	background-color: white;	
+  font-size: 20px;
+  padding-top: 20px;
+  margin-left: 250px;
+}
+
+.nav a {
+	display: inline;
+	color: teal;
+	padding: 20px 28px;
+	text-decoration: none;
+}
+
+.nav a:hover {
+	background-color: teal;
+	color: white;
+}
+
+.book-now-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  float: right;
+  margin-right: 20px;
+}
+
+.book-now-btn:hover {
+  background: #162541;
+}
+
+.login-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  float: right;
+  margin-right: 20px;
+}
+
+.login-btn:hover {
+  background: #162541;
+}
+
+.rewards-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+.rewards-btn:hover {
+  background: #162541;
+}
+
+.nav2 {
+  display: inline;
+  text-align: center;
+  height: 50px;
+  margin-top: 20px;  
+  margin-bottom: 40px;
+}
+
+.p-align {
+  text-align: center;
+}
+
+/* The hero image */
+.hero-image {
+  /* "linear-gradient" to add a darken background effect to the image (photographer.jpg) */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../images/backdrop.jpg");
+
+  /* Set a specific height */
+  height: 10%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text h1 {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 40px;
+  text-shadow:
+		-1px -1px 0 teal,
+		1px -1px 0 teal,
+		-1px 1px 0 teal,
+		1px 1px 0 teal;
+}
+
+/* applicable to all pages */
+h1, h2 {
+  text-align: center;
+  color: teal;
+}
+
+.align-center {
+  text-align: center;
+}
+
+img.align-left {
+  width:425px;
+  height: 500px;
+  float: left;
+  margin: 40px 50px 25px 50px;
+}
+
+/* index page styles */
+.icon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-top: 20px;
+  padding-top: 20px;
+  border: solid 3px teal;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border: solid 3px teal;
+  padding-top: 25px;
+}
+
+.room-grid img {
+  max-width: 100%;
+  height: auto;
+  border: solid 5px teal;
+}
+
+.room-font {
+  color: teal;
+}
+
+/* about us page styles */
+.about {
+  padding: 20px 0 0px 0;
+  font-size: 24px;
+  background-color: teal;
+  color: white;
+}
+
+.bullet-right {
+  list-style-position: inside;
+ }
+
+/* locations page styles */
+.location-container {
+  display: grid;
+  grid-template-columns: 350px 350px 350px 350px;
+  justify-content: space-evenly;
+  column-gap: 10px;
+  padding-top: 25px;
+  padding-top: 25px;
+  height: 650px;  
+  border: solid 3px teal;
+}
+
+.location-container img {
+  max-width: 100%;
+  height: 130px;
+  padding-top: 20px;
+}
+
+.location-desc {
+  background: gainsboro;
+  border: solid 5px teal;
+  padding-bottom: 20px;
+  height: 550px;
+}
+
+.twn-desc {
+  color: teal;
+}
+
+/* rooms page styles */
+figure.gallery {
+	display: grid;
+  grid-template-columns: 25% auto;
+	grid-gap: 50px;
+	padding: 10px;
+	border: 1px solid teal;
+  margin: 0 0 5px 0;
+	text-align: left;
+  background-color: teal;
+}
+
+figcaption {
+  background-color: gainsboro;
+  padding-left: 20px;
+}
+
+figure img {
+	display: inline;
+	margin: 5px;
+	border: 2px solid gainsboro;
+  float: left;
+}
+
+.dbl_full, .sngl_qn, .dbl_qn, .sngl_kng {
+	margin: 0px auto;
+	margin-right: 10px;
+	padding: 10px;
+	width: auto;
+	height: auto;	
+}
+
+table {
+  position: relative;
+}
+
+th.title {
+  color: teal;
+  font-size: 24px;
+}
+
+li span {
+  font-weight: bold;
+}
+
+/* amenities page styles */
+.pool {
+  background-image: url("../images/pool.jpg");
+  border: solid 3px teal;
+
+  /* Set a specific height */
+  height: 40%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 30px;
+}
+
+/* contact page styles */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 10px 200px 10px 200px;
+  column-gap: 20px;
+
+}
+.contact {
+  border: solid 10px teal;
+  text-align: center;
+}
+
+.contact-p span {
+  font-size: 20px;
+  color: teal;
+}
+
+.contact input {
+  border: solid 1px teal;
+}
+
+.contact2 h2, .contact3 h2 {
+  background-color: teal;
+  color: white;
+  font-size: 25px;
+  margin: 20px 20px 0 20px;
+  height: 50px;
+}
+
+#tollphone, #address {
+  font-size: 30px;
+  color: teal;
+}
+
+/* reservation page styles */
+.respic {
+  background-image: url("../images/reservation.jpg");
+  border: solid 3px teal;
+
+  /* Set a specific height */
+  height: 40%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#res-title {
+  text-align: center;
+  color: black;
+}
+
+.res-box {
+  display: grid;
+  grid-template-columns: 500px 500px 1fr;
+  padding: 15px 0 25px 15px;
+  border: solid 2px teal;
+}
+
+.reservation label {
+  text-align: left;
+}
+
+.res-box input, .res-box select{
+  border: solid 1px teal;
+  width: 450px; 
+  height: 25px;
+  margin-bottom: 25px;
+}
+
+#rescheck label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+#rescheck input {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}
+
+.sum {
+  border: solid 1px black;
+  padding: 15px 15px 200px 15px;
+  width: 95%;
+}
+
+#summary {
+  font-size: 20px;
+}
+
+.confirm-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  margin-right: 325px;
+  float: right;
+}
+
+.confirm-btn:hover {
+  background: #162541;
+}
+
+.submit-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 25px;
+  text-transform: uppercase;
+  margin-left: 425px;
+}
+
+.submit-btn:hover {
+  background: #162541;
+}
+
+/* rewards summary page styles */
+.rewardbox {
+  background-image: url("../images/hotel.png");
+
+  /* Set a specific height */
+  height: 60%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 800px 400px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.rewardbox h3 {
+  text-align: center;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 70px;
+  text-shadow:
+		-1px -1px 0 teal,
+		1px -1px 0 teal,
+		-1px 1px 0 teal,
+		1px 1px 0 teal;
+}
+
+#span1 {
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  
+}
+
+#span2 {
+  text-align: center;
+  position: absolute;
+  top: 65%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  
+}
+
+#span3 {
+  text-align: center;
+  position: absolute;
+  top: 95%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.center th {
+  height: 50px;
+  text-transform: capitalize;
+}
+
+.center td {
+  width: 200px;
+}
+
+.total {
+  height: 75px;
+  font-weight: bold;
+  
+}
+
+/* footer styles */
+footer {
+  background: teal;
+  color: #ddd;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 0 10px 0;
+}
