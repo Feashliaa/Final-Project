@@ -13,8 +13,8 @@
     <script>
         function onClick(element) {
             console.log("onClick function called");
-            var modal = document.getElementById("modal01");
-            var img = document.getElementById("img01");
+            var popup = document.getElementById("popup");
+            var img = document.getElementById("popup_image");
             var caption = document.querySelector('.caption');
             var overlay = document.querySelector('.overlay');
             var closeButton = document.querySelector('.close');
@@ -28,24 +28,21 @@
             var domain = window.location.protocol + "//" + window.location.hostname;
             console.log("domain is " + domain);
             if (lastSrcPart === "dbl_full.jpg") {
-                img.src = domain + "/provisio/images/dbl_full_lg.jpg";
+                img.src = domain + "/provisio/Provisio/images/dbl_full_lg.jpg";
             } else if (lastSrcPart === "queen.jpg") {
-                img.src = domain + "/provisio/images/queen_lg.jpg";
+                img.src = domain + "/provisio/Provisio/images/queen_lg.jpg";
             } else if (lastSrcPart === "dbl_queen.jpg") {
-                img.src = domain + "/provisio/images/dbl_queen_lg.jpg";
+                img.src = domain + "/provisio/Provisio/images/dbl_queen_lg.jpg";
             } else if (lastSrcPart === "king.jpg") {
-                img.src = domain + "/provisio/images/king_lg.jpg";
+                img.src = domain + "/provisio/Provisio/images/king_lg.jpg";
             }
 
-
-
-
             img.onload = function () {
-                modal.style.display = 'block';
-                modal.style.textAlign = "center";
-                modal.style.marginLeft = "0px auto";
-                modal.style.marginRight = "0px auto";
-                modal.style.marginTop = "0px";
+                popup.style.display = 'block';
+                popup.style.textAlign = "center";
+                popup.style.marginLeft = "0px auto";
+                popup.style.marginRight = "0px auto";
+                popup.style.marginTop = "0px";
                 overlay.style.display = 'block'; // Show the overlay
                 closeButton.style.display = 'block'; // Show the 'x' button
                 caption.style.display = 'block'; // Show the caption element
@@ -54,23 +51,23 @@
 
             console.log("img src set to " + img.src);
 
-            if (modal.style.display === 'block') {
+            if (popup.style.display === 'block') {
                 return;
             }
         }
 
         function closeImage() {
-            var modal = document.getElementById("modal01");
-            var img = document.getElementById("img01");
+            var popup = document.getElementById("popup");
+            var img = document.getElementById("popup_image");
             var caption = document.querySelector('.caption');
             var overlay = document.querySelector('.overlay');
             var closeButton = document.querySelector('.close');
 
             img.style.transform = "none";
             img.style.marginTop = "0px";
-            modal.style.width = "auto";
-            modal.style.height = "auto";
-            modal.style.display = 'none';
+            popup.style.width = "auto";
+            popup.style.height = "auto";
+            popup.style.display = 'none';
             caption.style.display = 'none';
             overlay.style.display = 'none';
             closeButton.style.display = 'none';
@@ -84,7 +81,9 @@
 
 <body>
     <header id="top">
-        <h1 class="h1">Provisio</h1>
+        <div class="header-text">
+            <h1>Provisio</h1>
+        </div>
     </header>
 
     <nav class="nav">
@@ -98,7 +97,7 @@
         <button onclick="window.location.href='reservation.html';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
             <button onclick="window.location.href='rewards_summary.html';" class="rewards-btn">View Rewards</button>
         </p>
@@ -112,7 +111,7 @@
 
     <div class="align-center">
         <h1>Top Choice For Hotel Accomodations</h1>
-        <img src="images/locations.jpg" alt="locations">
+        <img src="../images/locations.jpg" alt="locations">
         <h4>Multiple Locations</h4>
     </div>
 
@@ -164,13 +163,13 @@
 
     <div class="overlay" style="display:none;"></div>
 
-    <div class="modal-parent">
-        <div id="modal01"
+    <div class="popup-parent">
+        <div id="popup"
             onclick="this.style.display='none'; document.querySelector('.caption').style.display='none'; document.querySelector('.overlay').style.display = 'none';">
             <span class="close">&times;</span>
-            <img id="img01" style="max-width: 100%; max-height: 100%;" onclick="onClick(this)">
+            <img id="popup_image" style="max-width: 100%; max-height: 100%;" onclick="onClick(this)">
             <div class="caption" style="display:none">
-                <h1>Provisio<br> Hotel Booking</h1>
+                <h1>Provisio Hotel Booking</h1>
             </div>
         </div>
     </div>

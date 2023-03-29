@@ -8,8 +8,49 @@ html {
 /* header styles*/
 header {
   background-color: teal;
-  padding: 50px;
+  /* Set a specific height */
+  height: 10%;
+  width: 100%;
   text-align: center;
+  position: sticky;
+}
+
+/* Place text in the middle of the image */
+.header-text {
+  position: relative;
+  top: 0%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.header-text h1 {
+  text-align: center;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  height: 100%;
+  /* Set to the same height as the parent container */
+  text-shadow:
+    -1px -1px 0 teal,
+    1px -1px 0 teal,
+    -1px 1px 0 teal,
+    1px 1px 0 teal;
+  font-size: calc(2vw + 2vh + 1vmin);
+  line-height: calc(10% + 1vmin);
+
+  /* Set the line-height to be a percentage of the parent container's height */
+  transition: font-size 0.5s ease;
+
+  overflow: hidden;
+
+  /* center the text vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .h1 {
@@ -28,20 +69,56 @@ header {
 }
 
 .nav {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
   overflow: hidden;
   text-align: center;
   background-color: white;
-  font-size: 20px;
+  font-size: 2rem;
   padding-top: 20px;
-  margin-left: 250px;
+  justify-content: end;
+}
+
+.nav .login-btn {
+  grid-column: 5 / 6;
+}
+
+.nav .book-now-btn {
+  grid-column: 6 / -1;
 }
 
 .nav a {
-  display: inline;
+  display: inline-block;
   color: teal;
-  padding: 20px 28px;
+  padding: 20px 0;
   text-decoration: none;
+  width: 100%;
+  text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+
+  /* adjust the grid columns for smaller screens */
+  .nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav .login-btn {
+    grid-column: 2 / 3;
+  }
+
+  .nav .book-now-btn {
+    grid-column: 3 / -1;
+  }
+
+  /* reduce the font size for smaller screens */
+  .nav a {
+    font-size: 1.5rem;
+  }
+}
+
 
 .nav a:hover {
   background-color: teal;
@@ -52,13 +129,11 @@ header {
   background: teal;
   border: medium none;
   color: #fff;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0;
   padding: 8px 25px;
   text-transform: uppercase;
-  float: right;
-  margin-right: 20px;
 }
 
 .book-now-btn:hover {
@@ -74,8 +149,6 @@ header {
   letter-spacing: 0;
   padding: 8px 25px;
   text-transform: uppercase;
-  float: right;
-  margin-right: 20px;
 }
 
 .login-btn:hover {
@@ -188,24 +261,60 @@ img.align-left {
   margin: 40px 50px 25px 50px;
 }
 
-#modal01 {
+#popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10000;
+  min-width: 250px;
+  min-height: 250px;
 }
+
+.close {
+  display: none;
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close:hover {
+  color: teal;
+}
+
 
 .caption {
   color: #fff;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 40%;
+  right: 0;
+  bottom: 0;
   text-align: center;
   text-shadow: 0 2px 2px rgb(0, 0, 0);
-  width: 100%;
   z-index: 0;
+}
+
+.caption h1 {
+  margin: 0;
+  color: white;
+  text-shadow:
+    -1px -1px 0 teal,
+    1px -1px 0 teal,
+    -1px 1px 0 teal,
+    1px 1px 0 teal;
+  font-size: calc(2vw + 2vh + 1vmin);
+  line-height: calc(1.5rem + 1.5vw);
+
+  /* center the text vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -217,45 +326,6 @@ img.align-left {
   top: 0;
   left: 0;
   z-index: 9998;
-}
-
-
-.caption h1 {
-  color: teal;
-  font-size: 3vw;
-  letter-spacing: 2px;
-  overflow: hidden;
-  /* Hide any overflow beyond the max-width */
-  white-space: nowrap;
-  /* Prevent line breaks within the h1 element */
-}
-
-@media only screen and (max-width: 1550px) {
-  .caption h1 {
-    font-size: 5vw;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .caption h1 {
-    font-size: 7vw;
-  }
-}
-
-.close {
-  display: none;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 10001;
-}
-
-.close:hover {
-  color: #bbb;
 }
 
 /* index page styles */
