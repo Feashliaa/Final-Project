@@ -6,15 +6,6 @@ $email = $_POST['email'];
 $phone_number = $_POST['phone'];
 $password = $_POST['password'];
 
-// Console log the above for testing
-echo $firstname . "\n";
-echo $lastname . "\n";
-echo $email . "\n";
-echo $phone_number . "\n";
-echo $password . "\n";
-
-
-
 // Hash the password for security
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -29,15 +20,11 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-} else {
-    echo "Connected successfully \n";
 }
 
 // Drop the 'customers' table if it exists
 $sql = "DROP TABLE IF EXISTS customers";
-if (!mysqli_query($conn, $sql)) {
-    echo "Error dropping table: " . mysqli_error($conn);
-}
+mysqli_query($conn, $sql);
 
 // Create the 'customers' table
 $sql = "CREATE TABLE customers (
@@ -50,29 +37,43 @@ $sql = "CREATE TABLE customers (
     total_points INT(11) DEFAULT 0,
     PRIMARY KEY (customer_id)
 )";
-if (!mysqli_query($conn, $sql)) {
-    echo "Error creating table: " . mysqli_error($conn);
-}
+
+mysqli_query($conn, $sql);
 
 // check if the email already exists
 $sql = "SELECT * FROM customers WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 
-if (mysqli_num_rows($result) > 0) {
-    echo "User already registered \n";
+if (mysqli_num_rows($result) > 0) { // if the email already exists
     // Close the database connection
     mysqli_close($conn);
-    exit();
 } else {
     // Insert the user data into the database
     $sql = "INSERT INTO customers (firstname, lastname, email, phone_number, password)
         VALUES ('$firstname', '$lastname', '$email', '$phone_number', '$hashed_password')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "User registered successfully \n";
+        // Start a new session
+        session_start();
+        // Store the user's email in the session
+        $_SESSION['email'] = $email;
+
+        $response = array(
+            "status" => "success",
+            "message" => "User registered successfully",
+            "email" => $email
+        );
+        echo json_encode($response);
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $response = array(
+            "status" => "error",
+            "message" => "Error: " . $sql . "<br>" . mysqli_error($conn)
+        );
+        echo json_encode($response);
+    }
+
+    // Close the database connection if it's still open
+    if ($conn->ping()) {
+        mysqli_close($conn);
     }
 }
-// Close the database connection
-mysqli_close($conn);

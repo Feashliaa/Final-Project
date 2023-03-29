@@ -50,12 +50,12 @@ function updateLayout() {
 
     // if window is less than 540px wide
     // and the password criteria box is open
-    if (window.innerWidth < 540 && passwordCriteriaBox.style.display === "block") {
+    if (window.innerWidth <= 540 && passwordCriteriaBox.style.display === "block") {
         document.getElementById("signup-login_button").style.width = "20%";
         document.getElementById("signup-login_button").style.marginLeft = "30%";
         document.getElementById("signup-login_button").style.marginTop = "-10%";
     }
-    else if (window.innerWidth < 540) { // if window is less than 540px wide
+    else if (window.innerWidth <= 540) { // if window is less than 540px wide
         document.getElementById("signup-login_button").style.width = "80%";
         document.getElementById("signup-login_button").style.marginLeft = "0";
     }
@@ -228,7 +228,7 @@ function checkFields() {
     // get the text from the firstname, lastname, email, and password input fields
     const firstname = document.getElementById("firstname").value;
     const lastname = document.getElementById("lastname").value;
-    const email = document.getElementById("email_input").value;
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm_password").value;
 
@@ -251,9 +251,9 @@ function checkFields() {
             document.getElementById("lastname").placeholder = "Last name is required";
         }
         if (email == "") {
-            document.querySelector("#email span").classList.add("error");
-            document.getElementById("email_input").classList.add("email-error");
-            document.getElementById("email_input").placeholder = "Email is required";
+            document.querySelector("#email_input span").classList.add("error");
+            document.getElementById("email").classList.add("email-error");
+            document.getElementById("email").placeholder = "Email is required";
 
         }
         if (password == "") {
@@ -281,7 +281,7 @@ function signup(event) {
     // get the text from the firstname, lastname, email, and password input fields
     const firstname = document.getElementById("firstname").value;
     const lastname = document.getElementById("lastname").value;
-    const email = document.getElementById("email_input").value;
+    const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const password = document.getElementById("password").value;
 
@@ -295,22 +295,38 @@ function signup(event) {
     console.log("Password: " + password);
 
     event.preventDefault(); // prevent the default form submission behavior
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '../php/signup.php');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
+    xhr.open('POST', '../php/signup.php'); // open a POST request to the signup.php file
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // set the request header
+    var formData = new FormData(document.querySelector('form')); // create a new FormData object
+    xhr.send(new URLSearchParams(formData)); // send the form data to the signup.php file
+
+    console.log("Sent");
+
     xhr.onload = function () {
+        console.log("Response received");
         if (xhr.status === 200) {
-            alert(xhr.responseText);
+            try {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === "success") {
+                    console.log(response.message);
+                    // refresh the page
+                    window.location.reload();
+                } else {
+                    console.log(response.message);
+                }
+            } catch (e) {
+                console.log("Error: " + e.message);
+            }
         } else {
-            alert('Request failed. Status: ' + xhr.status);
+            console.log("Error: " + xhr.status);
         }
     };
-    var formData = new FormData(document.querySelector('form'));
-    xhr.send(new URLSearchParams(formData));
 }
 
+
 // if click into email_input, remove the error class
-document.getElementById("email_input").addEventListener("click", function () {
-    document.getElementById("email_input").classList.remove("email-error");
-    document.getElementById("email_input").placeholder = "example@domain.com";
+document.getElementById("email").addEventListener("click", function () {
+    document.getElementById("email").classList.remove("email-error");
+    document.getElementById("email").placeholder = "example@domain.com";
 });

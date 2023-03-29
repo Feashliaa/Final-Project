@@ -212,7 +212,7 @@ span.error {
 
     #input_fields_container {
         width: 100%;
-        left: 5%;
+        left: 2.5%;
 
         /* add less space between the grid items */
         grid-column-gap: 0px;
@@ -220,7 +220,7 @@ span.error {
 
     #firstname,
     #lastname,
-    input[type="email_input"],
+    input[type="email"],
     input[type="tel"],
     input[type="password"] {
         width: 80%;
