@@ -13,6 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
 </head>
@@ -38,9 +39,9 @@ session_start();
         <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
-            <button onclick="window.location.href='rewards_summary.html';" class="rewards-btn">View Rewards</button>
+            <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>
     </div>
 
@@ -52,39 +53,54 @@ session_start();
 
     <div>
         <h1>Amenities & Services</h1>
-        <p style="text-align: center">Book Provisio and enjoy heated pools at all locations</p>
     </div>
 
     <div class="pool"></div>
 
     <div class="amenities-grid">
         <div class="align-center">
-            <img alt="wifi icon" class="img-icon" src="../images/wifi.png">
+            <img alt="customer service icon" src="../images/user.png">
+            <h4>front desk</h4>
+            <p>Our front desk is available<br>24/7. Just dial 0 from<br>the room phone.</p>
+        </div>
+        <div class="align-center">
+            <img alt="pool icon" src="../images/pool.png">
+            <h4>indoor pool</h4>
+            <p>Guests can enjoy the<br>heated indoor pool<br>available 8am-10pm</p>
+        </div>
+        <div class="align-center">
+            <img alt="key icon" src="../images/key.png">
+            <h4>services</h4>
+            <p>We offer breakfast delivered<br>to your room as well<br> as cleaning services.</p>
+        </div>
+    </div>
+
+    <div class="amenities-grid">
+        <div class="align-center">
+            <img alt="wifi icon" src="../images/wifi.png">
             <h4>wifi</h4>
             <p><b>$12.99 flat fee<br>for your entire stay!</b></p>
-            <p>Enjoy access to our high-speed<br>WI-FI where you can access<br>your emails, stream content<br>and much
-                more!</p>
+            <p>Enjoy access to our high-speed<br>WI-FI where you can access<br>your emails, stream content<br>and much more!</p>
         </div>
 
         <div class="align-center">
-            <img alt="parking icon" class="img-icon" src="../images/car.png">
+            <img alt="parking icon" src="../images/car.png">
             <h4>parking</h4>
             <p><b>$19.99 per night<br>24/7 access</b></p>
             <p>Our secure parking ensures<br>our guests have a worry free stay<br>when booking with Provisio!</p>
         </div>
         <div class="align-center">
-            <img alt="dinner plate icon" class="img-icon" src="../images/breakfast.png">
+            <img alt="dinner plate icon" src="../images/breakfast.png">
             <h4>breakfast</h4>
             <p><b>$8.99 per night<br>available 7am-11am</b></p>
-            <p>Start your morning off right with<br>our continental breakfast.<br>Enjoy a variety of items to<br>choose
-                from!</p>
+            <p>Start your morning off right with<br>our continental breakfast.<br>Enjoy a variety of items to<br>choose from!</p>
         </div>
     </div>
-
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>
         &copy; 2023 Provisio Booking | Website by Bravo Team
     </footer>
+    </div><!--end content-->
 </body>
 
 </html>

@@ -45,8 +45,8 @@ hr {
 }
 
 .navbar a:hover {
-	background-color: teal;
-	color: white;
+    background-color: teal;
+    color: white;
     padding: 5px;
 }
 
@@ -60,7 +60,7 @@ hr {
     border-top: solid 1px teal;
     border-bottom: solid 1px teal;
     margin-top: 15px;
-  }
+}
 
 #h2title {
     text-align: center;
@@ -70,7 +70,7 @@ hr {
 #details {
     text-align: justify;
     max-width: 100%;
-    padding: 10px 0 10px 0;
+    padding: 10px 10px 10px 10px;
     margin: auto;
 }
 
@@ -88,21 +88,73 @@ hr {
     height: 40px;
 }
 
+/* hover feature button */
+#featurebutton:hover {
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
 #locationcontainer {
     margin-bottom: 10px;
 }
 
+#imgtitleholder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #imgcenter {
     display: block;
-    width: 100%;
-    height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
 }
+
+#heading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#h2title-center-php {
+    text-align: center;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    height: 100%;
+    font-size: calc(2vw + 2vh + 1vmin);
+    line-height: calc(10% + 1vmin);
+
+    /* Set the line-height to be a percentage of the parent container's height */
+    transition: font-size 0.5s ease;
+
+    /* center the text vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    resize: none;
+}
+
+
 
 #h3title {
     text-align: center;
     color: teal;
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+    /* height of footer */
 }
 
 footer {
@@ -114,7 +166,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     padding: 10px 0 10px 0;
-  }
+}
 
 
 /*About Page*/
@@ -127,11 +179,11 @@ footer {
     color: white;
     font-size: 50px;
     text-shadow:
-		-1px -1px 0 black,
-		1px -1px 0 black,
-		-1px 1px 0 black,
-		1px 1px 0 black;
-    resize:none;
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    resize: none;
 }
 
 #aboutsize {
@@ -171,16 +223,21 @@ figcaption {
 }
 
 figure img {
-	display: inline;
-	margin: auto;
-	border: 2px solid gainsboro;
+    display: inline;
+    margin: auto;
+    border: 2px solid gainsboro;
     float: left;
 }
 
-#full, #queen, #dblqueen, #king {
-	width: 100%;
-	height: 100%;	
+#full,
+#queen,
+#dblqueen,
+#king {
+    width: 100%;
+    height: 100%;
 }
+
+
 
 table {
     position: relative;
@@ -213,7 +270,7 @@ li {
         1px -1px 0 black,
         -1px 1px 0 black,
         1px 1px 0 black;
-    resize:none;
+    resize: none;
 }
 
 .amenities-grid {
@@ -249,9 +306,9 @@ li {
         1px -1px 0 black,
         -1px 1px 0 black,
         1px 1px 0 black;
-    resize:none;
+    resize: none;
 }
-  
+
 .rewardbox h3 {
     text-align: center;
     position: absolute;
@@ -319,6 +376,4 @@ li {
 .total {
     height: 75px;
     font-weight: bold;
-}  
-
-
+}

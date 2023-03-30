@@ -13,6 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/popup.js"></script>
     <script src="../js/checks.js"></script>
@@ -52,74 +53,56 @@ session_start();
         </div>
     </div>
 
-    <div class="align-center">
-        <h1>Top Choice For Hotel Accomodations</h1>
-        <img src="../images/locations.jpg" alt="locations">
-        <h4>Multiple Locations</h4>
-    </div>
+    <h2 id="h2title">Let Provisio Welcome You At Your Next Stay</h2>
 
+    <p id="details">Choose from one of several locations Provisio has to offer. Each
+        location has several room types as well as the option to choose what amenities suit your needs.
+        When booking Provisio all members earn <a href="">Provisio Rewards</a>
+        points for every night booked!
+    </p>
 
-    <!--icon block--->
-    <div class="icon-grid">
-        <div class="align-center">
-            <img alt="wifi icon" class="img-icon" src="../images/wifi.png">
-            <h4>wifi</h4>
-        </div>
-        <div class="align-center">
-            <img alt="keys icon" class="img-icon" src="../images/key.png">
-            <h4>room service</h4>
-        </div>
-        <div class="align-center">
-            <img alt="parking icon" class="img-icon" src="../images/car.png">
-            <h4>parking</h4>
-        </div>
-        <div class="align-center">
-            <img alt="dinner plate icon" class="img-icon" src="../images/breakfast.png">
-            <h4>breakfast</h4>
-        </div>
-        <div class="align-center">
-            <img alt="customer support icon" class="img-icon" src="../images/user.png">
-            <h4>front desk support</h4>
-        </div>
-    </div>
-    <p></p>
-
-    <!--rooms block-->
-    <div class="room-grid">
-        <div class="align-center">
-            <img src="../images/dbl_full.jpg" onclick="onClick(this)">
-            <h4 class="room-font">Double Full</h4>
-        </div>
-        <div class="align-center">
-            <img src="../images/queen.jpg" onclick="onClick(this)">
-            <h4 class="room-font">Queen</h4>
-        </div>
-        <div class="align-center">
-            <img src="../images/dbl_queen.jpg" onclick="onClick(this)">
-            <h4 class="room-font">Double Queen</h4>
-        </div>
-        <div class="align-center">
-            <img src="../images/king.jpg" onclick="onClick(this)">
-            <h4 class="room-font">King</h4>
+    <div id="locationcontainer">
+        <h3 id="h3title">Beach Access, Shopping & Entertainment</h3>
+        <img id="imgcenter" src="../images/westpalmbeach.jpeg" alt="" style="width:1300px">
+        <p id="details">Our West Palm Beach, Florida location offers guests
+            access to exquisite shops, fine dining, art museums and more! Located along Florida's
+            Atlantic Ocean coast, this location provides sandy beaches for those who love the water
+            and for those who love to shop, the Palm Beach Outlets provide high-end retail at low cost.
+        </p>
+        <div id="buttoncenter">
+            <button id="featurebutton" onclick="window.location.href='locations.html';">See More Locations</button>
         </div>
     </div>
 
-    <div class="overlay" style="display:none;"></div>
-
-    <div class="popup-parent">
-        <div id="popup" onclick="this.style.display='none'; document.querySelector('.caption').style.display='none'; document.querySelector('.overlay').style.display = 'none';">
-            <span class="close">&times;</span>
-            <img id="popup_image" style="max-width: 100%; max-height: 100%;" onclick="onClick(this)">
-            <div class="caption" style="display:none">
-                <h1>Provisio Hotel Booking</h1>
-            </div>
+    <div id="roomscontainer">
+        <h3 id="h3title">Style Fit For a King</h3>
+        <img id="imgcenter" src="../images/kingsuite.jpeg" alt="">
+        <p id="details">Enjoy your stay in a room fit for a king! These rooms offer pillow-top
+            beds with luxury hotel bedding, ensuring your slumber is well... fit for a king. Also
+            available is our full-size sofa-sleeper for your extra guests and dedicated work desk
+            in all our rooms.
+        </p>
+        <div id="buttoncenter">
+            <button id="featurebutton" onclick="window.location.href='rooms.html';">See More Rooms</button>
         </div>
     </div>
 
+    <div id="amenitiescontainer">
+        <h3 id="h3title">Worked Up An Appetite?</h3>
+        <img id="imgcenter" src="../images/breakfast.jpeg" alt="" style="width:1300px">
+        <p id="details">Provisio offers guests several amenities to choose from when booking
+            with our state-of-the-art reservation system. Our continental breakfast is available every morning for those
+            looking for convenient on-site amenities.
+        </p>
+        <div id="buttoncenter">
+            <button id="featurebutton" onclick="window.location.href='amenities.html';">See More Amenities</button>
+        </div>
+    </div>
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>
         &copy; 2023 Provisio Booking | Website by Bravo Team
     </footer>
+    </div><!--end content-->
 </body>
 
 </html>

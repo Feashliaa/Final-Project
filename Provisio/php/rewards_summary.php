@@ -36,7 +36,7 @@ session_start();
         <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
             <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>

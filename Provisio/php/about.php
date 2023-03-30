@@ -13,6 +13,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
 </head>
@@ -35,7 +36,7 @@ session_start();
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
             <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>
@@ -47,47 +48,31 @@ session_start();
         </div>
     </div>
 
-    <div>
-        <h1>Learn More About Us</h1>
+
+    <div id="imgtitleholder">
+        <div class="header-text" style="background-image: url('../images/lobby.jpeg'); background-size: cover; height: 200px;">
+            <h1>About Provisio Hotels</h1>
+        </div>
     </div>
 
-    <div class="about">
-        <img src="../images/reserved.jpg" alt="reservation" class="align-left" />
-        <p><br>
-            Founded in 2023, Provisio has been voted as top choice for booking hotel accommodations for a number of
-            locations!<br><br>
-            With our specialized booking system we provide reliable access for you to choose the dates for travel,
-            the room size that suits your needs and even select amenities!
-            <br>
-            Earn loyalty points for each night you choose to book with Provisio, saving you money!
-            <br>
-            Create a secure login to track your previous reservations and loyalty points!
-            <br><br>
-            We offer :
-        <ul class="bullet-right">
-            <li>an easy to navigate site</li>
+    <p id="details"><span id="aboutsize">About Us</span><br>Hotel Reservation Site</p>
+    <p id="details"><span id="ptitlesize">Top Choice For Hotel Booking</span><br><br>
+        <span id="pfontweight">Founded in 2023, Provisio currently has four locations located along the East Coast.
+            Each location provides a selection of rooms to choose from as well as add-on amenities.
+            Provisio's exclusive brand includes heated indoor pools at all locations. <br><br>
 
-            <li>choice of available locations</li>
+            With Provisio's loyalty program customers earn points for each night booked.
+            Points can be used for future stays at any of the Provisio locations and customers can view a
+            summary of their accumulated points through their login.<br><br>
 
-            <li>registration once you're ready</li>
+            Provisio's easy-to-navigate site allows customers to check out all the options before
+            placing a reservation. The simplified registration process makes enrollment with Provisio
+            easy while providing high-end security features to protect customer data. <br><br>
 
-            <li>secure login to protect your information</li>
-
-            <li>room selection</li>
-
-            <li>add-on amenities for what you need, when you need it</li>
-
-            <li>provisio rewards club</li>
-        </ul>
-
-        Book with us and enjoy hassle-free reservation from the comfort of your home, or book while
-        you're traveling.
-        </p><br>
-    </div>
-
-    <div>
-        <h2>We are here for you, whenever and wherever you need us!</h2>
-    </div>
+            <h3 id="abouttagline">Book with Provisio and let us handle the rest!</h3>
+        </span>
+    </p>
+    </div><!--end content-->
 
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>

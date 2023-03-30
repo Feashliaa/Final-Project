@@ -1,8 +1,13 @@
 body,
 html {
   height: 100%;
+}
 
-  min-width: 300px;
+body {
+  /* set max width and center content */
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* header styles*/
@@ -13,6 +18,10 @@ header {
   width: 100%;
   text-align: center;
   position: sticky;
+
+  /* round the bottom corners */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 /* Place text in the middle of the image */
@@ -72,12 +81,12 @@ header {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
+  gap: 10px;
   overflow: hidden;
   text-align: center;
   background-color: white;
   font-size: 2rem;
-  padding-top: 20px;
+  padding-top: 10px;
   justify-content: end;
 }
 
@@ -92,9 +101,9 @@ header {
 .nav a {
   display: inline-block;
   color: teal;
-  padding: 20px 0;
+  padding: 15px 0;
   text-decoration: none;
-  width: 100%;
+  width: auto;
   text-align: center;
 }
 
@@ -138,6 +147,7 @@ header {
 
 .book-now-btn:hover {
   background: #162541;
+  cursor: pointer;
 }
 
 .login-btn {
@@ -153,6 +163,7 @@ header {
 
 .login-btn:hover {
   background: #162541;
+  cursor: pointer;
 }
 
 .rewards-btn {
@@ -168,6 +179,7 @@ header {
 
 .rewards-btn:hover {
   background: #162541;
+  cursor: pointer;
 }
 
 .nav-border-bottom {
@@ -194,7 +206,7 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../images/backdrop.jpg");
 
   /* Set a specific height */
-  height: 10%;
+  height: 5%;
   width: 100%;
 
   /* Position and center the image to scale nicely on all screens */
@@ -228,8 +240,8 @@ header {
     1px -1px 0 teal,
     -1px 1px 0 teal,
     1px 1px 0 teal;
-  font-size: calc(2vw + 2vh + 1vmin);
-  line-height: calc(10% + 1vmin);
+  font-size: calc(1vw + 1vh + 1vmin);
+  line-height: calc(10% + .5vmin);
 
   /* Set the line-height to be a percentage of the parent container's height */
   transition: font-size 0.5s ease;
@@ -382,13 +394,12 @@ img.align-left {
 /* locations page styles */
 .location-container {
   display: grid;
-  grid-template-columns: 350px 350px 350px 350px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: space-evenly;
-  column-gap: 10px;
-  padding-top: 25px;
-  padding-top: 25px;
-  height: 650px;
+  align-items: center;
+  grid-row-gap: 20px;
   border: solid 3px teal;
+  overflow: hidden;
 }
 
 .location-container img {
@@ -400,24 +411,42 @@ img.align-left {
 .location-desc {
   background: gainsboro;
   border: solid 5px teal;
-  padding-bottom: 20px;
-  height: 550px;
+  height: 500px;
+  overflow: auto;
 }
 
 .twn-desc {
   color: teal;
 }
 
-/* rooms page styles */
+@media (max-width: 768px) {
+  .location-container {
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-row-gap: 10px;
+  }
+
+  .location-container img {
+    height: 100px;
+  }
+
+  .location-desc {
+    height: 350px;
+  }
+
+  .location-container h2, .location-container p {
+    font-size: 1rem;
+  }
+}
+
+/*Rooms Page */
 figure.gallery {
   display: grid;
   grid-template-columns: 25% auto;
-  grid-gap: 50px;
+  grid-gap: 20px;
   padding: 10px;
   border: 1px solid teal;
   margin: 0 0 5px 0;
   text-align: left;
-  background-color: teal;
 }
 
 figcaption {
@@ -427,21 +456,19 @@ figcaption {
 
 figure img {
   display: inline;
-  margin: 5px;
+  margin: auto;
   border: 2px solid gainsboro;
   float: left;
 }
 
-.dbl_full,
-.sngl_qn,
-.dbl_qn,
-.sngl_kng {
-  margin: 0px auto;
-  margin-right: 10px;
-  padding: 10px;
-  width: auto;
-  height: auto;
+#full,
+#queen,
+#dblqueen,
+#king {
+  width: 100%;
+  height: 100%;
 }
+
 
 table {
   position: relative;
@@ -544,6 +571,14 @@ li span {
   border: solid 2px teal;
 }
 
+#res-right textarea {
+  width: 90%;
+  max-height: 250px;
+  /* adjust this value to your preference */
+  min-height: 200px;
+  resize: vertical;
+}
+
 .reservation label {
   text-align: left;
 }
@@ -597,6 +632,7 @@ li span {
 
 .confirm-btn:hover {
   background: #162541;
+  cursor: pointer;
 }
 
 .submit-btn {
@@ -613,6 +649,7 @@ li span {
 
 .submit-btn:hover {
   background: #162541;
+  cursor: pointer;
 }
 
 /* rewards page styles */
@@ -737,6 +774,16 @@ footer {
   text-align: center;
   margin-top: 10px;
   padding: 10px 0 10px 0;
+
+  /* round the top corners */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  /* make it always the bottom of the page */
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 

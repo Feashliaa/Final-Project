@@ -36,7 +36,7 @@ session_start();
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
             <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>
@@ -97,12 +97,14 @@ session_start();
 
         <div id="res-right">
             <h3>Reservation Summary:</h3>
-            <textarea id="summary" rows="10" cols="50"></textarea>
+            <textarea id="summary" rows="10" cols="20"></textarea>
         </div>
     </div>
     <div>
+        <br>
         <button class="submit-btn" onclick="reservationSummary()">Submit</button>
         <button class="confirm-btn">Confirm</button>
+        <br>
     </div>
 
 

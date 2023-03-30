@@ -36,7 +36,7 @@ session_start();
         <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
-        <p>
+        <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
             <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>
@@ -54,7 +54,7 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/dbl_full.jpg" class="dbl_full" alt="dbl full beds" />
+        <img src="../images/double.jpeg" id="full" alt="dbl full beds" />
         <figcaption>
             <table width="100%">
                 <th class="title">Double Full Room</th>
@@ -62,16 +62,16 @@ session_start();
                     <td>Maximum Occupancy 5</td>
                 </tr>
                 <tr>
-                    <td width="30%" height="50px;">Includes:</td>
-                    <td width="30%">Additional Information:</td>
+                    <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
+                    <td width="30%">Additional Information:</td>
                 </tr>
                 <tr>
                     <td>
-                        <li>Sofa Bed</li><br>
+                        <li>Full Size Sofa Sleeper</li><br>
                         <li>Microwave</li><br>
                         <li>Mini Fridge</li><br>
-                        <li>Iron</li>
+                        <li>Work Desk</li>
                     </td>
                     <td>
                         <li>High-Speed WI-FI</li><br>
@@ -82,8 +82,8 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li style="list-style-type: none"><span>1-2 Guests: $115/night</span></li><br>
-                        <li style="list-style-type: none"><span>3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
+                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -93,7 +93,7 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/queen.jpg" class="sngl_qn" alt="queen bed" />
+        <img src="../images/queen.jpeg" id="queen" alt="queen bed" />
         <figcaption>
             <table width="100%">
                 <th class="title">Queen Room</th>
@@ -101,16 +101,16 @@ session_start();
                     <td>Maximum Occupancy 3</td>
                 </tr>
                 <tr>
-                    <td width="30%" height="50px;">Includes:</td>
-                    <td width="30%">Additional Information:</td>
+                    <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
+                    <td width="30%">Additional Information:</td>
                 </tr>
                 <tr>
                     <td>
-                        <li>Sofa Bed</li><br>
+                        <li>Full Size Sofa Sleeper</li><br>
                         <li>Microwave</li><br>
                         <li>Mini Fridge</li><br>
-                        <li>Iron</li>
+                        <li>Work Desk</li>
                     </td>
                     <td>
                         <li>High-Speed WI-FI</li><br>
@@ -121,8 +121,8 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li style="list-style-type: none"><span>1-2 Guests: $115/night</span></li><br>
-                        <li style="list-style-type: none"><span>3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
+                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -132,7 +132,7 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/dbl_queen.jpg" class="dbl_qn" alt="double queen beds" />
+        <img src="../images/dblqueen.jpeg" id="dblqueen" alt="double queen beds" />
         <figcaption>
             <table width="100%">
                 <th class="title">Double Queen Room</th>
@@ -140,16 +140,16 @@ session_start();
                     <td>Maximum Occupancy 5</td>
                 </tr>
                 <tr>
-                    <td width="30%" height="50px;">Includes:</td>
-                    <td width="30%">Additional Information:</td>
+                    <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
+                    <td width="30%">Additional Information:</td>
                 </tr>
                 <tr>
                     <td>
-                        <li>Sofa Bed</li><br>
+                        <li>Full Size Sofa Sleeper</li><br>
                         <li>Microwave</li><br>
                         <li>Mini Fridge</li><br>
-                        <li>Iron</li>
+                        <li>Work Desk</li>
                     </td>
                     <td>
                         <li>High-Speed WI-FI</li><br>
@@ -160,8 +160,8 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li style="list-style-type: none"><span>1-2 Guests: $115/night</span></li><br>
-                        <li style="list-style-type: none"><span>3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
+                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -171,7 +171,7 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/king.jpg" class="sngl_kng" alt="king bed" />
+        <img src="../images/kingsuite.jpeg" id="king" alt="king bed" />
         <figcaption>
             <table width="100%">
                 <th class="title">King Room</th>
@@ -179,16 +179,16 @@ session_start();
                     <td>Maximum Occupancy 3</td>
                 </tr>
                 <tr>
-                    <td width="30%" height="50px;">Includes:</td>
-                    <td width="30%">Additional Information:</td>
+                    <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
+                    <td width="30%">Additional Information:</td>
                 </tr>
                 <tr>
                     <td>
-                        <li>Sofa Bed</li><br>
+                        <li>Full Size Sofa Sleeper</li><br>
                         <li>Microwave</li><br>
                         <li>Mini Fridge</li><br>
-                        <li>Iron</li>
+                        <li>Work Desk</li>
                     </td>
                     <td>
                         <li>High-Speed WI-FI</li><br>
@@ -199,8 +199,8 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li style="list-style-type: none"><span>1-2 Guests: $115/night</span></li><br>
-                        <li style="list-style-type: none"><span>3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
+                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
                     </td>
                 </tr>
             </table>
