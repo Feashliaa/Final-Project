@@ -4,6 +4,8 @@ session_start();
 if (!isset($_SESSION['email'])) {
     // user is not logged in, redirect to login page
     header("Location: index.php");
+    // send to the index page a message that the user is not logged in
+    $_SESSION['message'] = "You must be logged in to view this page.";
     exit();
 }
 

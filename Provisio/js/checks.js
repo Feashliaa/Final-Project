@@ -9,6 +9,7 @@ function checkLogin() {
             if (xhr.status === 200) {
                 console.log("Logout successful");
                 loginBtn.innerHTML = "Login";
+                window.location.href = "index.php";
             } else {
                 console.log("Logout failed");
             }

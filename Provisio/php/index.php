@@ -1,6 +1,12 @@
 <?php
 // Start the session
 session_start();
+
+// check for $_SESSION['message'] = "You must be logged in to view this page.";
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+    unset($_SESSION['message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +76,7 @@ session_start();
             and for those who love to shop, the Palm Beach Outlets provide high-end retail at low cost.
         </p>
         <div id="buttoncenter">
-            <button id="featurebutton" onclick="window.location.href='locations.html';">See More Locations</button>
+            <button id="featurebutton" onclick="window.location.href='locations.php';">See More Locations</button>
         </div>
     </div>
 
@@ -83,7 +89,7 @@ session_start();
             in all our rooms.
         </p>
         <div id="buttoncenter">
-            <button id="featurebutton" onclick="window.location.href='rooms.html';">See More Rooms</button>
+            <button id="featurebutton" onclick="window.location.href='rooms.php';">See More Rooms</button>
         </div>
     </div>
 
@@ -95,7 +101,7 @@ session_start();
             looking for convenient on-site amenities.
         </p>
         <div id="buttoncenter">
-            <button id="featurebutton" onclick="window.location.href='amenities.html';">See More Amenities</button>
+            <button id="featurebutton" onclick="window.location.href='amenities.php';">See More Amenities</button>
         </div>
     </div>
     <footer>
