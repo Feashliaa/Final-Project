@@ -84,6 +84,13 @@
     color: #000000;
 }
 
+label {
+    font-family: 'calibri';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1rem;
+    color: rgba(72, 72, 72, 0.9);
+}
 
 #input_fields_container {
     position: absolute;
@@ -172,6 +179,18 @@
     color: #000000;
     outline: none;
     width: 170px;
+}
+
+input[type="password"]::placeholder {
+    color: red;
+}
+
+span.error {
+    color: red;
+}
+
+.email-error::placeholder {
+    color: red;
 }
 
 @media (max-width: 540px) {

@@ -13,7 +13,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "test_provisio";
+$dbname = "probrav";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -22,35 +22,25 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Drop the 'customers' table if it exists
-$sql = "DROP TABLE IF EXISTS customers";
-mysqli_query($conn, $sql);
-
-// Create the 'customers' table
-$sql = "CREATE TABLE customers (
-    customer_id INT(11) NOT NULL AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(20),
-    password VARCHAR(255) NOT NULL,
-    total_points INT(11) DEFAULT 0,
-    PRIMARY KEY (customer_id)
-)";
-
-mysqli_query($conn, $sql);
-
 // check if the email already exists
 $sql = "SELECT * FROM customers WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) { // if the email already exists
+
+    $response = array(
+        "status" => "error",
+        "message" => "Email already exists"
+    );
+
+    echo json_encode($response);
+
     // Close the database connection
     mysqli_close($conn);
 } else {
     // Insert the user data into the database
-    $sql = "INSERT INTO customers (firstname, lastname, email, phone_number, password)
-        VALUES ('$firstname', '$lastname', '$email', '$phone_number', '$hashed_password')";
+    $sql = "INSERT INTO customers (email, first_name, last_name, phone_number, password)
+        VALUES ('$email', '$firstname', '$lastname', '$phone_number', '$hashed_password')";
 
     if (mysqli_query($conn, $sql)) {
         // Start a new session

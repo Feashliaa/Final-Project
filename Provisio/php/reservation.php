@@ -1,6 +1,21 @@
 <?php
 // Start the session
 session_start();
+if (!isset($_SESSION['email'])) {
+    // user is not logged in, redirect to login page
+    header("Location: index.php");
+    exit();
+}
+
+$email = $_SESSION['email'];
+$mysqli = new mysqli('localhost', 'root', 'root', 'probrav');
+$result = $mysqli->query("SELECT * FROM customers WHERE email = '$email'");
+if ($result->num_rows == 0) {
+    // user does not exist, redirect to registration page
+    session_destroy();
+    header("Location: registration.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +104,7 @@ session_start();
 
             <div id="rescheck">
                 <label for="amenities">Choose your Amenities:</label><br>
-                <input type="checkbox" name="amenities" value="wifi">WI-FI ($19.99/night)</label><br>
+                <input type="checkbox" name="amenities" value="wifi">WI-FI ($12.99)</label><br>
                 <input type="checkbox" name="amenities" value="breakfast">Breakfast ($8.99/night)</label><br>
                 <input type="checkbox" name="amenities" value="parking">Parking ($19.99/night)</label><br>
             </div>

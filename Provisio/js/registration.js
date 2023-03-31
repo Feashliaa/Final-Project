@@ -314,6 +314,10 @@ function signup(event) {
                     window.location.reload();
                 } else {
                     console.log(response.message);
+                    if (response.message === "Email already exists") {
+                        // alert the user that the email already exists
+                        alert("Email already exists");
+                    }
                 }
             } catch (e) {
                 console.log("Error: " + e.message);

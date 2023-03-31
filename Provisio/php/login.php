@@ -1,8 +1,3 @@
-<?php
-// Start the session
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +11,7 @@ session_start();
     <link rel="stylesheet" href="../css/login.css" type="text/css">
     <link rel="stylesheet" href="../css/log-reg.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
-    <script src="../js/login.js"></script>
+    <script src="../js/login.js" async></script>
     <script src="../js/checks.js"></script>
 </head>
 
@@ -72,18 +67,19 @@ session_start();
             <div id="header">Start Booking Hotels At Provisio </div>
             <div id="subheader"> Start Booking Now with the Great Tool Provisio!</div>
         </div>
-        <div id="input_fields_container">
-            <div id="email_input">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
+        <form method="POST" action="signin.php">
+            <div id="input_fields_container">
+                <div id="email_input">
+                    <label for="email">Email<span>*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                </div>
+                <div id="password_input">
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" name="password">
+                </div>
             </div>
-            <div id="password_input">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-            </div>
-        </div>
-        <button id="signup-login_button" onclick="login()">Login</button>
-
+            <button id="signup-login_button" onclick="login(event)">Login</button>
+        </form>
         <div id="dont_have_account_container">
             <div id="dont_have_account_text">Don't have an account? <a href="registration.php" id="signup_link">Sign
                     Up</a></div>
