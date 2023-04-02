@@ -1,6 +1,19 @@
 <?php
 // Start the session
 session_start();
+
+// output the session variable
+if (isset($_SESSION['email'])) {
+    echo "<script>console.log('Session variable: " . $_SESSION['email'] . "');</script>";
+} else {
+    echo "<script>console.log('Session variable not set');</script>";
+}
+
+// check for $_SESSION['message'] = "You must be logged in to view this page.";
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+    unset($_SESSION['message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +28,7 @@ session_start();
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
+    <script src="../js/popup.js"></script>
 </head>
 
 <body>
@@ -52,16 +66,27 @@ session_start();
         <h1>Available Rooms</h1>
     </div>
 
+    <!-- Add the HTML code for the popup -->
+    <div id="popup">
+        <span class="close" onclick="closeImage()">&times;</span>
+        <img id="popup_image">
+        <div class="caption">
+            <h1>Book with Provisio!</h1>
+        </div>
+    </div>
+
+    <!-- Add an overlay that covers the entire page -->
+    <div class="overlay"></div>
 
     <figure class="gallery">
-        <img src="../images/double.jpeg" id="full" alt="dbl full beds" />
-        <figcaption>
+        <img src="../images/double.jpeg" id="full" alt="dbl full beds" onclick="onClick(this)" />
+        <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Double Full Room</th>
                 <tr>
                     <td>Maximum Occupancy 5</td>
                 </tr>
-                <tr>
+                <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
                     <td width="30%">Additional Information:</td>
@@ -93,14 +118,14 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/queen.jpeg" id="queen" alt="queen bed" />
-        <figcaption>
+        <img src="../images/queen.jpeg" id="queen" alt="queen bed" onclick="onClick(this)" />
+        <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Queen Room</th>
                 <tr>
                     <td>Maximum Occupancy 3</td>
                 </tr>
-                <tr>
+                <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
                     <td width="30%">Additional Information:</td>
@@ -132,14 +157,14 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/dblqueen.jpeg" id="dblqueen" alt="double queen beds" />
-        <figcaption>
+        <img src="../images/dblqueen.jpeg" id="dblqueen" alt="double queen beds" onclick="onClick(this)" />
+        <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Double Queen Room</th>
                 <tr>
                     <td>Maximum Occupancy 5</td>
                 </tr>
-                <tr>
+                <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
                     <td width="30%">Additional Information:</td>
@@ -171,14 +196,14 @@ session_start();
 
 
     <figure class="gallery">
-        <img src="../images/kingsuite.jpeg" id="king" alt="king bed" />
-        <figcaption>
+        <img src="../images/kingsuite.jpeg" id="king" alt="king bed" onclick="onClick(this)" />
+        <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">King Room</th>
                 <tr>
                     <td>Maximum Occupancy 3</td>
                 </tr>
-                <tr>
+                <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
                     <td width="30%">Additional Information:</td>

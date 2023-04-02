@@ -14,14 +14,14 @@ function onClick(element) {
     console.log("lastSrcPart is " + lastSrcPart);
     var domain = window.location.protocol + "//" + window.location.hostname;
     console.log("domain is " + domain);
-    if (lastSrcPart === "dbl_full.jpg") {
-        img.src = domain + "/provisio/Provisio/images/dbl_full_lg.jpg";
-    } else if (lastSrcPart === "queen.jpg") {
-        img.src = domain + "/provisio/Provisio/images/queen_lg.jpg";
-    } else if (lastSrcPart === "dbl_queen.jpg") {
-        img.src = domain + "/provisio/Provisio/images/dbl_queen_lg.jpg";
-    } else if (lastSrcPart === "king.jpg") {
-        img.src = domain + "/provisio/Provisio/images/king_lg.jpg";
+    if (lastSrcPart === "double.jpeg") {
+        img.src = domain + "/provisio/Provisio/images/double.jpeg";
+    } else if (lastSrcPart === "queen.jpeg") {
+        img.src = domain + "/provisio/Provisio/images/queen.jpeg";
+    } else if (lastSrcPart === "dblqueen.jpeg") {
+        img.src = domain + "/provisio/Provisio/images/dblqueen.jpeg";
+    } else if (lastSrcPart === "kingsuite.jpeg") {
+        img.src = domain + "/provisio/Provisio/images/kingsuite.jpeg";
     }
 
     img.onload = function () {

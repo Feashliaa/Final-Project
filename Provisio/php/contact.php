@@ -1,6 +1,12 @@
 <?php
 // Start the session
 session_start();
+
+// check for $_SESSION['message'] = "You must be logged in to view this page.";
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+    unset($_SESSION['message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,20 +59,18 @@ session_start();
     </div>
 
     <div class="contact-grid">
-        <div>
-            <form class="contact" action="post">
-                <p class="contact-p"><span>Thank you for your interest in Provisio!<br>
-                        Have comments or questions for us?</span><br>
-                    Please use the form below and we will be in touch!</p>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" value="" style="width: 450px; height: 25px;"><br>
-                <label for="email">E-mail:</label><br>
-                <input type="text" id="email" name="email" value="" style="width: 450px; height: 25px;"><br>
-                <label for="message">Message:</label><br>
-                <input type="text" id="message" name="message" value="" style="width: 450px; height: 125px;"><br><br>
-                <input type="submit" value="Submit" style="width: 125px; height: 50px;">
-            </form>
-        </div>
+        <form class="contact" action="post">
+            <p class="contact-p"><span>Thank you for your interest in Provisio!<br>
+                    Have comments or questions for us?</span><br>
+                Please use the form below and we will be in touch!</p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" value=""><br>
+            <label for="email">E-mail:</label><br>
+            <input type="text" id="email" name="email" value=""><br>
+            <label for="message">Message:</label><br>
+            <input type="text" id="message" name="message" value="" style="height: 125px;"><br><br>
+            <input class="submit_btn_contact_form" type="submit" value="Submit">
+        </form>
         <div class="contact">
             <h2>Reservations</h2>
             <p>To Make A Reservation, Give Us A Call!<br><br><span id="tollphone">1.800.756.7920</span></p><br>
