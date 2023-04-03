@@ -30,8 +30,8 @@ if ($result->num_rows == 0) {
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
-    <script src="../js/reservation.js"></script>
     <script src="../js/checks.js"></script>
+    <script src="../js/reservation.js"></script>
 </head>
 
 <body>
@@ -65,61 +65,26 @@ if ($result->num_rows == 0) {
     </div>
 
     <div>
-        <h1>Reservation</h1>
+        <h1>Reservation Confirmation</h1>
     </div>
 
     <div class="respic"></div>
 
-    <div>
-        <h2 id="res-title">LOOK UP OR MODIFY RESERVATION</h2>
-    </div>
+    <br><br>
 
     <div class="res-box">
-        <div id="res-left">
-            <label for="id">RESERVATION ID: (enter only ID to locate booked reservation)</label><br>
-            <input type="text" id="id" name="id" value=""><br>
-
-            <label for="location">LOCATION:</label><br>
-            <select name="location" id="location">
-                <option hidden selected></option>
-                <option>Owego, NY</option>
-                <option>Springfield, MA</option>
-                <option>West Palm Beach, FL</option>
-                <option>Mobile, AL</option>
-            </select><br>
-
-            <label for="guest">GUEST COUNT:</label><br>
-            <select name="guest" id="guest">
-                <option hidden selected></option>
-                <option>1-2 Guests</option>
-                <option>3-5 Guests</option>
-            </select><br>
-        </div>
-
-        <div id="res-center">
-            <label for="checkin">CHECK IN DATE</label><br>
-            <input type="date" id="checkin" name="checkin" type="datetime-local"><br>
-
-            <label for="checkout">CHECK OUT DATE</label><br>
-            <input type="date" id="checkout" name="checkout" type="datetime-local"><br>
-
-            <div id="rescheck">
-                <label for="amenities">Choose your Amenities:</label><br>
-                <input type="checkbox" name="amenities" value="wifi"> WI-FI ($12.99)</input><br>
-                <input type="checkbox" name="amenities" value="breakfast"> Breakfast ($8.99/night)</input><br>
-                <input type="checkbox" name="amenities" value="parking"> Parking ($19.99/night)</input><br>
-            </div>
-
-            <div id="buttons-grid"> <button class="submit-btn" id="submit-btn" disabled>Submit</button>
-
-            </div>
-        </div>
-
-        <!--         <div id="res-right">
+        <div id="res-right">
             <h3>Reservation Summary:</h3>
-            <textarea id="summary" rows="10" cols="20"></textarea>
-        </div> -->
+            <textarea id="summary" rows="10" cols="10"></textarea>
+        </div>
+        <div id="res-right-btn">
+            <button class="confirm-btn-reservation-confirmation" id="cancel-reservation">Cancel</button>
+        </div>
+        <div id="res-right-btn">
+            <button class="confirm-btn-reservation-confirmation" id="confirm-reservation">Confirm</button>
+        </div>
     </div>
+
 
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>

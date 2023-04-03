@@ -461,6 +461,7 @@ figure.gallery {
   figure.gallery {
     grid-template-columns: 100%;
   }
+
   figure img {
     max-height: 450px !important;
   }
@@ -621,17 +622,75 @@ li span {
 
 .res-box {
   display: grid;
-  grid-template-columns: 500px 500px 1fr;
-  padding: 15px 0 25px 15px;
+  grid-template-columns: 1fr;
+  padding: 15px;
   border: solid 2px teal;
 }
 
+#res-left,
+#res-center,
+#res-right {
+  margin-bottom: 20px;
+}
+
+#res-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 #res-right textarea {
-  width: 90%;
-  max-height: 250px;
-  /* adjust this value to your preference */
-  min-height: 200px;
-  resize: vertical;
+  width: 100%;
+  resize: none;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  /* Make the textarea uneditable */
+  background-color: transparent;
+  pointer-events: none;
+  color: inherit;
+
+  height: 275px;
+
+  min-width: 300px;
+
+  margin-top: 0%;
+}
+
+#res-right-btn {
+  margin-top: 0;
+  align-self: end;
+  /* align element to the bottom of the grid */
+}
+
+@media screen and (min-width: 975px) {
+  .res-box {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+.confirm-btn-reservation-confirmation {
+  background-color: teal;
+  color: white;
+  font-size: 20px;
+  border: solid 1px rgb(255, 255, 255);
+  height: 50px !important;
+  width: 100% !important;
+  border-radius: 20px;
+
+  /* min width */
+  min-width: 200px;
+}
+
+.confirm-btn-reservation-confirmation:hover {
+  background-color: rgb(255, 255, 255);
+  color: teal;
+  border: solid 1px teal;
+  cursor: pointer;
 }
 
 .reservation label {
@@ -645,6 +704,16 @@ li span {
   height: 25px;
   margin-bottom: 25px;
 }
+
+@media screen and (max-width: 500px) {
+
+  .res-box input,
+  .res-box select {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
 
 #rescheck label {
   display: block;
@@ -681,8 +750,6 @@ li span {
   letter-spacing: 0;
   padding: 8px 25px;
   text-transform: uppercase;
-  margin-right: 325px;
-  float: right;
 }
 
 .confirm-btn:hover {
@@ -697,15 +764,24 @@ li span {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0;
-  padding: 8px 25px;
   text-transform: uppercase;
-  margin-left: 425px;
+
+  height: 50px !important;
+  width: 100% !important;
 }
 
 .submit-btn:hover {
   background: #162541;
   cursor: pointer;
 }
+
+#buttons-grid {
+  margin-top: 20px;
+  max-width: 450px;
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /* rewards page styles */
 .rewardbox {
@@ -835,7 +911,7 @@ footer {
   border-top-right-radius: 20px;
 
   /* make it always the bottom of the page */
-  position: sticky;
+  position: static;
   left: 0;
   bottom: 0;
   width: 100%;
