@@ -92,6 +92,7 @@ async function setupValidation() {
         }
     }
 
+    // add event listeners to the inputs
     locationInput.addEventListener("input", validateForm);
     guestInput.addEventListener("input", validateForm);
     checkinInput.addEventListener("input", validateForm);
@@ -99,7 +100,7 @@ async function setupValidation() {
 
     submitBtn.addEventListener("click", () => {
 
-        // create a new reservation object
+        // get the values of the inputs
         const location = document.getElementById("location").value;
         const guestCount = document.getElementById("guest").value;
         const checkInDate = document.getElementById("checkin").value;
