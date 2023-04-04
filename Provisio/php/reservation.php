@@ -29,6 +29,7 @@ if ($result->num_rows == 0) {
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/reservation.js"></script>
     <script src="../js/checks.js"></script>

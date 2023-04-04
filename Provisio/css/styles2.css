@@ -158,14 +158,9 @@ hr {
 }
 
 footer {
-    max-width: 100%;
-    background: teal;
-    color: #ddd;
-    text-align: center;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 0 10px 0;
+    /* make sure its at the bottom */
+    position: sticky;
+    bottom: 0;
 }
 
 

@@ -19,6 +19,7 @@ if (isset($_SESSION['message'])) {
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="stylesheet" href="../css/login.css" type="text/css">
     <link rel="stylesheet" href="../css/log-reg.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />

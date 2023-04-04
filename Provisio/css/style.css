@@ -9,6 +9,8 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   box-sizing: border-box;
+  min-height: 100vh;
+  padding: 0;
   background-color: white;
 
 }
@@ -913,19 +915,19 @@ footer {
   background: teal;
   color: #ddd;
   text-align: center;
-  margin-top: 10px;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 
   /* round the top corners */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 
-  /* make it always the bottom of the page */
-  position: static;
-  left: 0;
+  /* make it always at the bottom of the viewport */
+  position: fixed;
   bottom: 0;
+  max-width: 1300px;
   width: 100%;
 }
+
 
 
 .no-bullets {
