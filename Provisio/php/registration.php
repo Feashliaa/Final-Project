@@ -22,7 +22,7 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" href="../css/registration.css" type="text/css">
     <link rel="stylesheet" href="../css/log-reg.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
-    <script src="../js/registration.js" async></script>
+    <script src="../js/registration.js" defer></script>
     <script src="../js/checks.js"></script>
 </head>
 

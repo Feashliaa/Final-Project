@@ -4,6 +4,9 @@ const closePasswordCriteriaBox = document.getElementById("close-password-criteri
 let isPasswordCriteriaBoxOpen = false;
 
 // Show the password criteria box when the user clicks into the password input field
+
+
+
 passwordInput.addEventListener("focus", function () {
 
     passwordCriteriaBox.style.display = "block"; // Show the password criteria box
@@ -317,6 +320,19 @@ function signup(event) {
                     if (response.message === "Email already exists") {
                         // alert the user that the email already exists
                         alert("Email already exists");
+                        // clear all input fields
+                        document.getElementById("firstname").value = "";
+                        document.getElementById("lastname").value = "";
+                        document.getElementById("email").value = "";
+                        document.getElementById("phone").value = "";
+                        document.getElementById("password").value = "";
+                        document.getElementById("confirm_password").value = "";
+
+                        // remove error class from all span elements
+                        document.querySelectorAll("span").forEach(span => span.classList.remove("error"));
+
+                        document.getElementById("firstname").placeholder = "";
+                        document.getElementById("lastname").placeholder = "";
                     }
                 }
             } catch (e) {
