@@ -182,6 +182,11 @@
 
 /* at 485px, the registration container will be 100% width */
 @media (max-width: 540px) {
+
+    #registration_container {
+        width: 95%;
+    }
+
     #booking_image {
         display: none;
     }

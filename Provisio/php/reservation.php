@@ -120,9 +120,8 @@ if ($result->num_rows == 0) {
                 <input type="checkbox" name="amenities" value="parking"> Parking ($19.99/night)</input><br>
             </div>
 
-            <div id="buttons-grid"> <button class="submit-btn" id="submit-btn" disabled>Submit</button>
+            <button class="submit-btn" id="submit-btn" style=" max-width:450px; margin-top: 87.5px;" disabled>Submit</button>
 
-            </div>
         </div>
     </div>
 

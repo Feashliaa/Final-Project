@@ -200,6 +200,18 @@ span.error {
 /* at 540px, the input fields should be 100% width */
 @media (max-width: 540px) {
 
+    #sign-up-container {
+        height: 100%;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    }
+
+    #login-container {
+        height: auto;
+    }
+
     #password-criteria-box {
         width: 50%;
 

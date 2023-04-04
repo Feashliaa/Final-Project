@@ -1,7 +1,7 @@
 #login-container {
     position: absolute;
     width: 50%;
-    height: 70px;
+    height: 100%;
     left: 994px;
     top: 143px;
 
@@ -49,7 +49,7 @@
 #sign-up-container {
     position: absolute;
     width: 50%;
-    height: 70px;
+    height: 100%;
     left: 780px;
     top: 143px;
     left: 0%;
