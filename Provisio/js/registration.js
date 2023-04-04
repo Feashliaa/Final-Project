@@ -1,14 +1,11 @@
 const passwordInput = document.getElementById("password");
+const password_circle = document.getElementById("password_circle");
 const passwordCriteriaBox = document.getElementById("password-criteria-box");
 const closePasswordCriteriaBox = document.getElementById("close-password-criteria-box");
 let isPasswordCriteriaBoxOpen = false;
 
-// Show the password criteria box when the user clicks into the password input field
-
-
-
-passwordInput.addEventListener("focus", function () {
-
+// Show the password criteria box when the user mouseovers the password circle
+password_circle.addEventListener("mouseover", function () {
     passwordCriteriaBox.style.display = "block"; // Show the password criteria box
     isPasswordCriteriaBoxOpen = true;
 
@@ -20,10 +17,10 @@ passwordInput.addEventListener("focus", function () {
     }
 });
 
-// Hide the password criteria box when the user clicks the close button
-closePasswordCriteriaBox.addEventListener("click", function () {
+// on mouseout, hide the password criteria box if it is not open
 
-    passwordCriteriaBox.style.display = "none"; // Hide the password criteria box
+password_circle.addEventListener("mouseout", function () {
+    passwordCriteriaBox.style.display = "none"; // Show the password criteria box
     isPasswordCriteriaBoxOpen = false;
 
     if (window.innerWidth <= 540) {

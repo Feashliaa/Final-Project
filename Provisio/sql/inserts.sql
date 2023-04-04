@@ -38,9 +38,9 @@ INSERT INTO customers (email, first_name, last_name, phone_number, password, tot
 ('tinaturner@gmail.com', 'tina', 'tinsle', '456-856-4521', 'Diamonds4Sale', 150),
 ('aaronagway@gmail.com', 'aaron', 'anthony', '678-124-7541', '5Segways4U', 300);
 
-INSERT INTO reservations (customer_id, hotel_id, room_id, wifi_amenity, breakfast_amenity, parking_amenity,
+INSERT INTO reservations (reservation_id, customer_id, hotel_id, room_id, wifi_amenity, breakfast_amenity, parking_amenity,
 check_in_date, check_out_date, number_of_guests, total_amenity_price, total_room_price) VALUES
-(1, 1, 1, 1, NULL, NULL, '2023-06-12', '2023-06-19', 3, 0.00, 0.00),
-(2, 2, 5, NULL, 1, NULL, '2023-06-20', '2023-06-25', 1, 0.00, 0.00),
-(3, 3, 10, NULL, NULL, 1, '2023-04-09', '2023-04-11', 0, 0.00, 0.00),
-(4, 4, 15, 1, 1, 1, '2023-06-26', '2023-07-01', 4, 0.00, 0.00);
+(1, 1, 1, 1, 1, NULL, NULL, '2023-06-12', '2023-06-19', 3, 0.00, 0.00),
+(2, 2, 2, 5, NULL, 1, NULL, '2023-06-20', '2023-06-25', 1, 0.00, 0.00),
+(3, 3, 3, 10, NULL, NULL, 1, '2023-04-09', '2023-04-11', 0, 0.00, 0.00),
+(4, 4, 4, 15, 1, 1, 1, '2023-06-26', '2023-07-01', 4, 0.00, 0.00);

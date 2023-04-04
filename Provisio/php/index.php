@@ -58,7 +58,7 @@ if (isset($_SESSION['message'])) {
 
     <p id="details">Choose from one of several locations Provisio has to offer. Each
         location has several room types as well as the option to choose what amenities suit your needs.
-        When booking Provisio all members earn <a href="">Provisio Rewards</a>
+        When booking Provisio all members earn Provisio Rewards
         points for every night booked!
     </p>
 

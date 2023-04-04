@@ -96,7 +96,42 @@ label {
     font-weight: 200;
     font-size: 1rem;
     color: rgba(72, 72, 72, 0.9);
+    display: flex;
+    align-items: center;
 }
+
+label i {
+    margin-left: auto;
+}
+
+label i:hover {
+    cursor: pointer;
+    animation: shake 0.25s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(5px, 0);
+    }
+
+    50% {
+        transform: translate(0, 0);
+    }
+
+    75% {
+        transform: translate(-5px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 
 #firstname,
 #lastname,
@@ -195,8 +230,6 @@ span.error {
     color: red;
 }
 
-
-
 /* at 540px, the input fields should be 100% width */
 @media (max-width: 540px) {
 
@@ -249,6 +282,10 @@ span.error {
     label[for="confirm_password"] {
         margin-left: 0 !important;
         /* remove the margin */
+    }
+
+    label i {
+        margin-left: 30%;
     }
 }
 

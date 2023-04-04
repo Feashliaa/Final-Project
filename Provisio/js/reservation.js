@@ -1,6 +1,33 @@
 class Reservation {
     constructor(location, guestCount, room, checkInDate, checkOutDate, wifi = false, breakfast = false, parking = false, points_earned = 0, total_amenity_price = 0, total_price = 0) {
-        this.reservationID = Math.floor(Math.random() * 1000000); // generate a random reservation ID
+        let reservationID;
+        let xhr;
+
+        do {
+            // generate a random reservation ID between 0000001 and 9999999
+            reservationID = Math.floor(Math.random() * 9999999) + 1;
+
+            // pad the reservation ID with 0s to make it 7 digits long
+            reservationID = reservationID.toString().padStart(7, "0");
+
+            // send a request to check_reservationid.php to check if the reservation ID already exists
+            xhr = new XMLHttpRequest();
+            xhr.open("POST", "check_reservationid.php", false); // using synchronous request to wait for response
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ reservationID }));
+
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                console.log("Response Id already exist?: " + response.message);
+
+                // If the response is true, generate a new reservation ID and check again
+            }
+        } while (xhr.status === 200 && JSON.parse(xhr.responseText).message === "true");
+
+        console.log("Unique reservation ID: " + reservationID);
+
+
+        this.reservationID = reservationID;
         this.customer_id = 0; // set the customer ID to 0 for now
         this.location = location;
         this.guestCount = guestCount;

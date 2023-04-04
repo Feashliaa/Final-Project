@@ -25,6 +25,7 @@ if (isset($_SESSION['message'])) {
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/registration.js" defer></script>
     <script src="../js/checks.js"></script>
+    <script src="https://kit.fontawesome.com/78d0699987.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -59,8 +60,8 @@ if (isset($_SESSION['message'])) {
     </div>
 
     <div>
-        <h1>Members Earn Points For Every Stay!</h1>
-        <p style="text-align: center">Click the link above to learn more!</p>
+        <h1>Welcome Provisio Member!</h1>
+        <p style="text-align: center">Login below or click the sign up to get started.</p>
     </div>
 
     <div id="registration_container">
@@ -100,7 +101,7 @@ if (isset($_SESSION['message'])) {
                     <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
                 </div>
                 <div id="password_input">
-                    <label for="password">Password <span>*</span>
+                    <label for="password">Password <span>* </span> <i class="fa-solid fa-circle-exclamation fa-sm" id="password_circle"></i>
                     </label>
                     <input type="password" id="password" name="password" required>
                 </div>
