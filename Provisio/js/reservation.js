@@ -1,9 +1,10 @@
 class Reservation {
-    constructor(location, guestCount, checkInDate, checkOutDate, wifi = false, breakfast = false, parking = false, points_earned = 0, total_amenity_price = 0, total_price = 0) {
+    constructor(location, guestCount, room, checkInDate, checkOutDate, wifi = false, breakfast = false, parking = false, points_earned = 0, total_amenity_price = 0, total_price = 0) {
         this.reservationID = Math.floor(Math.random() * 1000000); // generate a random reservation ID
         this.customer_id = 0; // set the customer ID to 0 for now
         this.location = location;
         this.guestCount = guestCount;
+        this.roomSelected = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.amenities = {
@@ -21,8 +22,12 @@ const reservation = JSON.parse(localStorage.getItem("reservation"));
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // check if the page is confirm_reservation.php
-    if (window.location.pathname === "/confirm_reservation.php") {
+    console.log("DOM loaded");
+
+    // check if the page is reservation_confirmation.php
+    if (window.location.pathname.includes("reservation_confirmation.php")) {
+
+        console.log("reservation_confirmation.php loaded");
 
         // check if the page has a reservation summary textarea
         const summaryTextarea = document.getElementById("summary");
@@ -50,6 +55,7 @@ function addDataToTextArea() {
     let summaryText = `Reservation ID: ${reservation.reservationID}
   Location: ${reservation.location}
   Guest Count: ${reservation.guestCount}
+  Room Selected: ${reservation.roomSelected}
   Check-in Date: ${reservation.checkInDate}
   Check-out Date: ${reservation.checkOutDate}
   Amenities:
@@ -118,8 +124,13 @@ function enableLookupButton() {
 
 // Print the reservation data to the console
 async function printReservation(response_object) {
+
+    console.log("Printing reservation data...");
+    console.log(response_object);
+
     let reservationID = response_object.reservation_id;
-    let hotelID = response_object.hotel_id;
+    let hotelId = response_object.hotel_id;
+    let roomId = response_object.room_id;
     let wifiAmenity = response_object.wifi_amenity;
     let breakfastAmenity = response_object.breakfast_amenity;
     let parkingAmenity = response_object.parking_amenity;
@@ -130,9 +141,43 @@ async function printReservation(response_object) {
     let totalAmenityPrice = response_object.total_amenity_price;
     let totalRoomPrice = response_object.total_room_price;
 
+
+    // Get the room selected from the room id, and the hotel id
+    // Hotel 1: 1-4, 1=Double Full Beds, 2=Queen, 3=Double Queen, 4=King
+    // Hotel 2: 5-8, 5=Double Full Beds, 6=Queen, 7=Double Queen, 8=King
+    // Hotel 3: 9-12, 9=Double Full Beds, 10=Queen, 11=Double Queen, 12=King
+    // Hotel 4: 13-16, 13=Double Full Beds, 14=Queen, 15=Double Queen, 16=King
+    roomId = Number(roomId);
+
+    const roomStrings = {
+        1: "Double Full Beds",
+        2: "Queen",
+        3: "Double Queen",
+        4: "King",
+        5: "Double Full Beds",
+        6: "Queen",
+        7: "Double Queen",
+        8: "King",
+        9: "Double Full Beds",
+        10: "Queen",
+        11: "Double Queen",
+        12: "King",
+        13: "Double Full Beds",
+        14: "Queen",
+        15: "Double Queen",
+        16: "King"
+    };
+
+    let roomString = roomStrings[roomId];
+
+    console.log(`Room ID: ${roomId}`);
+    console.log(`Room String: ${roomString}`);
+
+
+
     let hotelString = ""; // initialize the hotel string to an empty string
-    hotelID = Number(hotelID); // convert the hotel ID to a number
-    switch (hotelID) { // set the hotel string based on the hotel ID
+    hotelId = Number(hotelId); // convert the hotel ID to a number
+    switch (hotelId) { // set the hotel string based on the hotel ID
         case 1:
             hotelString = "Springfield";
             break;
@@ -164,10 +209,18 @@ async function printReservation(response_object) {
 
     console.log("Before redirect");
 
+    // check number of guests, if 1, make the text 1-2, if 3, make 3-5
+    if (numberOfGuests === 1) {
+        numberOfGuests = "1-2";
+    } else if (numberOfGuests === 3) {
+        numberOfGuests = "3-5";
+    }
+
     // create a formatted string with the reservation information
     let summaryText = `Reservation ID: ${reservationID}
         Location: ${hotelString}
         Guest Count: ${numberOfGuests}
+        Room Selected: ${roomString}
         Check-in Date: ${checkInDate}
         Check-out Date: ${checkOutDate}
         Amenities:

@@ -103,6 +103,18 @@ async function setupValidation() {
         // get the values of the inputs
         const location = document.getElementById("location").value;
         const guestCount = document.getElementById("guest").value;
+        const roomSelect = document.getElementById("room").value;
+        console.log(roomSelect);
+
+        // store into a variable, the roomSelect string, split by the  ' - '  delimiter
+        let selectedRoom = roomSelect.split(" - ");
+
+        // store the first element of the array into a variable
+        selectedRoom = selectedRoom[0];
+
+        console.log(selectedRoom);
+
+
         const checkInDate = document.getElementById("checkin").value;
         const checkOutDate = document.getElementById("checkout").value;
 
@@ -123,10 +135,30 @@ async function setupValidation() {
         const dayDiff = Math.abs(new Date(checkInDate) - new Date(checkOutDate)) / (1000 * 60 * 60 * 24) + 1;
 
 
-        // Calculate the total price, based on the number of days and the number of guests
-        // Guests: 1-5; 1-2 guests are 115.00 per night; 3-5 guests are 150.00 per night.
+        // Calculate the total price, based on the number of days and the chosen room
+        // Room Prices: Double Full Beds 110, Queen 125, Double Queen 150, King 160
 
-        let total_price = (guestCount <= 2 ? 115.00 : 150.00) * dayDiff;
+        let total_price = 0;
+
+        switch (selectedRoom) {
+            case "Double Full Beds":
+                total_price = 110 * dayDiff;
+                break;
+            case "Queen":
+                total_price = 125 * dayDiff;
+                break;
+            case "Double Queen":
+                total_price = 150 * dayDiff;
+                break;
+            case "King":
+                total_price = 160 * dayDiff;
+                break;
+            default:
+                total_price = 110 * dayDiff;
+                break;
+        }
+
+
         let total_amenity_price = 0;
         let points_earned = 150 * dayDiff;
 
@@ -156,7 +188,7 @@ async function setupValidation() {
         }
 
         // create a new reservation object
-        const reservation = new Reservation(location, guestCount, checkInDate, checkOutDate, wifi, breakfast, parking, points_earned, total_amenity_price, total_price);
+        const reservation = new Reservation(location, guestCount, selectedRoom, checkInDate, checkOutDate, wifi, breakfast, parking, points_earned, total_amenity_price, total_price);
 
         // save the reservation object to local storage
         localStorage.setItem("reservation", JSON.stringify(reservation));

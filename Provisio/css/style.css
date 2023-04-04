@@ -9,6 +9,8 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   box-sizing: border-box;
+  background-color: white;
+
 }
 
 /* header styles*/
@@ -80,7 +82,7 @@ header {
 
 .nav {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   overflow: hidden;
@@ -92,11 +94,11 @@ header {
 }
 
 .nav .login-btn {
-  grid-column: 5 / 6;
+  grid-column: 4 / 5;
 }
 
 .nav .book-now-btn {
-  grid-column: 6 / -1;
+  grid-column: 5 / -1;
 }
 
 .nav a {
@@ -399,6 +401,18 @@ img.align-left {
 }
 
 /* locations page styles */
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 .location-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -648,17 +662,13 @@ li span {
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
-  /* Make the textarea uneditable */
   background-color: transparent;
-  pointer-events: none;
   color: inherit;
-
-  height: 275px;
-
+  height: 300px;
   min-width: 300px;
-
   margin-top: 0%;
 }
+
 
 #res-right-btn {
   margin-top: 0;

@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_id = $data->customer_id;
     $location = $data->location;
     $guestCount = $data->guestCount;
+    $roomType = $data->roomSelected;
     $checkInDate = $data->checkInDate;
     $checkOutDate = $data->checkOutDate;
     $wifi = $data->amenities->wifi;
@@ -32,53 +33,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // extract the guest count from the string
     $guestCount = substr($guestCount, 0, 1);
-
-    echo "Location: $location";
-
     $hotel_id = 0;
     $room_id = 0;
 
     switch ($location) {
         case "Springfield":
             $hotel_id = 1;
-            echo "Hotel ID: $hotel_id";
             break;
         case "Mobile":
             $hotel_id = 2;
-            echo "Hotel ID: $hotel_id";
             break;
         case "West Palm Beach":
             $hotel_id = 3;
-            echo "Hotel ID: $hotel_id";
             break;
         case "Owego":
             $hotel_id = 4;
-            echo "Hotel ID: $hotel_id";
             break;
         default:
             echo "Unknown location";
     }
 
-
-    // hotels currently have 4 rooms, hotel_id 1, has 1-4, hotel_id 2 has 5-8, etc.
-    switch ($hotel_id) {
-        case 1:
-            // generate a random room number between 1 and 4
-            $room_id = rand(1, 4);
+    // calculate the room id based on the hotel id and room type
+    // room_id = (hotel_id - 1) * 4 + room_type
+    // room_type = 1 for Double Full, 2 for Queen, 3 for Double Queen, 4 for King 
+    switch ($roomType) {
+        case "Double Full Beds":
+            $room_id = ($hotel_id - 1) * 4 + 1;
             break;
-        case 2:
-            // generate a random room number between 5 and 8
-            $room_id = rand(5, 8);
+        case "Queen":
+            $room_id = ($hotel_id - 1) * 4 + 2;
             break;
-        case 3:
-            // generate a random room number between 9 and 12
-            $room_id = rand(9, 12);
+        case "Double Queen":
+            $room_id = ($hotel_id - 1) * 4 + 3;
             break;
-        case 4:
-            // generate a random room number between 13 and 16
-            $room_id = rand(13, 16);
+        case "King":
+            $room_id = ($hotel_id - 1) * 4 + 4;
             break;
     }
+
 
     // Connect to the MySQL database (replace the database credentials with your own)
     $servername = "localhost";

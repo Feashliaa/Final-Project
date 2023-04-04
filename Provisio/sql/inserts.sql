@@ -12,25 +12,25 @@ INSERT INTO hotel (state, city) VALUES
 ('Owego', 'NY');
 
 INSERT INTO room (hotel_id, room_size, price_per_night) VALUES
-(1, 'Double Full Beds', 115.00),
-(1, 'Queen', 115.00),
+(1, 'Double Full Beds', 110.00),
+(1, 'Queen', 125.00),
 (1, 'Double Queen Beds', 150.00),
-(1, 'King', 150.00),
+(1, 'King', 165.00),
 
-(2, 'Double Full Beds', 115.00),
-(2, 'Queen', 115.00),
+(2, 'Double Full Beds', 110.00),
+(2, 'Queen', 125.00),
 (2, 'Double Queen Beds', 150.00),
-(2, 'King', 150.00),
+(2, 'King', 165.00),
 
-(3, 'Double Full Beds', 115.00),
-(3, 'Queen', 115.00),
+(3, 'Double Full Beds', 110.00),
+(3, 'Queen', 125.00),
 (3, 'Double Queen Beds', 150.00),
-(3, 'King', 150.00),
+(3, 'King', 165.00),
 
-(4, 'Double Full Beds', 115.00),
-(4, 'Queen', 115.00),
+(4, 'Double Full Beds', 110.00),
+(4, 'Queen', 125.00),
 (4, 'Double Queen Beds', 150.00),
-(4, 'King', 150.00);
+(4, 'King', 165.00);
 
 INSERT INTO customers (email, first_name, last_name, phone_number, password, total_points) VALUES
 ('johnjacob@gmail.com', 'john', 'jacob', '123-456-7890', 'Dinosaurs1', 450),

@@ -41,10 +41,8 @@ if (isset($_SESSION['message'])) {
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <a href="contact.php">Contact Us</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-
-        <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
+        <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
         <p style="font-size:1.5rem;">

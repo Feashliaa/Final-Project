@@ -1,12 +1,10 @@
 CREATE DATABASE probrav;
 USE probrav;
-
 drop table if EXISTS reservations;
 drop table if EXISTS customers;
 drop table if EXISTS room;
 drop table if EXISTS hotel;
 drop table if EXISTS amenities;
-
 CREATE TABLE customers (
     customer_id INT(11) NOT NULL AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -36,9 +34,8 @@ CREATE TABLE amenities (
     amen_price DECIMAL(10, 2),
     PRIMARY KEY (amenities_id)
 );
-
 CREATE TABLE reservations(
-    reservation_id INT(11) NOT NULL AUTO_INCREMENT,
+    reservation_id INT(11) NOT NULL,
     customer_id INT(11) NOT NULL,
     hotel_id INT(11) NOT NULL,
     room_id INT(11) NOT NULL,
@@ -48,7 +45,7 @@ CREATE TABLE reservations(
     check_in_date DATE NOT NULL,
     check_out_date DATE NOT NULL,
     number_of_guests INT (11) NOT NULL,
-    points_earned INT (11) GENERATED ALWAYS AS (DATEDIFF(check_out_date, check_in_date) * 150) STORED,
+    points_earned int(11) NOT NULL DEFAULT 0,
     total_amenity_price DECIMAL(10, 2) DEFAULT 0,
     total_room_price DECIMAL(10, 2) DEFAULT 0,
     PRIMARY KEY (reservation_id),
@@ -56,8 +53,6 @@ CREATE TABLE reservations(
     FOREIGN KEY (breakfast_amenity) REFERENCES amenities(amenities_id),
     FOREIGN KEY (parking_amenity) REFERENCES amenities(amenities_id)
 );
-
-
 DESCRIBE customers;
 DESCRIBE hotel;
 DESCRIBE room;

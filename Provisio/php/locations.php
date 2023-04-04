@@ -30,11 +30,8 @@ session_start();
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <a href="contact.php">Contact Us</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-
-
-        <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
+        <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
         <p style="font-size:1.5rem;">
@@ -56,9 +53,17 @@ session_start();
                 <img src="../images/owego_ny.jpg">
                 <p class="twn-desc"><b>The town that means "Where The<br>Valley Widens..."</b></p>
                 <h2>Owego, NY</h2>
-                <p>Included Amenities and Services:<br>Indoor Heated Pool<br>24/7 Front Desk Support<br>Room
-                    Service<br><br>Additional Amenities Available:<br>
-                    High-Speed WI-FI<br>Secure Parking<br>Continental Breakfast</p>
+                <p>
+                    <strong>Amenities Available:</strong><br>
+                    High-Speed WI-FI<br>
+                    Secure Parking<br>
+                    Continental Breakfast<br><br>
+                    <strong>Attractions:</strong><br>
+                    <a href="https://tiogadowns.com/site.xml/" class="link">Tioga Downs Casino Resort</a><br>
+                    <a href="https://www.milb.com/binghamton" class="link">Binghamton Rumble Ponies</a><br>
+                    <a href="https://www.gobroomecounty.com/community/carousels" class="link">Broome County Carousels</a><br>
+                    <a href="https://rossparkzoo.org/" class="link">Ross Park Zoo</a>
+                </p>
             </div>
         </div>
         <div class="align-center">
@@ -66,9 +71,16 @@ session_start();
                 <img src="../images/springfield_ma.jpg">
                 <p class="twn-desc"><b>This "City of Firsts" has so much<br>history to explore!"</b></p>
                 <h2>Springfield, MA</h2>
-                <p>Included Amenities and Services:<br>Indoor Heated Pool<br>24/7 Front Desk Support<br>Room
-                    Service<br><br>Additional Amenities Available:<br>
-                    High-Speed WI-FI<br>Secure Parking<br>Continental Breakfast</p>
+                <p>
+                    <strong>Amenities Available:</strong><br>
+                    High-Speed WI-FI<br>
+                    Secure Parking<br>
+                    Continental Breakfast<br><br>
+                    <strong>Attractions:</strong><br>
+                    <a href="https://springfieldmuseums.org/about/dr-seuss-sculpture-garden/" class="link">Dr. Seuss National Memorial Sculpture Garden</a><br>
+                    <a href="https://www.hoophall.com/" class="link">Naismith Memorial Basketball Hall of Fame</a><br>
+                    <a href="https://indianofspringfield.com/" class="link">Indian Motorcycles</a><br>
+                </p>
             </div>
         </div>
         <div class="align-center">
@@ -76,9 +88,17 @@ session_start();
                 <img src="../images/westpalmbeach.jpg">
                 <p class="twn-desc"><b>So much beach, so little time!</b></p>
                 <h2>West Palm Beach, FL</h2>
-                <p>Included Amenities and Services:<br>Indoor Heated Pool<br>24/7 Front Desk Support<br>Room
-                    Service<br><br>Additional Amenities Available:<br>
-                    High-Speed WI-FI<br>Secure Parking<br>Continental Breakfast</p>
+                <p style="padding-top: 10px;">
+                    <strong>Amenities Available:</strong><br>
+                    High-Speed WI-FI<br>
+                    Secure Parking<br>
+                    Continental Breakfast<br><br>
+                    <strong>Attractions:</strong><br>
+                    <a href="https://tiogadowns.com/site.xml/" class="link">Tioga Downs Casino Resort</a><br>
+                    <a href="https://www.milb.com/binghamton" class="link">Binghamton Rumble Ponies</a><br>
+                    <a href="https://www.gobroomecounty.com/community/carousels" class="link">Broome County Carousels</a><br>
+                    <a href="https://rossparkzoo.org/" class="link">Ross Park Zoo</a>
+                </p>
             </div>
         </div>
         <div class="align-center">
@@ -86,9 +106,16 @@ session_start();
                 <img src="../images/mobile.jpg">
                 <p class="twn-desc"><b>This port city has so much to offer!</b></p>
                 <h2>Mobile, AL</h2>
-                <p>Included Amenities and Services:<br>Indoor Heated Pool<br>24/7 Front Desk Support<br>Room
-                    Service<br><br>Additional Amenities Available:<br>
-                    High-Speed WI-FI<br>Secure Parking<br>Continental Breakfast</p>
+                <p style="padding-top: 10px;">
+                    <strong>Amenities Available:</strong><br>
+                    High-Speed WI-FI<br>
+                    Secure Parking<br>
+                    Continental Breakfast<br><br>
+                    <strong>Attractions:</strong><br>
+                    <a href="https://www.mobile.org/listing/mobile-carnival-museum/394/" class="link">Birthplace of Mardi Gras -- Carnival Muesum</a><br>
+                    <a href="https://www.ussalabama.com/" class="link">USS Alabama Battleship Memorial Park</a><br>
+                    <a href="https://www.mobilemuseumofart.com/" class="link">Mobile Museum of Art</a><br>
+                </p>
             </div>
         </div>
     </div>

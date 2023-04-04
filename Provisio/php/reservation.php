@@ -47,7 +47,6 @@ if ($result->num_rows == 0) {
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <a href="contact.php">Contact Us</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
@@ -82,10 +81,10 @@ if ($result->num_rows == 0) {
             <label for="location">LOCATION:</label><br>
             <select name="location" id="location">
                 <option hidden selected></option>
-                <option>Owego</option>
                 <option>Springfield</option>
-                <option>West Palm Beach</option>
                 <option>Mobile</option>
+                <option>West Palm Beach</option>
+                <option>Owego</option>
             </select><br>
 
             <label for="guest">GUEST COUNT:</label><br>
@@ -93,6 +92,15 @@ if ($result->num_rows == 0) {
                 <option hidden selected></option>
                 <option>1-2 Guests</option>
                 <option>3-5 Guests</option>
+            </select><br>
+
+            <label for="guest">ROOMS:</label><br>
+            <select name="Room" id="room">
+                <option hidden selected></option>
+                <option>Double Full Beds - $110/night</option>
+                <option>Queen - $125/night</option>
+                <option>Double Queen Beds - $150/night</option>
+                <option>King - $165/night</option>
             </select>
             <button class="submit-btn" id="look-up-btn" style=" max-width:450px; margin-top: 46px;">Look Up</button>
         </div>

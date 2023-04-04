@@ -49,7 +49,6 @@ if ($result->num_rows == 0) {
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <a href="contact.php">Contact Us</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>

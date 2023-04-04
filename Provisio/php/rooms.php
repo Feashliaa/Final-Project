@@ -44,10 +44,8 @@ if (isset($_SESSION['message'])) {
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <a href="contact.php">Contact Us</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-
-        <button onclick="window.location.href='reservation.php';" class="book-now-btn">Book Now</button>
+        <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
         <p style="font-size:1.5rem;">
@@ -83,9 +81,6 @@ if (isset($_SESSION['message'])) {
         <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Double Full Room</th>
-                <tr>
-                    <td>Maximum Occupancy 5</td>
-                </tr>
                 <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
@@ -107,8 +102,7 @@ if (isset($_SESSION['message'])) {
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
-                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">$110/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -122,9 +116,6 @@ if (isset($_SESSION['message'])) {
         <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Queen Room</th>
-                <tr>
-                    <td>Maximum Occupancy 3</td>
-                </tr>
                 <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
@@ -146,8 +137,7 @@ if (isset($_SESSION['message'])) {
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
-                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">$125/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -161,9 +151,6 @@ if (isset($_SESSION['message'])) {
         <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">Double Queen Room</th>
-                <tr>
-                    <td>Maximum Occupancy 5</td>
-                </tr>
                 <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
@@ -185,8 +172,7 @@ if (isset($_SESSION['message'])) {
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
-                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">$150/night</span></li>
                     </td>
                 </tr>
             </table>
@@ -200,9 +186,6 @@ if (isset($_SESSION['message'])) {
         <figcaption class="gallery-items">
             <table width="100%">
                 <th class="title">King Room</th>
-                <tr>
-                    <td>Maximum Occupancy 3</td>
-                </tr>
                 <tr style="font-weight: bold;">
                     <td width="30%" height="30px;">Includes:</td>
                     <td width="30%">Available Amenities:</td>
@@ -224,8 +207,7 @@ if (isset($_SESSION['message'])) {
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">1-2 Guests: $115/night</span></li><br>
-                        <li><span id="guestbold">3-5 Guests: $150/night</span></li>
+                        <li><span id="guestbold">$165/night</span></li>
                     </td>
                 </tr>
             </table>
