@@ -157,11 +157,6 @@ hr {
     /* height of footer */
 }
 
-footer {
-    /* make sure its at the bottom */
-    position: sticky;
-    bottom: 0;
-}
 
 
 /*About Page*/

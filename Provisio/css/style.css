@@ -5,6 +5,7 @@ html {
   position: relative;
 }
 
+
 body {
   /* set max width and center content */
   max-width: 1300px;
@@ -922,13 +923,13 @@ footer {
   border-top-right-radius: 20px;
 
   /* make it always at the bottom of the HTML */
-  position: absolute;
-  bottom: 0;
   max-width: 1300px;
   width: 100%;
 
   /* give it some margin */
   margin-top: 20px;
+
+  bottom: 0;
 }
 
 
