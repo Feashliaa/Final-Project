@@ -22,6 +22,7 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
+    <script src="../js/contact_us_email.js" async></script>
 </head>
 
 <body>
@@ -75,17 +76,17 @@ if (isset($_SESSION['message'])) {
             easy while providing high-end security features to protect customer data. <br><br>
 
             <div class="contact-grid">
-                <form class="contact" action="post">
+                <form class="contact">
                     <p class="contact-p"><span>Thank you for your interest in Provisio!<br>
                             Have comments or questions for us?</span><br>
-                        Please use the form below and we will be in touch!</p>
-                    <label for="name">Name:</label><br>
+                        Use the form below <br> Or email us at <a class="email_text" href="mailto:provisiobravo@gmail.com">provisiobravo@gmail.com</a> and we will be in touch!</p>
+                    <label for="name" style="font-weight: bold; color:teal;">Name:</label><br>
                     <input type="text" id="name" name="name" value=""><br>
-                    <label for="email">E-mail:</label><br>
+                    <label for="email" style="font-weight: bold; color:teal;">E-Mail:</label><br>
                     <input type="text" id="email" name="email" value=""><br>
-                    <label for="message">Message:</label><br>
-                    <input type="text" id="message" name="message" value="" style="height: 125px;"><br><br>
-                    <input class="submit_btn_contact_form" type="submit" value="Submit">
+                    <label for="message" style="font-weight: bold; color:teal;">Message:</label><br>
+                    <textarea id="message" name="message" maxlength="255"></textarea> <br><br>
+                    <button class="submit_btn_contact_form" onclick="sendEmail()">Send Email</button>
                 </form>
                 <div class="contact">
                     <h2>Reservations</h2>

@@ -90,6 +90,8 @@ label {
     font-weight: 200;
     font-size: 1rem;
     color: rgba(72, 72, 72, 0.9);
+    display: flex;
+    align-items: center;
 }
 
 #input_fields_container {
@@ -106,79 +108,20 @@ label {
     bottom: 0%;
 }
 
-#email_input {
-    position: absolute;
-    left: 0%;
-    right: 90%;
-    top: 15%;
-    bottom: 70%;
-
-    font-family: 'verdana';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 22px;
-    align-items: center;
-
-    color: rgba(72, 72, 72, 0.9);
-}
-
-#email_input input {
-    position: absolute;
-    left: 0%;
-    right: 50%;
-    top: 100%;
-    bottom: 0%;
-}
-
-#email_input input[type="email"] {
+#firstname,
+#lastname,
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
     background: none;
-    /* remove the gradient background */
     border: none;
-    /* remove the default border */
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
-    color: #000000;
+    color: #000;
     outline: none;
-    width: 170px;
-}
-
-#password_input {
-    position: absolute;
-    left: 0%;
-    right: 90%;
-    top: 65%;
-    bottom: 20%;
-
-    font-family: 'verdana';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 22px;
-    align-items: center;
-
-    color: rgba(72, 72, 72, 0.9);
-
-}
-
-#password_input input {
-    position: absolute;
-    left: 0%;
-    right: 50%;
-    top: 100%;
-    bottom: 0%;
-}
-
-#password_input input[type="password"] {
-    background: none;
-    /* remove the gradient background */
-    border: none;
-    /* remove the default border */
-    border-bottom: 1px solid;
-    border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
-    color: #000000;
-    outline: none;
-    width: 170px;
+    width: 50%;
+    padding: 5px 0;
+    margin-top: 5px;
 }
 
 input[type="password"]::placeholder {
@@ -194,17 +137,12 @@ span.error {
 }
 
 @media (max-width: 540px) {
-    #input_fields_container {
-        width: 100%;
-        left: 25%;
-    }
-
-    #email_input input[type="email"] {
-        width: 500%
-    }
-
-    #password_input input[type="password"] {
-        width: 500%
+    #firstname,
+    #lastname,
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+        width: 50%;
     }
 
 }

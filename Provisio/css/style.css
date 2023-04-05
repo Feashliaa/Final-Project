@@ -5,7 +5,6 @@ html {
   position: relative;
 }
 
-
 body {
   /* set max width and center content */
   max-width: 1300px;
@@ -575,9 +574,29 @@ li span {
   /* default width */
 }
 
+.contact textarea {
+  width: 300px;
+  height: 100px;
+  border: solid 1px teal;
+}
+
+.email_text {
+  color: teal;
+  text-decoration: none;
+}
+
+.email_text:hover {
+  text-decoration: underline;
+  color: rgb(135, 148, 148);
+}
+
 /* apply styles when screen width is 600px or less */
 @media (max-width: 690px) {
   .contact input {
+    width: 95%;
+  }
+
+  .contact textarea {
     width: 95%;
   }
 }
