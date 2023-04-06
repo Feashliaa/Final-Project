@@ -1,33 +1,9 @@
 class Reservation {
     constructor(location, guestCount, room, checkInDate, checkOutDate, wifi = false, breakfast = false, parking = false, points_earned = 0, total_amenity_price = 0, total_price = 0) {
-        let reservationID;
-        let xhr;
-
-        do {
-            // generate a random reservation ID between 0000001 and 9999999
-            reservationID = Math.floor(Math.random() * 9999999) + 1;
-
-            // pad the reservation ID with 0s to make it 7 digits long
-            reservationID = reservationID.toString().padStart(7, "0");
-
-            // send a request to check_reservationid.php to check if the reservation ID already exists
-            xhr = new XMLHttpRequest();
-            xhr.open("POST", "check_reservationid.php", false); // using synchronous request to wait for response
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(JSON.stringify({ reservationID }));
-
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                console.log("Response Id already exist?: " + response.message);
-
-                // If the response is true, generate a new reservation ID and check again
-            }
-        } while (xhr.status === 200 && JSON.parse(xhr.responseText).message === "true");
-
-        console.log("Unique reservation ID: " + reservationID);
 
 
-        this.reservationID = reservationID;
+
+        this.reservationID = 0;// doing this for now, will be set by the server
         this.customer_id = 0; // set the customer ID to 0 for now
         this.location = location;
         this.guestCount = guestCount;
@@ -48,24 +24,6 @@ class Reservation {
 const reservation = JSON.parse(localStorage.getItem("reservation"));
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("DOM loaded");
-
-    // check if the page is reservation_confirmation.php
-    if (window.location.pathname.includes("reservation_confirmation.php")) {
-
-        console.log("reservation_confirmation.php loaded");
-
-        // check if the page has a reservation summary textarea
-        const summaryTextarea = document.getElementById("summary");
-        if (summaryTextarea) {
-            // if so, add the reservation data to the textarea
-            addDataToTextArea();
-        }
-    }
-    // allow for cancel and confirm buttons to be clicked
-    enableButtons();
-
     // enable lookup button
     enableLookupButton();
 });
@@ -77,9 +35,27 @@ function addDataToTextArea() {
 
     // get the reservation summary textarea element
     let summaryTextarea = document.getElementById("summary");
+    let summaryText = "";
 
-    // create a formatted string with the reservation information
-    let summaryText = `Reservation ID: ${reservation.reservationID}
+
+    // check if the reservation id is 0
+    if (reservation.reservationID == 0) {
+        // create a formatted string with the reservation information
+        summaryText = `Location: ${reservation.location}
+    Guest Count: ${reservation.guestCount}
+    Room Selected: ${reservation.roomSelected}
+    Check-in Date: ${reservation.checkInDate}
+    Check-out Date: ${reservation.checkOutDate}
+    Amenities:
+      Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}
+      Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}
+      Parking: ${reservation.amenities.parking ? "Yes" : "No"}
+    Points: ${reservation.points}
+    Amenity Price: $ ${reservation.total_amenity_price}
+    Total Price:   $ ${reservation.total_price}`;
+    } else {
+        // create a formatted string with the reservation information
+        summaryText = `Reservation ID: ${reservation.reservationID}
   Location: ${reservation.location}
   Guest Count: ${reservation.guestCount}
   Room Selected: ${reservation.roomSelected}
@@ -92,6 +68,7 @@ function addDataToTextArea() {
   Points: ${reservation.points}
   Amenity Price: $ ${reservation.total_amenity_price}
   Total Price:   $ ${reservation.total_price}`;
+    }
 
     // set the value of the summary textarea to the formatted string
     summaryTextarea.value = summaryText;
@@ -264,35 +241,76 @@ async function printReservation(response_object) {
     window.location.href = "lookup_page.php";
 }
 
+function enableButtons(checkReservation) {
 
-// Enable the buttons on the page
-function enableButtons() {
-
-    // check if the page has the cancel and confirm buttons
     const cancelBtn = document.getElementById("cancel-reservation");
     const confirmBtn = document.getElementById("confirm-reservation");
     if (!cancelBtn || !confirmBtn) {
-        // if not, return
         return;
     }
 
-    // Add event listener to the Cancel button
-    cancelBtn.addEventListener("click", () => {
-        // Clear the reservation data from local storage
-        localStorage.removeItem("reservation");
+    const loginBtn = document.getElementById("login-btn");
+    const loginBtnText = loginBtn.innerText;
 
-        // Redirect to the home page
+    console.log(`Login Button Text: ${loginBtnText}`);
+
+    if (loginBtnText == "LOGOUT" && checkReservation == false) {
+
+        console.log("User is logged in");
+
+        confirmBtn.disabled = false;
+
+        let realReservationID;
+        let xhr;
+        let reservationIDExists;
+
+        do {
+            realReservationID = Math.floor(Math.random() * 9999999) + 1;
+            realReservationID = realReservationID.toString().padStart(7, "0");
+
+            xhr = new XMLHttpRequest();
+            xhr.open("POST", "check_reservationid.php", false);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ realReservationID }));
+
+            console.log("Sent request to check_reservationid.php");
+            console.log("Response status: " + xhr.status);
+            console.log("Response text: " + xhr.responseText);
+
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                console.log("Response Id already exist?: " + response.message);
+                reservationIDExists = response.message;
+            } else {
+                console.log("Error: " + xhr.status);
+                reservationIDExists = "false";
+            }
+
+        } while (reservationIDExists === "true");
+
+        console.log("Unique reservation ID: " + realReservationID);
+
+        const reservation = JSON.parse(localStorage.getItem("reservation"));
+        reservation.reservationID = realReservationID;
+        localStorage.setItem("reservation", JSON.stringify(reservation));
+
+        //window.location.reload();
+
+    } else if (loginBtnText == "LOGIN") {
+
+        console.log("User is not logged in");
+
+        confirmBtn.disabled = true;
+    }
+
+    cancelBtn.addEventListener("click", () => {
+        localStorage.removeItem("reservation");
         window.location.href = "reservation.php";
     });
 
-    // Add event listener to the Confirm button
     confirmBtn.addEventListener("click", () => {
-
         let customer_id = 0;
-
         console.log("Confirm button clicked");
-
-        // first, get the customer's id via their email address in the php session
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "get_customer_id.php");
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -304,28 +322,22 @@ function enableButtons() {
                 try {
                     var response = JSON.parse(xhr.responseText);
                     if (response.status === "success") {
-                        // get the customer id from the response
                         customer_id = response.customer_id;
                         console.log("Customer ID: " + response.customer_id);
                         insertReservation(customer_id);
                     } else {
                         console.log(response.message);
-                        // alert the error
                         alert(response.message);
-                        // send you to index.php
-                        //window.location.href = "index.php";
                     }
                 } catch (e) {
                     console.log("Error: " + e.message);
-                    // alert the error
                     alert("Error: " + e.message);
-                    // send you to index.php
-                    //window.location.href = "index.php";
                 }
             }
         }
     });
 }
+
 
 // Insert the reservation data into the database
 function insertReservation(cust_id) {

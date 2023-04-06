@@ -1,22 +1,6 @@
 <?php
 // Start the session
 session_start();
-if (!isset($_SESSION['email'])) {
-    // user is not logged in, redirect to page that they were previously on
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-    $_SESSION['message'] = "You must be logged in to view this page.";
-    exit();
-}
-
-$email = $_SESSION['email'];
-$mysqli = new mysqli('localhost', 'root', 'root', 'probrav');
-$result = $mysqli->query("SELECT * FROM customers WHERE email = '$email'");
-if ($result->num_rows == 0) {
-    // user does not exist, redirect to registration page
-    session_destroy();
-    header("Location: registration.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>

@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // $data is now a PHP object containing the reservation id
 
-    $id = $data->reservationID;
+    $id = $data->realReservationID;
 
     // Connect to the MySQL database (replace the database credentials with your own)
     $servername = "localhost";
