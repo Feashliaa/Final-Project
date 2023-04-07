@@ -269,6 +269,31 @@ function checkFields() {
     }
 }
 
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var passwordConfirmInput = document.getElementById("confirm_password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        passwordInput.classList.add("text");
+    } else {
+        passwordInput.type = "password";
+        passwordInput.classList.remove("text");
+    }
+    if (passwordConfirmInput.type === "password") {
+        passwordConfirmInput.type = "text";
+        passwordConfirmInput.classList.add("text");
+    } else {
+        passwordConfirmInput.type = "password";
+        passwordConfirmInput.classList.remove("text");
+    }
+}
+
+
+function validateEmail(email) {
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return regex.test(email);
+}
+
 // "Send" the user's information to the server, this is just for testing purposes and will be replaced with
 // a do post to a java servlet in the future
 function signup(event) {
@@ -284,6 +309,16 @@ function signup(event) {
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const password = document.getElementById("password").value;
+
+    // check if the email is valid
+    if (!validateEmail(email)) {
+        // clear the email input field
+        document.getElementById("email").value = "";
+        document.querySelector("#email_input span").classList.add("error");
+        document.getElementById("email").classList.add("email-error");
+        document.getElementById("email").placeholder = "Invalid email";
+        return;
+    }
 
     // for testing purposes, just console log the user's information
     console.log("Firstname: " + firstname);

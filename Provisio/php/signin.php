@@ -37,12 +37,14 @@ if (mysqli_num_rows($result) > 0) {
             "message" => "User logged in successfully",
             "email" => $email
         );
+
         echo json_encode($response);
     } else {
         $response = array(
             "status" => "error",
             "message" => "Incorrect password"
         );
+
         echo json_encode($response);
     }
 } else {
@@ -50,5 +52,6 @@ if (mysqli_num_rows($result) > 0) {
         "status" => "error",
         "message" => "Email does not exist"
     );
+
     echo json_encode($response);
 }

@@ -103,13 +103,17 @@ if (isset($_SESSION['message'])) {
                 <div id="password_input">
                     <label for="password">Password <span>* </span> <i class="fa-solid fa-circle-exclamation fa-sm" id="password_circle"></i>
                     </label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password" required class="password-input">
+
                 </div>
                 <div id="password_confirm">
                     <label for="confirm_password">Confirm Password <span>*</span>
                     </label>
-                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <input type="password" id="confirm_password" name="confirm_password" required class="password-input">
                 </div>
+                <label>
+                    <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+                </label>
                 <!-- Add the pop-up box element -->
                 <div id="password-criteria-box">
                     <button id="close-password-criteria-box">X</button>

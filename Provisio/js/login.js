@@ -1,6 +1,9 @@
 function checkFieldsLogin() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    console.log("Email: " + email);
+    console.log("Password: " + password);
 
     if (email != "" && password != "") {
         return true;
@@ -23,6 +26,7 @@ function login(event) {
     // check if all fields are filled
     if (checkFieldsLogin() == false) {
         console.log("Error: All fields are required");
+        event.preventDefault();
         return;
     }
 
@@ -36,9 +40,7 @@ function login(event) {
     var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
     xhr.open('POST', '../php/signin.php'); // open a POST request to the login.php file
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // set the request header
-    var formData = new FormData(document.querySelector('form')); // create a new FormData object
-    xhr.send(new URLSearchParams(formData)); // send the form data to the login.php file
-
+    xhr.send("email=" + email + "&password=" + password); // send the email and password to the login.php file
     console.log("Sent data to signin.php");
 
     xhr.onload = function () {
@@ -55,6 +57,7 @@ function login(event) {
                     if (response.message === "Incorrect password") {
                         alert("Incorrect password");
                     }
+                    // keep you on the login page
                 }
             } catch (e) {
                 console.log("Error: " + e.message);
