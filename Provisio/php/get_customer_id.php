@@ -18,13 +18,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // check get corresponding customer_id from the database
-    $sql = "SELECT customer_id FROM customers WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
+    // prepare the SQL statement
+    $stmt = $conn->prepare("SELECT customer_id FROM customers WHERE email = ?");
+
+    // bind the parameters to the statement
+    $stmt->bind_param("s", $email);
+
+    // execute the statement, checking if the customer exists
+    $stmt->execute();
+
+    // get the result 
+    $result = $stmt->get_result();
 
     // return the customer_id
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
         $customer_id = $row['customer_id'];
         $response = array(
             "status" => "success",

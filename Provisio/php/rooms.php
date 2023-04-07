@@ -1,19 +1,6 @@
 <?php
 // Start the session
 session_start();
-
-// output the session variable
-if (isset($_SESSION['email'])) {
-    echo "<script>console.log('Session variable: " . $_SESSION['email'] . "');</script>";
-} else {
-    echo "<script>console.log('Session variable not set');</script>";
-}
-
-// check for $_SESSION['message'] = "You must be logged in to view this page.";
-if (isset($_SESSION['message'])) {
-    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
-    unset($_SESSION['message']);
-}
 ?>
 
 <!DOCTYPE html>

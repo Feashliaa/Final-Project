@@ -20,14 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // get the reservation from the database
-    $sql = "SELECT * FROM reservations WHERE reservation_id = '$id'";
+    // prepare the SQL statement
+    $stmt = $conn->prepare("SELECT * FROM reservations WHERE reservation_id = ?");
 
-    $result = mysqli_query($conn, $sql);
+    // bind the parameters to the statement
+    $stmt->bind_param("s", $id);
+
+    // execute the statement, checking if the reservation exists where the id is the given id
+    $stmt->execute();
+
+    // get the result
+    $result = $stmt->get_result();
 
     // return the reservation
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
         $response = array(
             "status" => "success",
             "message" => "Reservation retrieved successfully",

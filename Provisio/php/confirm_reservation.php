@@ -88,16 +88,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // insert the reservation into the database 
     /* reservation_id | customer_id | hotel_id | room_id | wifi_amenity | breakfast_amenity | parking_amenity | check_in_date | check_out_date | number_of_guests | points_earned | total_amenity_price | total_room_price */
 
-    $sql = "INSERT INTO reservations (reservation_id, customer_id, hotel_id, room_id, wifi_amenity, breakfast_amenity, parking_amenity, check_in_date, check_out_date, number_of_guests, points_earned, total_amenity_price, total_room_price) 
-    VALUES ('$id', '$customer_id', '$hotel_id', '$room_id', " . ($wifi ? '1' : 'NULL') . ", " . ($breakfast ? '1' : 'NULL') . ", " . ($parking ? '1' : 'NULL') . ", '$checkInDate', '$checkOutDate', '$guestCount', '$points', '$amenity_price', '$total_price')";
+    // prepare the SQL statement
+    $stmt = $conn->prepare("INSERT INTO reservations (reservation_id, customer_id, hotel_id, room_id, wifi_amenity, breakfast_amenity, parking_amenity, check_in_date, check_out_date, number_of_guests, points_earned, total_amenity_price, total_room_price) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    if (mysqli_query($conn, $sql)) {
+    // bind the parameters to the statement, s = string, i = integer
+    $stmt->bind_param("ssssiiissssss", $id, $customer_id, $hotel_id, $room_id, $wifi_amenity, $breakfast_amenity, $parking_amenity, $checkInDate, $checkOutDate, $guestCount, $points, $amenity_price, $total_price);
+
+    // set the parameter values
+    $wifi_amenity = ($wifi ? 1 : NULL);
+    $breakfast_amenity = ($breakfast ? 1 : NULL);
+    $parking_amenity = ($parking ? 1 : NULL);
+
+    // execute the statement
+    if ($stmt->execute()) {
 
         // accumulate the total points to the customer's account
-        $sql = "UPDATE customers SET total_points = total_points + $points WHERE customer_id = $customer_id";
+        $stmt = $conn->prepare("UPDATE customers SET total_points = total_points + ? WHERE customer_id = ?");
 
-        // execute the query
-        mysqli_query($conn, $sql);
+        // bind the parameters to the statement
+        $stmt->bind_param("is", $points, $customer_id);
+
+        // execute the statement
+        $stmt->execute();
 
         // send a success response
         $response = array(

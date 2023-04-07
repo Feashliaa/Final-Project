@@ -22,11 +22,19 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// check if the email already exists
-$sql = "SELECT * FROM customers WHERE email = '$email'";
-$result = mysqli_query($conn, $sql);
+// prepare the SQL statement
+$stmt = $conn->prepare("SELECT * FROM customers WHERE email = ?");
 
-if (mysqli_num_rows($result) > 0) { // if the email already exists
+// bind the parameters to the statement
+$stmt->bind_param("s", $email);
+
+// execute the statement and check if the email already exists
+$stmt->execute();
+
+// get the result
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) { // if the email already exists
 
     $response = array(
         "status" => "error",
@@ -36,13 +44,18 @@ if (mysqli_num_rows($result) > 0) { // if the email already exists
     echo json_encode($response);
 
     // Close the database connection
-    mysqli_close($conn);
+    $conn->close();
 } else {
     // Insert the user data into the database
-    $sql = "INSERT INTO customers (email, first_name, last_name, phone_number, password)
-        VALUES ('$email', '$firstname', '$lastname', '$phone_number', '$hashed_password')";
+    // prepare the SQL statement
+    $stmt = $conn->prepare("INSERT INTO customers (email, first_name, last_name, phone_number, password)
+        VALUES (?, ?, ?, ?, ?)");
 
-    if (mysqli_query($conn, $sql)) {
+    // bind the parameters to the statement
+    $stmt->bind_param("sssss", $email, $firstname, $lastname, $phone_number, $hashed_password);
+
+    // execute the statement, checking if the email already exists
+    if ($stmt->execute()) {
         // Start a new session
         session_start();
         // Store the user's email in the session
@@ -54,16 +67,19 @@ if (mysqli_num_rows($result) > 0) { // if the email already exists
             "email" => $email
         );
         echo json_encode($response);
-    } else {
+    } else { // some error occurred
         $response = array(
             "status" => "error",
-            "message" => "Error: " . $sql . "<br>" . mysqli_error($conn)
+            "message" => "Error: " . $stmt->error
         );
         echo json_encode($response);
     }
 
+    // Close the statement
+    $stmt->close();
+
     // Close the database connection if it's still open
     if ($conn->ping()) {
-        mysqli_close($conn);
+        $conn->close();
     }
 }

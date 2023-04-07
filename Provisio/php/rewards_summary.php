@@ -8,6 +8,7 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
+// if user gets deleted from database, redirect to registration page
 $email = $_SESSION['email'];
 $mysqli = new mysqli('localhost', 'root', 'root', 'probrav');
 $result = $mysqli->query("SELECT * FROM customers WHERE email = '$email'");
@@ -17,6 +18,18 @@ if ($result->num_rows == 0) {
     header("Location: registration.php");
     exit();
 }
+
+// Get customer id from email
+$customer_id_query = "SELECT customer_id FROM customers WHERE email = '$email'";
+$customer_id_result = $mysqli->query($customer_id_query);
+$customer_id_row = $customer_id_result->fetch_assoc();
+$customer_id = $customer_id_row['customer_id'];
+
+
+
+// Query the database for rewards data
+$rewards_query = "SELECT * FROM reservations WHERE customer_id = '$customer_id'";
+$rewards_result = $mysqli->query($rewards_query);
 ?>
 
 <!DOCTYPE html>
@@ -69,29 +82,50 @@ if ($result->num_rows == 0) {
                 <th>check-out date</th>
                 <th>points earned</th>
             </tr>
-            <tr>
-                <td>PROV123456</td>
-                <td>West Palm Beach, FL</td>
-                <td>03/21/2022</td>
-                <td>03/23/2022</td>
-                <td>300</td>
-            </tr>
-            <tr>
-                <td>PROV987654</td>
-                <td>Springfield, MA</td>
-                <td>12/18/2022</td>
-                <td>12/21/2022</td>
-                <td>450</td>
-            </tr>
+            <?php
+            // Loop through rewards data and generate table rows dynamically
+            $total_points = 0;
+            while ($row = $rewards_result->fetch_assoc()) {
+                $reservation_id = $row['reservation_id'];
+                $location = $row['hotel_id'];
+                $checkin_date = $row['check_in_date'];
+                $checkout_date = $row['check_out_date'];
+                $points_earned = $row['points_earned'];
+                $total_points += $points_earned;
+
+                // switch statement for hotel id
+                switch ($location) {
+                    case 1:
+                        $location = "Springfield, Massachusetts";
+                        break;
+                    case 2:
+                        $location = "Mobile, Alabama";
+                        break;
+                    case 3:
+                        $location = "West Palm Beach, Florida";
+                        break;
+                    case 4:
+                        $location = "Owego, New York";
+                        break;
+                    default:
+                        $location = "Unknown";
+                }
+
+                echo "<tr>";
+                echo "<td>$reservation_id</td>";
+                echo "<td>$location</td>";
+                echo "<td>$checkin_date</td>";
+                echo "<td>$checkout_date</td>";
+                echo "<td>$points_earned</td>";
+                echo "</tr>";
+            }
+            ?>
             <tr class="total">
                 <td colspan="4">Total Points:</td>
-                <td>750</td>
+                <td><?php echo $total_points; ?></td>
             </tr>
         </table>
     </div>
-
-
-
 
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>

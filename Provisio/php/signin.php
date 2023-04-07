@@ -15,14 +15,22 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// check if the email already exists
-$sql = "SELECT * FROM customers WHERE email = '$email'";
-$result = mysqli_query($conn, $sql);
+// prepare the SQL statement
+$stmt = $conn->prepare("SELECT * FROM customers WHERE email = ?");
+
+// bind the parameters to the statement
+$stmt->bind_param("s", $email);
+
+// execute the statement, checking if the email already exists
+$stmt->execute();
+
+// get the result
+$result = $stmt->get_result();
 
 // if the email already exists
-if (mysqli_num_rows($result) > 0) {
+if ($result->num_rows > 0) {
     // get the hashed password from the database
-    $row = mysqli_fetch_assoc($result);
+    $row = $result->fetch_assoc();
     $hashed_password_from_db = $row['password'];
 
     // compare the password with the hashed password from the database
@@ -39,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
         );
 
         echo json_encode($response);
-    } else {
+    } else { // if the password is incorrect
         $response = array(
             "status" => "error",
             "message" => "Incorrect password"
@@ -47,7 +55,7 @@ if (mysqli_num_rows($result) > 0) {
 
         echo json_encode($response);
     }
-} else {
+} else { // if the email does not exist
     $response = array(
         "status" => "error",
         "message" => "Email does not exist"

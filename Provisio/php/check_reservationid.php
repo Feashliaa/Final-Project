@@ -4,7 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode($json);
 
     // $data is now a PHP object containing the reservation id
-
     $id = $data->realReservationID;
 
     // Connect to the MySQL database (replace the database credentials with your own)
@@ -21,9 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // get the reservation from the database
-    $sql = "SELECT * FROM reservations WHERE reservation_id = '$id'";
+    $stmt = $conn->prepare("SELECT * FROM reservations WHERE reservation_id = ?");
 
-    $result = mysqli_query($conn, $sql);
+    // bind the id to the query, this is to prevent SQL injection
+    $stmt->bind_param("s", $id);
+
+    // execute the query
+    $stmt->execute();
+
+    // get the result of the query and store it in a variable
+    $result = $stmt->get_result();
 
     // if there is a reservation with the given id, return a message stating true
     if (mysqli_num_rows($result) > 0) {

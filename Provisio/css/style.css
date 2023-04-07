@@ -844,6 +844,16 @@ li span {
     1px 1px 0 teal;
 }
 
+#rwds-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid 1px teal;
+  padding: 15px;
+
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
 #span1 {
   text-align: center;
   position: absolute;
