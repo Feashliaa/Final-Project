@@ -94,10 +94,10 @@ session_start();
                     Secure Parking<br>
                     Continental Breakfast<br><br>
                     <strong>Attractions:</strong><br>
-                    <a href="https://tiogadowns.com/site.xml/" class="link">Tioga Downs Casino Resort</a><br>
-                    <a href="https://www.milb.com/binghamton" class="link">Binghamton Rumble Ponies</a><br>
-                    <a href="https://www.gobroomecounty.com/community/carousels" class="link">Broome County Carousels</a><br>
-                    <a href="https://rossparkzoo.org/" class="link">Ross Park Zoo</a>
+                    <a href="https://www.norton.org/" class="link">The Norton Museum of Art</a><br>
+                    <a href="https://www.rapidswaterpark.com/" class="link">The Rapids Waterpark</a><br>
+                    <a href="https://www.lioncountrysafari.com/" class="link">Lion Country Safari</a>
+
                 </p>
             </div>
         </div>
