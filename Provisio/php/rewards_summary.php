@@ -25,8 +25,6 @@ $customer_id_result = $mysqli->query($customer_id_query);
 $customer_id_row = $customer_id_result->fetch_assoc();
 $customer_id = $customer_id_row['customer_id'];
 
-
-
 // Query the database for rewards data
 $rewards_query = "SELECT * FROM reservations WHERE customer_id = '$customer_id'";
 $rewards_result = $mysqli->query($rewards_query);
@@ -74,17 +72,22 @@ $rewards_result = $mysqli->query($rewards_query);
     </div>
 
     <div>
-        <table class="center" id="rwds-table">
-            <tr>
-                <th>reservation id</th>
-                <th>location</th>
-                <th>check-in date</th>
-                <th>check-out date</th>
-                <th>points earned</th>
-            </tr>
-            <?php
-            // Loop through rewards data and generate table rows dynamically
-            $total_points = 0;
+        <?php
+        // Loop through rewards data and generate table rows dynamically
+        $total_points = 0;
+        if ($rewards_result->num_rows > 0) { // if there is rewards data
+
+            // Table header
+            echo "<table class='center' id='rwds-table'>";
+            echo "<tr>";
+            echo "<th>reservation id</th>";
+            echo "<th>location</th>";
+            echo "<th>check-in date</th>";
+            echo "<th>check-out date</th>";
+            echo "<th>points earned</th>";
+            echo "</tr>";
+
+            // Loop through rewards data
             while ($row = $rewards_result->fetch_assoc()) {
                 $reservation_id = $row['reservation_id'];
                 $location = $row['hotel_id'];
@@ -111,6 +114,7 @@ $rewards_result = $mysqli->query($rewards_query);
                         $location = "Unknown";
                 }
 
+                // Table row, one for each reservation
                 echo "<tr>";
                 echo "<td>$reservation_id</td>";
                 echo "<td>$location</td>";
@@ -119,12 +123,19 @@ $rewards_result = $mysqli->query($rewards_query);
                 echo "<td>$points_earned</td>";
                 echo "</tr>";
             }
-            ?>
-            <tr class="total">
-                <td colspan="4">Total Points:</td>
-                <td><?php echo $total_points; ?></td>
-            </tr>
-        </table>
+
+            // Total points row, at the bottom of the table
+            echo "<tr class='total'>";
+            echo "<td colspan='4'>Total Points:</td>";
+            echo "<td>$total_points</td>";
+            echo "</tr>";
+            echo "</table>";
+        } else {
+            // No rewards data available
+            echo "<div style='text-align: center;'><p>No Rewards Data Available.</p></div>";
+        }
+        ?>
+
     </div>
 
     <footer>
