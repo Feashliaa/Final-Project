@@ -345,8 +345,8 @@ function signup(event) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.status === "success") {
                     console.log(response.message);
-                    // refresh the page
-                    window.location.reload();
+                    // redirect to the index page
+                    window.location.href = "../php/index.php";
                 } else {
                     console.log(response.message);
                     if (response.message === "Email already exists") {

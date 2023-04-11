@@ -15,6 +15,65 @@ body {
   background-color: white;
 }
 
+:root {
+  --notification-background-color: rgb(0, 200, 83);
+}
+
+@keyframes flash {
+  0% {
+    background-color: var(--notification-background-color);
+  }
+
+  50% {
+    background-color: white;
+  }
+
+  100% {
+    background-color: var(--notification-background-color);
+  }
+}
+
+.flash-green {
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-color: var(--notification-background-color);
+  color: white;
+}
+
+.flash-red {
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-color: red;
+  color: white;
+}
+
+#notification {
+  visibility: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 80%;
+  background-color: var(--notification-background-color);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  z-index: 9999;
+  margin: 0 auto;
+  border-radius: 20px;
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+
+
 /* header styles*/
 header {
   background-color: teal;

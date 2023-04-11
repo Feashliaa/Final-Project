@@ -22,6 +22,50 @@ function checkFieldsLogin() {
     }
 }
 
+function showNotification() {
+    console.log("Showing notification");
+
+    console.log("Logged in: " + localStorage.getItem("loggedIn"));
+
+    // Check if the user is logged in
+    if (localStorage.getItem("loggedIn") === "true") {
+        // User is logged in, show notification
+        var notification = document.getElementById("notification");
+        notification.innerHTML = "You have successfully logged in!";
+        notification.style.setProperty('--notification-background-color', 'rgb(0, 200, 83)');
+        notification.classList.add("flash-green"); // add the flash-green class
+        notification.style.visibility = "visible";
+        // Hide the notification after 2 seconds
+        setTimeout(function () {
+            notification.style.visibility = "hidden";
+            notification.classList.remove("flash-green"); // remove the flash-green class
+        }, 2000);
+        // Remove the loggedIn item from local storage
+        localStorage.removeItem("loggedIn");
+    }
+}
+
+function showNotificationWrongPassword() {
+    console.log("Showing notification");
+    // User entered wrong password, show notification
+    var notification = document.getElementById("notification");
+    notification.innerHTML = "Wrong Email or Password!";
+    notification.style.setProperty('--notification-background-color', 'red');
+    notification.classList.add("flash-red"); // add the flash-red class
+    notification.style.visibility = "visible";
+    // Hide the notification after 2 seconds
+    setTimeout(function () {
+        notification.style.visibility = "hidden";
+        notification.classList.remove("flash-red"); // remove the flash-red class
+    }, 2000);
+    // Remove the loggedIn item from local storage
+    localStorage.removeItem("loggedIn");
+}
+
+
+
+
+
 function login(event) {
     // check if all fields are filled
     if (checkFieldsLogin() == false) {
@@ -50,12 +94,21 @@ function login(event) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.status === "success") {
                     console.log(response.message);
-                    // send you to index.php
-                    window.location.href = "../php/index.php";
+
+                    // set the loggedIn item in local storage to true
+                    localStorage.setItem("loggedIn", "true");
+
+                    // show notification
+                    showNotification();
+
+                    // redirect to the index page after 2 seconds
+                    setTimeout(function () {
+                        window.location.href = "index.php";
+                    }, 2000);
                 } else {
                     console.log(response.message);
                     if (response.message === "Incorrect password") {
-                        alert("Incorrect password");
+                        showNotificationWrongPassword();
                     }
                     // keep you on the login page
                 }
@@ -69,8 +122,14 @@ function login(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("email").addEventListener("click", function () {
-        document.getElementById("email").classList.remove("email-error");
-        document.getElementById("email").placeholder = "example@domain.com";
-    });
+
+    // first check if the page has an email input field
+    if (document.getElementById("email") != null) {
+        // add event listener to the email input field
+
+        document.getElementById("email").addEventListener("click", function () {
+            document.getElementById("email").classList.remove("email-error");
+            document.getElementById("email").placeholder = "example@domain.com";
+        });
+    }
 });

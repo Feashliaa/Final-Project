@@ -12,12 +12,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Provisio</title>
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="../css/styles2.css">
-    <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
-    <script src="../js/popup.js"></script>
-    <script src="../js/checks.js"></script>
-    <script src="../js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="provisio/css/style.css">
+    <link rel="stylesheet" type="text/css" href="provisio/css/styles2.css">
+    <link rel="icon" type="image/png" href="provisio/favicons/letter_p.png" />
+    <script src="Provisio/js/popup.js"></script>
+    <script src="Provisio/js/checks.js"></script>
+    <script src="Provisio/js/login.js"></script>
 </head>
 
 <body>
@@ -28,18 +28,18 @@ session_start();
     </header>
 
     <nav class="nav">
-        <a href="index.php">Home</a>
-        <a href="about.php">About</a>
-        <a href="locations.php">Locations</a>
-        <a href="rooms.php">Rooms</a>
-        <a href="amenities.php">Amenities</a>
+        <a href="provisio/php/index.php">Home</a>
+        <a href="provisio/php/about.php">About</a>
+        <a href="provisio/php/locations.php">Locations</a>
+        <a href="provisio/php/rooms.php">Rooms</a>
+        <a href="provisio/php/amenities.php">Amenities</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-        <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+        <button onclick="window.location.href='provisio/php/reservation.php';" class="book-now-btn">Book Now</button>
     </nav>
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
-            <button onclick="window.location.href='rewards_summary.php';" class="rewards-btn">View Rewards</button>
+            <button onclick="window.location.href='provisio/php/rewards_summary.php';" class="rewards-btn">View Rewards</button>
         </p>
     </div>
 
@@ -49,7 +49,7 @@ session_start();
         </div>
     </div>
 
-    <div id="notification">User Logged in Successfully</div>
+    
 
     <h2 id="h2title">Let Provisio Welcome You At Your Next Stay</h2>
 
@@ -61,7 +61,7 @@ session_start();
 
     <div id="locationcontainer">
         <h3 id="h3title">Beach Access, Shopping & Entertainment</h3>
-        <img id="imgcenter" src="../images/westpalmbeach.jpeg" alt="" style="width:1300px">
+        <img id="imgcenter" src="provisio/images/westpalmbeach.jpeg" alt="" style="width:1300px">
         <p id="details">Our West Palm Beach, Florida location offers guests
             access to exquisite shops, fine dining, art museums and more! Located along Florida's
             Atlantic Ocean coast, this location provides sandy beaches for those who love the water
@@ -74,7 +74,7 @@ session_start();
 
     <div id="roomscontainer">
         <h3 id="h3title">Style Fit For a King</h3>
-        <img id="imgcenter" src="../images/kingsuite.jpeg" alt="">
+        <img id="imgcenter" src="provisio/images/kingsuite.jpeg" alt="">
         <p id="details">Enjoy your stay in a room fit for a king! These rooms offer pillow-top
             beds with luxury hotel bedding, ensuring your slumber is well... fit for a king. Also
             available is our full-size sofa-sleeper for your extra guests and dedicated work desk
@@ -87,7 +87,7 @@ session_start();
 
     <div id="amenitiescontainer">
         <h3 id="h3title">Worked Up An Appetite?</h3>
-        <img id="imgcenter" src="../images/breakfast.jpeg" alt="" style="width:1300px">
+        <img id="imgcenter" src="provisio/images/breakfast.jpeg" alt="" style="width:1300px">
         <p id="details">Provisio offers guests several amenities to choose from when booking
             with our state-of-the-art reservation system. Our continental breakfast is available every morning for those
             looking for convenient on-site amenities.

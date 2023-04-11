@@ -1,20 +1,21 @@
 function checkLogin() {
     var loginBtn = document.getElementById("login-btn");
+    var baseUrl = window.location.origin + '/provisio/provisio/php';
     if (loginBtn.innerHTML == "Login") {
-        window.location.href = "login.php";
+        window.location.href = baseUrl + "/login.php";
     } else {
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'logout.php');
+        xhr.open('POST', baseUrl + '/logout.php');
         xhr.onload = function () {
             if (xhr.status === 200) {
                 console.log("Logout successful");
                 loginBtn.innerHTML = "Login";
-                window.location.href = "index.php";
+                window.location.href = baseUrl + "/index.php";
             } else {
                 console.log("Logout failed");
             }
         };
-        xhr.send(); // Moved outside the onload function
+        xhr.send();
     }
 }
 async function setupDateValidation() {
@@ -132,8 +133,13 @@ async function setupValidation() {
         // Otherwise, it will be the difference in days + 1
         console.log("checkInDate: ", checkInDate);
         console.log("checkOutDate: ", checkOutDate);
-        const dayDiff = Math.abs(new Date(checkInDate) - new Date(checkOutDate)) / (1000 * 60 * 60 * 24) + 1;
+        let dayDiff = (new Date(checkOutDate) - new Date(checkInDate)) / (1000 * 60 * 60 * 24);
 
+        console.log("dayDiff: ", dayDiff);
+
+        if (dayDiff < 1) {
+            dayDiff = 1;
+        }
 
         // Calculate the total price, based on the number of days and the chosen room
         // Room Prices: Double Full Beds 110, Queen 125, Double Queen 150, King 160
@@ -157,6 +163,7 @@ async function setupValidation() {
                 total_price = 110 * dayDiff;
                 break;
         }
+
 
 
         let total_amenity_price = 0;

@@ -55,6 +55,10 @@ session_start();
         <p style="text-align: center">Login below or click the sign up to get started.</p>
     </div>
 
+    <div id="notification">User Logged in Successfully</div>
+
+    <br>
+
     <div id="registration_container">
         <div id="booking_image"></div>
         <div id="login-signup-container">
