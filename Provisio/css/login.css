@@ -97,15 +97,13 @@ label {
 #input_fields_container {
     position: absolute;
     display: grid;
-    width: 403px;
-    height: 179px;
-    left: 775px;
-    top: 441px;
+    gap: 1rem;
+    grid-template-columns: 100%;
+    width: 25%;
 
-    left: 57.5%;
-    right: 0%;
-    top: 40%;
-    bottom: 0%;
+    /* center the items */
+    left: 60%;
+    top: 50%;
 }
 
 #firstname,
@@ -119,7 +117,7 @@ input[type="password"] {
     border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
     color: #000;
     outline: none;
-    width: 50%;
+    width: 125%;
     padding: 5px 0;
     margin-top: 5px;
 }
@@ -137,12 +135,17 @@ span.error {
 }
 
 @media (max-width: 540px) {
+
     #firstname,
     #lastname,
     input[type="email"],
     input[type="tel"],
     input[type="password"] {
-        width: 50%;
+        width: 200%;
+    }
+
+    #input_fields_container {
+        left: 25%;
     }
 
 }

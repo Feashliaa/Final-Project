@@ -205,17 +205,18 @@ figure.gallery {
     border: 1px solid teal;
     margin: 0 0 5px 0;
     text-align: left;
+    background-color: rgb(245, 245, 245);
 }
 
 figcaption {
     background-color: gainsboro;
+    border: 1px solid teal;
     padding-left: 20px;
 }
 
 figure img {
     display: inline;
     margin: auto;
-    border: 2px solid gainsboro;
     float: left;
 }
 
@@ -245,6 +246,30 @@ th.title {
 li {
     list-style-type: none;
 }
+
+@media (max-width: 800px) {
+    figure.gallery {
+        grid-template-columns: 1fr;
+    }
+
+    figure img {
+        display: block;
+        margin: auto;
+        border: 2px solid gainsboro;
+        float: none;
+
+        /* max width of image is to be 250px */
+        max-width: 250px;
+
+        /* max height of 225px */
+        max-height: 225px;
+    }
+
+    figcaption.gallery-items {
+        text-align: center;
+    }
+}
+
 
 /*Amenities Page */
 #h2title-center2 {

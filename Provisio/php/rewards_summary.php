@@ -76,64 +76,118 @@ $rewards_result = $mysqli->query($rewards_query);
         // Loop through rewards data and generate table rows dynamically
         $total_points = 0;
         if ($rewards_result->num_rows > 0) { // if there is rewards data
-
-            // Table header
-            echo "<table class='center' id='rwds-table'>";
-            echo "<tr>";
-            echo "<th>reservation id</th>";
-            echo "<th>location</th>";
-            echo "<th>check-in date</th>";
-            echo "<th>check-out date</th>";
-            echo "<th>points earned</th>";
-            echo "</tr>";
-
-            // Loop through rewards data
-            while ($row = $rewards_result->fetch_assoc()) {
-                $reservation_id = $row['reservation_id'];
-                $location = $row['hotel_id'];
-                $checkin_date = $row['check_in_date'];
-                $checkout_date = $row['check_out_date'];
-                $points_earned = $row['points_earned'];
-                $total_points += $points_earned;
-
-                // switch statement for hotel id
-                switch ($location) {
-                    case 1:
-                        $location = "Springfield, Massachusetts";
-                        break;
-                    case 2:
-                        $location = "Mobile, Alabama";
-                        break;
-                    case 3:
-                        $location = "West Palm Beach, Florida";
-                        break;
-                    case 4:
-                        $location = "Owego, New York";
-                        break;
-                    default:
-                        $location = "Unknown";
-                }
-
-                // Table row, one for each reservation
-                echo "<tr>";
-                echo "<td>$reservation_id</td>";
-                echo "<td>$location</td>";
-                echo "<td>$checkin_date</td>";
-                echo "<td>$checkout_date</td>";
-                echo "<td>$points_earned</td>";
-                echo "</tr>";
+            $is_mobile = false;
+            if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile/i', $_SERVER['HTTP_USER_AGENT'])) {
+                // if user agent contains "mobile", assume it's a mobile device
+                $is_mobile = true;
             }
 
-            // Total points row, at the bottom of the table
-            echo "<tr class='total'>";
-            echo "<td colspan='4'>Total Points:</td>";
-            echo "<td>$total_points</td>";
-            echo "</tr>";
-            echo "</table>";
+            if ($is_mobile) {
+                // Stacked card layout, one for each reservation
+                while ($row = $rewards_result->fetch_assoc()) {
+                    $reservation_id = $row['reservation_id'];
+                    $location = $row['hotel_id'];
+                    $checkin_date = $row['check_in_date'];
+                    $checkout_date = $row['check_out_date'];
+                    $points_earned = $row['points_earned'];
+                    $total_points += $points_earned;
+
+                    // switch statement for hotel id
+                    switch ($location) {
+                        case 1:
+                            $location_text = "Springfield, Massachusetts";
+                            break;
+                        case 2:
+                            $location_text = "Mobile, Alabama";
+                            break;
+                        case 3:
+                            $location_text = "West Palm Beach, Florida";
+                            break;
+                        case 4:
+                            $location_text = "Owego, New York";
+                            break;
+                        default:
+                            $location_text = "Unknown";
+                    }
+
+                    echo "<div class='rwds-card'>";
+                    echo "<div class='rwds-card-header'>Reservation ID: $reservation_id</div>";
+                    echo "<div class='rwds-card-content'>";
+                    echo "<div><b>Location:</b> $location_text</div>";
+                    echo "<div><b>Check-in Date:</b> $checkin_date</div>";
+                    echo "<div><b>Check-out Date:</b> $checkout_date</div>";
+                    echo "<div><b>Points Earned:</b> $points_earned</div>";
+                    echo "</div>"; // close card content
+                    echo "</div>"; // close card
+                }
+
+                echo "<div class='rwds-card'>";
+                echo "<div class='rwds-card-header'>Total Points</div>";
+                echo "<div class='rwds-card-content'>";
+                echo "<div>$total_points</div>";
+                echo "</div>"; // close card content
+                echo "</div>"; // close card
+
+            } else {
+                // Table layout, one row for each reservation
+                echo "<table class='center' id='rwds-table'>";
+                echo "<tr>";
+                echo "<th>reservation id</th>";
+                echo "<th>location</th>";
+                echo "<th>check-in date</th>";
+                echo "<th>check-out date</th>";
+                echo "<th>points earned</th>";
+                echo "</tr>";
+
+                // Loop through rewards data
+                while ($row = $rewards_result->fetch_assoc()) {
+                    $reservation_id = $row['reservation_id'];
+                    $location = $row['hotel_id'];
+                    $checkin_date = $row['check_in_date'];
+                    $checkout_date = $row['check_out_date'];
+                    $points_earned = $row['points_earned'];
+                    $total_points += $points_earned;
+
+                    // switch statement for hotel id
+                    switch ($location) {
+                        case 1:
+                            $location_text = "Springfield, Massachusetts";
+                            break;
+                        case 2:
+                            $location_text = "Mobile, Alabama";
+                            break;
+                        case 3:
+                            $location_text = "West Palm Beach, Florida";
+                            break;
+                        case 4:
+                            $location_text = "Owego, New York";
+                            break;
+                        default:
+                            $location_text = "Unknown";
+                    }
+
+                    // Table row, one for each reservation
+                    echo "<tr>";
+                    echo "<td>$reservation_id</td>";
+                    echo "<td>$location_text</td>";
+                    echo "<td>$checkin_date</td>";
+                    echo "<td>$checkout_date</td>";
+                    echo "<td>$points_earned</td>";
+                    echo "</tr>";
+                }
+
+                // Total points row, at the bottom of the table
+                echo "<tr class='total'>";
+                echo "<td colspan='4'>Total Points:</td>";
+                echo "<td>$total_points</td>";
+                echo "</tr>";
+                echo "</table>";
+            }
         } else {
             // No rewards data available
             echo "<div style='text-align: center;'><p>No Rewards Data Available.</p></div>";
         }
+
         ?>
 
     </div>

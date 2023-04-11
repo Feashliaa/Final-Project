@@ -88,7 +88,6 @@ session_start();
                     <h2>Visit Us</h2>
                     <p><span id="address">1000 Galvin Road South<br>South Bellevue, NE 68005</span></p>
                 </div>
-
             </div>
 
             <h3 id="abouttagline">Book with Provisio and let us handle the rest!</h3>
