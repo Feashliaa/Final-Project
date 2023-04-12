@@ -127,7 +127,7 @@ function enableLookupButton() {
 
 
 // Print the reservation data to the console
-async function printReservation(response_object) {
+function printReservation(response_object) {
 
     console.log("Printing reservation data...");
     console.log(response_object);
@@ -222,23 +222,27 @@ async function printReservation(response_object) {
 
     // create a formatted string with the reservation information
     let summaryText = `Reservation ID: ${reservationID}
-        Location: ${hotelString}
-        Guest Count: ${numberOfGuests}
-        Room Selected: ${roomString}
-        Check-in Date: ${checkInDate}
-        Check-out Date: ${checkOutDate}
-        Amenities:
-          Wifi: ${wifiAmenity ? "Yes" : "No"}
-          Breakfast: ${breakfastAmenity ? "Yes" : "No"}
-          Parking: ${parkingAmenity ? "Yes" : "No"}
-        Points: ${pointsEarned}
-        Amenity Price: $ ${totalAmenityPrice}
-        Total Price:   $ ${totalRoomPrice}`;
+Location: ${hotelString}
+Guest Count: ${numberOfGuests}
+Room Selected: ${roomString}
+Check-in Date: ${checkInDate}
+Check-out Date: ${checkOutDate}
+Amenities:
+  Wifi: ${wifiAmenity ? "Yes" : "No"}
+  Breakfast: ${breakfastAmenity ? "Yes" : "No"}
+  Parking: ${parkingAmenity ? "Yes" : "No"}
+Points: ${pointsEarned}
+Amenity Price: $ ${totalAmenityPrice}
+Total Price:   $ ${totalRoomPrice}`;
 
-    // send the Look-Up data to the lookup page
+
+    // Send the Look-Up data to the lookup page
     localStorage.setItem("Look-Up", summaryText);
 
-    window.location.href = "lookup_page.php";
+    // Redirect to the lookup page after a short delay
+    setTimeout(() => {
+        window.location.href = "lookup_page.php";
+    }, 1000); // delay for 1 second
 }
 
 function enableButtons(checkReservation) {

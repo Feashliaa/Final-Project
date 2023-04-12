@@ -728,15 +728,53 @@ li span {
 
 .res-box {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* adjust the minmax values */
+  grid-template-rows: 1fr 50px 150px;
+  gap: 15px;
   padding: 15px;
   border: solid 2px teal;
 }
 
-#res-left,
-#res-center,
-#res-right {
-  margin-bottom: 20px;
+.res-summary-box {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 15px;
+  border: solid 2px teal;
+}
+
+#grid-item-1 {
+  grid-row: 1;
+}
+
+#grid-item-2 {
+  grid-row: 2;
+}
+
+#summary {
+  width: 100%;
+  min-height: 300px;
+  font-size: inherit;
+  resize: none;
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+#summary:read-only {
+  cursor: text;
+  background-color: #fff;
+}
+
+.res-box>*:nth-child(3) {
+  grid-column: 1 / span 2;
+  /* the 2nd row takes up only 1 column */
+}
+
+/* have the 3rd row take up the entire width of the grid */
+.res-box>*:nth-child(4) {
+  grid-column: 1 / span 2;
 }
 
 #res-right {
@@ -770,8 +808,15 @@ li span {
 
 @media screen and (min-width: 975px) {
   .res-box {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 1fr 50px 150px;
     gap: 20px;
+  }
+
+  #res-right-btn {
+    margin-top: auto;
+    /* align element to the bottom of the grid */
   }
 }
 
@@ -799,10 +844,27 @@ li span {
   text-align: left;
 }
 
+#reservation_lookup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+#reservation_lookup input {
+  width: 50%;
+  font-size: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
 .res-box input,
 .res-box select {
   border: solid 1px teal;
   width: 450px;
+  max-width: 100%;
   height: 25px;
   margin-bottom: 25px;
 }
@@ -869,7 +931,15 @@ li span {
   text-transform: uppercase;
 
   height: 50px !important;
-  width: 100% !important;
+  width: 50% !important;
+
+  /* center the button */
+  display: block;
+  margin: 0 auto;
+
+
+  /* round it */
+  border-radius: 20px;
 }
 
 .submit-btn:hover {

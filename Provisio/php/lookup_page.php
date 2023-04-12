@@ -32,7 +32,7 @@ if ($result->num_rows == 0) {
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
     <script src="../js/reservation.js"></script>
-    <script async src="../js/lookup.js"></script>
+    <script defer src="../js/lookup.js"></script>
 
 </head>
 
@@ -73,10 +73,10 @@ if ($result->num_rows == 0) {
 
     <br><br>
 
-    <div class="res-box">
-        <div id="res-right">
-            <h3>Look-Up Summary:</h3>
-            <textarea id="summary" rows="10" cols="10"></textarea>
+    <div class="res-summary-box">
+        <div id="grid-item-1">
+            <h3>Reservation Summary:</h3>
+            <textarea id="summary" readonly></textarea>
         </div>
     </div>
 

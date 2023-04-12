@@ -157,7 +157,7 @@ async function setupValidation() {
                 total_price = 150 * dayDiff;
                 break;
             case "King":
-                total_price = 160 * dayDiff;
+                total_price = 165 * dayDiff;
                 break;
             default:
                 total_price = 110 * dayDiff;

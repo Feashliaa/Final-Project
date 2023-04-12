@@ -55,13 +55,12 @@ session_start();
     <div class="respic"></div>
 
     <div>
-        <h2 id="res-title">LOOK UP OR MODIFY RESERVATION</h2>
+        <h2 id="res-title">LOOK UP OR CREATE RESERVATION</h2>
     </div>
 
     <div class="res-box">
         <div id="res-left">
-            <label for="id">RESERVATION ID: (enter only ID to locate booked reservation)</label><br>
-            <input type="text" id="id" name="id" value=""><br>
+
 
             <label for="location">LOCATION:</label><br>
             <select name="location" id="location">
@@ -87,7 +86,6 @@ session_start();
                 <option>Double Queen Beds - $150/night</option>
                 <option>King - $165/night</option>
             </select>
-            <button class="submit-btn" id="look-up-btn" style=" max-width:450px; margin-top: 46px;">Look Up</button>
         </div>
 
         <div id="res-center">
@@ -104,9 +102,26 @@ session_start();
                 <input type="checkbox" name="amenities" value="parking"> Parking ($19.99/night)</input><br>
             </div>
 
-            <button class="submit-btn" id="submit-btn" style=" max-width:450px; margin-top: 87.5px;" disabled>Submit</button>
+            <br>
+            <br>
+
+
 
         </div>
+
+        <div>
+            <button class="submit-btn" id="submit-btn" disabled>Submit</button>
+        </div>
+
+        <div>
+            <hr>
+            <div id="reservation_lookup">
+                <label for="id">RESERVATION ID:</label>
+                <input type="text" id="id" name="id" value="">
+                <button class="submit-btn" id="look-up-btn">Look Up</button>
+            </div>
+        </div>
+
     </div>
 
     <footer>

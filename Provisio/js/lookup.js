@@ -1,7 +1,19 @@
+let intervalId; // Declare intervalId as a global variable
+
+// Check for the Look-Up data in local storage and populate the text area when available
+function checkForLookupData() {
+  console.log("Checking");
+  let summaryTextarea = document.getElementById("summary");
+  let lookupData = localStorage.getItem("Look-Up");
+
+  if (lookupData) {
+    summaryTextarea.value = lookupData;
+    console.log("Done Checking")
+    clearInterval(intervalId); // Stop checking for the data once it has been found
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded");
-    // get the reservation summary textarea element
-    let summaryTextarea = document.getElementById("summary");
-    // set the local storage value to the textarea value
-    summaryTextarea.value = localStorage.getItem("Look-Up");
+  console.log("DOM loaded");
+  intervalId = setInterval(checkForLookupData, 500); // Check every 500ms
 });
