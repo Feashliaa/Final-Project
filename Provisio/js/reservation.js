@@ -156,19 +156,19 @@ async function printReservation(response_object) {
     const roomStrings = {
         1: "Double Full Beds",
         2: "Queen",
-        3: "Double Queen",
+        3: "Double Queen Beds",
         4: "King",
         5: "Double Full Beds",
         6: "Queen",
-        7: "Double Queen",
+        7: "Double Queen Beds",
         8: "King",
         9: "Double Full Beds",
         10: "Queen",
-        11: "Double Queen",
+        11: "Double Queen Beds",
         12: "King",
         13: "Double Full Beds",
         14: "Queen",
-        15: "Double Queen",
+        15: "Double Queen Beds",
         16: "King"
     };
 

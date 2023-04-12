@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case "Queen":
             $room_id = ($hotel_id - 1) * 4 + 2;
             break;
-        case "Double Queen":
+        case "Double Queen Beds":
             $room_id = ($hotel_id - 1) * 4 + 3;
             break;
         case "King":

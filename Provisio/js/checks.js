@@ -153,7 +153,7 @@ async function setupValidation() {
             case "Queen":
                 total_price = 125 * dayDiff;
                 break;
-            case "Double Queen":
+            case "Double Queen Beds":
                 total_price = 150 * dayDiff;
                 break;
             case "King":

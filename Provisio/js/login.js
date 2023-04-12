@@ -33,13 +33,12 @@ function showNotification() {
         var notification = document.getElementById("notification");
         notification.innerHTML = "You have successfully logged in!";
         notification.style.setProperty('--notification-background-color', 'rgb(0, 200, 83)');
-        notification.classList.add("flash-green"); // add the flash-green class
+        notification.classList.add("show"); // add the show class
         notification.style.visibility = "visible";
-        // Hide the notification after 2 seconds
+        // Hide the notification after 3 seconds
         setTimeout(function () {
-            notification.style.visibility = "hidden";
-            notification.classList.remove("flash-green"); // remove the flash-green class
-        }, 2000);
+            notification.classList.remove("show"); // remove the show class
+        }, 3000);
         // Remove the loggedIn item from local storage
         localStorage.removeItem("loggedIn");
     }
@@ -51,20 +50,31 @@ function showNotificationWrongPassword() {
     var notification = document.getElementById("notification");
     notification.innerHTML = "Wrong Email or Password!";
     notification.style.setProperty('--notification-background-color', 'red');
-    notification.classList.add("flash-red"); // add the flash-red class
+    notification.classList.add("show"); // add the show class
     notification.style.visibility = "visible";
-    // Hide the notification after 2 seconds
+    // Hide the notification after 3 seconds
     setTimeout(function () {
-        notification.style.visibility = "hidden";
-        notification.classList.remove("flash-red"); // remove the flash-red class
-    }, 2000);
+        notification.classList.remove("show"); // remove the show class
+    }, 3000);
     // Remove the loggedIn item from local storage
     localStorage.removeItem("loggedIn");
 }
 
-
-
-
+function showNotificationNoAccount() {
+    console.log("Showing notification");
+    // User entered wrong password, show notification
+    var notification = document.getElementById("notification");
+    notification.innerHTML = "Account Doesn't Exist!";
+    notification.style.setProperty('--notification-background-color', 'red');
+    notification.classList.add("show"); // add the show class
+    notification.style.visibility = "visible";
+    // Hide the notification after 3 seconds
+    setTimeout(function () {
+        notification.classList.remove("show"); // remove the show class
+    }, 3000);
+    // Remove the loggedIn item from local storage
+    localStorage.removeItem("loggedIn");
+}
 
 function login(event) {
     // check if all fields are filled
@@ -110,7 +120,9 @@ function login(event) {
                     if (response.message === "Incorrect password") {
                         showNotificationWrongPassword();
                     }
-                    // keep you on the login page
+                    else if (response.message === "Email does not exist") {
+                        showNotificationNoAccount();
+                    }
                 }
             } catch (e) {
                 console.log("Error: " + e.message);
