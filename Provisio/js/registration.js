@@ -1,3 +1,7 @@
+/* CSD 460 Capstone in Software Development
+    Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
+    03/13/2023 - 05/14/2023 */
+
 const passwordInput = document.getElementById("password");
 const password_circle = document.getElementById("password_circle");
 const passwordCriteriaBox = document.getElementById("password-criteria-box");

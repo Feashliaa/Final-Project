@@ -1,4 +1,8 @@
 <?php
+/* CSD 460 Capstone in Software Development
+Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
+03/13/2023 - 05/14/2023 */
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json = file_get_contents('php://input');
     $data = json_decode($json);

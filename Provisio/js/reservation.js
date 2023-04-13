@@ -1,8 +1,9 @@
+/* CSD 460 Capstone in Software Development
+    Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
+    03/13/2023 - 05/14/2023 */
+
 class Reservation {
     constructor(location, guestCount, room, checkInDate, checkOutDate, wifi = false, breakfast = false, parking = false, points_earned = 0, total_amenity_price = 0, total_price = 0) {
-
-
-
         this.reservationID = 0;// doing this for now, will be set by the server
         this.customer_id = 0; // set the customer ID to 0 for now
         this.location = location;
