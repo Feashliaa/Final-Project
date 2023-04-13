@@ -44,6 +44,23 @@ function showNotification() {
     }
 }
 
+
+
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+
+    if (showPasswordCheckbox.checked) {
+        passwordInput.type = "text";
+        passwordInput.classList.add("text");
+
+    } else {
+        passwordInput.type = "password";
+        passwordInput.classList.remove("text");
+    }
+}
+
+
 function showNotificationWrongPassword() {
     console.log("Showing notification");
     // User entered wrong password, show notification

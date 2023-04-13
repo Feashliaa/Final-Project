@@ -103,7 +103,24 @@ label {
 
     /* center the items */
     left: 60%;
-    top: 50%;
+    top: 40%;
+}
+
+.password-input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
+    color: #000;
+    outline: none;
+    width: 125%;
+    padding: 5px 0;
+    margin-top: 5px;
+}
+
+.password-input.text {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
 }
 
 #firstname,
@@ -141,6 +158,10 @@ span.error {
     input[type="email"],
     input[type="tel"],
     input[type="password"] {
+        width: 200%;
+    }
+
+    .password-input {
         width: 200%;
     }
 

@@ -17,7 +17,7 @@ session_start();
     <link rel="stylesheet" href="../css/login.css" type="text/css">
     <link rel="stylesheet" href="../css/log-reg.css" type="text/css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
-    <script src="../js/login.js" async></script>
+    <script src="../js/login.js" defer></script>
     <script src="../js/checks.js"></script>
 </head>
 
@@ -83,9 +83,13 @@ session_start();
                 </div>
                 <div id="password_input">
                     <label for="password">Password<span>*</span></label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" required class="password-input">
                 </div>
+                <label>
+                    <input type="checkbox" onclick="togglePasswordVisibility()" id="showPasswordCheckbox"> Show Password
+                </label>
             </div>
+
             <button id="signup-login_button" onclick="login(event)">Login</button>
         </form>
         <div id="dont_have_account_container">

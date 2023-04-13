@@ -269,12 +269,39 @@ function checkFields() {
     }
 }
 
+// on window resize, check the width of the window
+window.addEventListener("resize", function () {
+    // if screen is less than equal to 540px
+    if (window.innerWidth <= 540) {
+        // make the input field 80% of the width of the parent element
+        document.getElementById("password").style.width = "80%";
+        document.getElementById("confirm_password").style.width = "80%";
+    }
+    else {
+        // make the input field 100% of the width of the parent element
+        document.getElementById("password").style.width = "100%";
+        document.getElementById("confirm_password").style.width = "100%";
+    }
+});
+
+
 function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");
     var passwordConfirmInput = document.getElementById("confirm_password");
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
         passwordInput.classList.add("text");
+
+        // if screen is less than equal to 540px
+        if (window.innerWidth <= 540) {
+            // make the input field 80% of the width of the parent element
+            passwordInput.style.width = "80%";
+        }
+        else {
+            // make the input field 50% of the width of the parent element
+            passwordInput.style.width = "100%";
+        }
+
     } else {
         passwordInput.type = "password";
         passwordInput.classList.remove("text");
@@ -282,6 +309,15 @@ function togglePasswordVisibility() {
     if (passwordConfirmInput.type === "password") {
         passwordConfirmInput.type = "text";
         passwordConfirmInput.classList.add("text");
+        // if screen is less than equal to 540px
+        if (window.innerWidth <= 540) {
+            // make the input field 80% of the width of the parent element
+            passwordConfirmInput.style.width = "80%";
+        }
+        else {
+            // make the input field 50% of the width of the parent element
+            passwordConfirmInput.style.width = "100%";
+        }
     } else {
         passwordConfirmInput.type = "password";
         passwordConfirmInput.classList.remove("text");
