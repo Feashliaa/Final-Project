@@ -98,26 +98,22 @@ document.addEventListener("DOMContentLoaded", () => {
             // Get the room selection, 
             // It would have been changed to only the room name, and not the room name and price
             // So we need to add the price back to the room name so it will be selected
-            // Double Full Beds -> Double Full Beds - $110/night
-            // Queen -> Queen - $125/night
-            // Double Queen Beds -> Double Queen Beds - $150/night
-            // King -> King - $165/night
             let room = reservation.roomSelected;
             switch (room) {
                 case "Double Full Beds":
-                    room = "Double Full Beds - $110/night";
+                    room = "Double Full Beds - $115.50/night";
                     break;
                 case "Queen":
-                    room = "Queen - $125/night";
+                    room = "Queen - $131.25/night";
                     break;
                 case "Double Queen Beds":
-                    room = "Double Queen Beds - $150/night";
+                    room = "Double Queen Beds - $157.50/night";
                     break;
                 case "King":
-                    room = "King - $165/night";
+                    room = "King - $173.25/night";
                     break;
                 default:
-                    room = "Double Full Beds - $110/night";
+                    room = "Double Full Beds - $115.50/night";
                     break;
             }
             document.getElementById("room").value = room;
@@ -175,13 +171,20 @@ async function setupValidation() {
         const roomSelect = document.getElementById("room").value;
         console.log(roomSelect);
 
-        // store into a variable, the roomSelect string, split by the  ' - '  delimiter
+        // Split the selected value by the ' - ' delimiter
         let selectedRoom = roomSelect.split(" - ");
 
-        // store the first element of the array into a variable
+        // Extract the room name from the first element of the array
         selectedRoom = selectedRoom[0];
 
         console.log(selectedRoom);
+
+        // Check if the selected room is valid
+        const validRooms = ["Double Full Beds", "Queen", "Double Queen Beds", "King"];
+        if (!validRooms.includes(selectedRoom)) {
+            // If the selected room is not valid, set it to the default room (Double Full Beds)
+            selectedRoom = "Double Full Beds";
+        }
 
 
         const checkInDate = document.getElementById("checkin").value;
@@ -195,6 +198,15 @@ async function setupValidation() {
         const parkingCheckbox = document.querySelector('input[name="amenities"][value="parking"]');
         const parking = parkingCheckbox ? parkingCheckbox.checked : false;
 
+        // Create an array of holidays to check against
+        const holidays = ["12-24", "12-25", "07-04"];
+
+        // Check if any of the reservation days are holidays
+        const reservationDays = [];
+        for (let d = new Date(checkInDate); d <= new Date(checkOutDate); d.setDate(d.getDate() + 1)) {
+            reservationDays.push(d.getMonth() + 1 + '-' + d.getDate());
+        }
+        const holidayDays = reservationDays.filter(day => holidays.includes(day));
 
         // Calculate the difference between the check-in and check-out dates
         // If the dates are the same, it will be 1 day
@@ -209,35 +221,43 @@ async function setupValidation() {
             dayDiff = 1;
         }
 
-        // Calculate the total price, based on the number of days and the chosen room
-        // Room Prices: Double Full Beds 110, Queen 125, Double Queen 150, King 160
+        // Calculate the total price, based on the chosen room
 
-        let total_price = 0;
+        let basePrice = 0;
 
         switch (selectedRoom) {
             case "Double Full Beds":
-                total_price = 110 * dayDiff;
+                basePrice = 115.5;
                 break;
             case "Queen":
-                total_price = 125 * dayDiff;
+                basePrice = 131.25;
                 break;
             case "Double Queen Beds":
-                total_price = 150 * dayDiff;
+                basePrice = 157.5;
                 break;
             case "King":
-                total_price = 165 * dayDiff;
+                basePrice = 173.25;
                 break;
             default:
-                total_price = 110 * dayDiff;
+                basePrice = 115.5;
                 break;
         }
 
+        let total_price = basePrice * dayDiff;
 
+        // Calculate the holiday price increase, if there are any holiday days
+        let holidayPrice = 0;
+        if (holidayDays.length > 0) {
+            holidayPrice = total_price * 0.05; // Calculate the holiday price increase
+        }
 
+        total_price += holidayPrice; // Add the holiday price increase to the total price
+
+        // Calculate the price of the amenities if they are selected
+        // Amen
         let total_amenity_price = 0;
         let points_earned = 150 * dayDiff;
 
-        // Calculate the price of the amenities if they are selected
         // Amenities: WI-FI (12.99 flat fee), breakfast (8.99 per night), and parking (19.99 per night).
         if (wifi) {
             total_amenity_price += 12.99;

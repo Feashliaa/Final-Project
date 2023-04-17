@@ -86,10 +86,11 @@ session_start();
             <label for="guest">ROOMS:</label><br>
             <select name="Room" id="room">
                 <option hidden selected></option>
-                <option>Double Full Beds - $110/night</option>
-                <option>Queen - $125/night</option>
-                <option>Double Queen Beds - $150/night</option>
-                <option>King - $165/night</option>
+                <option disabled>Holidays are subject to higher rates</option>
+                <option>Double Full Beds - $115.50/night</option>
+                <option>Queen - $131.25/night</option>
+                <option>Double Queen Beds - $157.50/night</option>
+                <option>King - $173.25/night</option>
             </select>
         </div>
 

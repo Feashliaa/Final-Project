@@ -21,6 +21,59 @@ session_start();
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
     <script src="../js/popup.js"></script>
+    <script>
+        function showHolidayRateDisclaimer() {
+
+            // Get the id that was moused over
+            var id = event.target.id;
+
+            // switch statement to determine which id was moused over
+            // guestbold1,guestbold2, guestbold3, guestbold4
+            // guestbold1 is with holiday-rate-disclaimer1, and so on
+            switch (id) {
+                case "guestbold1":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer1");
+                    break;
+                case "guestbold2":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer2");
+                    break;
+                case "guestbold3":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer3");
+                    break;
+                case "guestbold4":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer4");
+                    break;
+            }
+
+            disclaimer.style.visibility = "visible";
+        }
+
+        function hideHolidayRateDisclaimer() {
+
+            // Get the id that was moused over
+            var id = event.target.id;
+
+            // switch statement to determine which id was moused over
+            // guestbold1,guestbold2, guestbold3, guestbold4
+            // guestbold1 is with holiday-rate-disclaimer1, and so on
+            switch (id) {
+                case "guestbold1":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer1");
+                    break;
+                case "guestbold2":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer2");
+                    break;
+                case "guestbold3":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer3");
+                    break;
+                case "guestbold4":
+                    var disclaimer = document.getElementById("holiday-rate-disclaimer4");
+                    break;
+            }
+
+            disclaimer.style.visibility = "hidden";
+        }
+    </script>
 </head>
 
 <body>
@@ -94,12 +147,21 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">$110/night</span></li>
+                        <li>
+                            <span id="guestbold1" onmouseover="showHolidayRateDisclaimer()" onmouseout="hideHolidayRateDisclaimer()" style="cursor: pointer;">
+                                $115.50/night*
+                            </span>
+                            <br>
+                            <span id="holiday-rate-disclaimer1" style="font-size: 10px; visibility: hidden;">
+                                Holidays subject to increased rates
+                            </span>
+                        </li>
                     </td>
                 </tr>
             </table>
         </figcaption>
     </figure>
+
 
 
 
@@ -129,7 +191,15 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">$125/night</span></li>
+                        <li>
+                            <span id="guestbold2" onmouseover="showHolidayRateDisclaimer()" onmouseout="hideHolidayRateDisclaimer()" style="cursor: pointer;">
+                                $131.25/night*
+                            </span>
+                            <br>
+                            <span id="holiday-rate-disclaimer2" style="font-size: 10px; visibility: hidden;">
+                                Holidays subject to increased rates
+                            </span>
+                        </li>
                     </td>
                 </tr>
             </table>
@@ -164,7 +234,15 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">$150/night</span></li>
+                        <li>
+                            <span id="guestbold3" onmouseover="showHolidayRateDisclaimer()" onmouseout="hideHolidayRateDisclaimer()" style="cursor: pointer;">
+                                $157.50/night*
+                            </span>
+                            <br>
+                            <span id="holiday-rate-disclaimer3" style="font-size: 10px; visibility: hidden;">
+                                Holidays subject to increased rates
+                            </span>
+                        </li>
                     </td>
                 </tr>
             </table>
@@ -199,7 +277,15 @@ session_start();
                     <td>
                         <li>Non-Smoking</li><br>
                         <li style="visibility: hidden;"></li><br>
-                        <li><span id="guestbold">$165/night</span></li>
+                        <li>
+                            <span id="guestbold4" onmouseover="showHolidayRateDisclaimer()" onmouseout="hideHolidayRateDisclaimer()" style="cursor: pointer;">
+                                $173.25/night*
+                            </span>
+                            <br>
+                            <span id="holiday-rate-disclaimer4" style="font-size: 10px; visibility: hidden;">
+                                Holidays subject to increased rates
+                            </span>
+                        </li>
                     </td>
                 </tr>
             </table>
