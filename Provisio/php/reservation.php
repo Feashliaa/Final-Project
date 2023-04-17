@@ -95,17 +95,18 @@ session_start();
 
         <div id="res-center">
             <label for="checkin">CHECK IN DATE</label><br>
-            <input type="date" id="checkin" name="checkin" type="datetime-local"><br>
+            <input type="date" id="checkin" name="checkin"><br>
 
             <label for="checkout">CHECK OUT DATE</label><br>
-            <input type="date" id="checkout" name="checkout" type="datetime-local"><br>
+            <input type="date" id="checkout" name="checkout"><br>
 
             <div id="rescheck">
                 <label for="amenities">Choose your Amenities:</label><br>
-                <input type="checkbox" name="amenities" value="wifi"> WI-FI ($12.99)</input><br>
-                <input type="checkbox" name="amenities" value="breakfast"> Breakfast ($8.99/night)</input><br>
-                <input type="checkbox" name="amenities" value="parking"> Parking ($19.99/night)</input><br>
+                <input type="checkbox" name="amenities" id="wifi" value="wifi"> WI-FI ($12.99)</input><br>
+                <input type="checkbox" name="amenities" id="breakfast" value="breakfast"> Breakfast ($8.99/night)</input><br>
+                <input type="checkbox" name="amenities" id="parking" value="parking"> Parking ($19.99/night)</input><br>
             </div>
+
 
             <br>
             <br>

@@ -43,12 +43,11 @@ function showNotification() {
         setTimeout(function () {
             notification.classList.remove("show"); // remove the show class
         }, 3000);
+
         // Remove the loggedIn item from local storage
         localStorage.removeItem("loggedIn");
     }
 }
-
-
 
 function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");

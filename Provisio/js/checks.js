@@ -14,6 +14,10 @@ function checkLogin() {
             if (xhr.status === 200) {
                 console.log("Logout successful");
                 loginBtn.innerHTML = "Login";
+
+                // delete the reservation data from the local storage
+                localStorage.removeItem("reservation");
+
                 window.location.href = baseUrl + "/index.php";
             } else {
                 console.log("Logout failed");
@@ -23,6 +27,9 @@ function checkLogin() {
     }
 }
 async function setupDateValidation() {
+
+    // check if there is reservation data in local storage
+    const reservation = JSON.parse(localStorage.getItem("reservation"));
 
     // get the checkin and checkout input elements
     const checkinInput = await getElementByIdAsync("checkin");
@@ -52,7 +59,17 @@ async function setupDateValidation() {
             checkoutInput.value = checkinInput.value;
         }
     });
+
+    // validate the checkout date
+    checkoutInput.addEventListener("input", () => {
+        if (checkoutInput.value < checkinInput.value) {
+            checkoutInput.setCustomValidity("Checkout date must be after checkin date.");
+        } else {
+            checkoutInput.setCustomValidity("");
+        }
+    });
 }
+
 
 function getElementByIdAsync(id) {
     return new Promise((resolve) => {
@@ -68,6 +85,53 @@ function getElementByIdAsync(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // check if the page is reservation.php
+    if (window.location.pathname.includes("reservation.php")) {
+        // Check if there is reservation data in local storage
+        const reservation = JSON.parse(localStorage.getItem("reservation"));
+        if (reservation !== null) {
+            // Reservation data exists, fill in the form fields
+            document.getElementById("location").value = reservation.location;
+            document.getElementById("guest").value = reservation.guestCount;
+
+            // Get the room selection, 
+            // It would have been changed to only the room name, and not the room name and price
+            // So we need to add the price back to the room name so it will be selected
+            // Double Full Beds -> Double Full Beds - $110/night
+            // Queen -> Queen - $125/night
+            // Double Queen Beds -> Double Queen Beds - $150/night
+            // King -> King - $165/night
+            let room = reservation.roomSelected;
+            switch (room) {
+                case "Double Full Beds":
+                    room = "Double Full Beds - $110/night";
+                    break;
+                case "Queen":
+                    room = "Queen - $125/night";
+                    break;
+                case "Double Queen Beds":
+                    room = "Double Queen Beds - $150/night";
+                    break;
+                case "King":
+                    room = "King - $165/night";
+                    break;
+                default:
+                    room = "Double Full Beds - $110/night";
+                    break;
+            }
+            document.getElementById("room").value = room;
+
+            document.getElementById("checkin").value = reservation.checkInDate;
+
+            document.getElementById("checkout").value = reservation.checkOutDate;
+
+            // Set the checkbox based on the value of the amenity
+            document.getElementById("wifi").checked = reservation.amenities.wifi;
+            document.getElementById("breakfast").checked = reservation.amenities.breakfast;
+            document.getElementById("parking").checked = reservation.amenities.parking;
+        }
+    }
     setupDateValidation();
     setupValidation();
 });

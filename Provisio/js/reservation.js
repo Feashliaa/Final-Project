@@ -301,11 +301,6 @@ function enableButtons(checkReservation) {
 
         //window.location.reload();
 
-    } else if (loginBtnText == "LOGIN") {
-
-        console.log("User is not logged in");
-
-        confirmBtn.disabled = true;
     }
 
     cancelBtn.addEventListener("click", () => {
@@ -314,6 +309,19 @@ function enableButtons(checkReservation) {
     });
 
     confirmBtn.addEventListener("click", () => {
+
+        // check if the user is logged in
+        if (loginBtnText == "LOGIN") {
+            // assume that the text of the confirm button is actually "Must be Logged In to Reserve"
+
+            // save the reservation data to local storage
+            localStorage.setItem("reservation", JSON.stringify(reservation));
+
+            // redirect to the login page
+            window.location.href = "login.php";
+        }
+
+
         let customer_id = 0;
         console.log("Confirm button clicked");
         var xhr = new XMLHttpRequest();

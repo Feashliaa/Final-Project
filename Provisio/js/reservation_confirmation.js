@@ -44,9 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (loginBtn.innerText == "LOGIN") {
             // change the confirm-reservation button to "Must be Logged In to Reserve"
             const confirmReservationBtn = document.getElementById("confirm-reservation");
-            confirmReservationBtn.innerText = "Must be Logged In to Reserve";
-            confirmReservationBtn.disabled = true;
+            confirmReservationBtn.innerText = "Must be Logged In to Reserve Room";
             confirmReservationBtn.style.backgroundColor = "red";
+            confirmReservationBtn.style.color = "white";
+            // Get rid of the hover border
+            confirmReservationBtn.style.border = "none";
+
+            confirmReservationBtn.addEventListener("mouseenter", function () { // add event listener for hover
+                this.style.backgroundColor = "#FF5733"; // change background color on hover
+            });
+            confirmReservationBtn.addEventListener("mouseleave", function () { // add event listener for hover
+                this.style.backgroundColor = "red"; // change background color back on mouse leave
+            });
         }
     }
 });
