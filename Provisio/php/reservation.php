@@ -123,7 +123,7 @@ session_start();
         <div>
             <hr>
             <div id="reservation_lookup">
-                <label for="id">RESERVATION ID:</label>
+                <label for="id">RESERVATION ID: Must be Logged in to Check Reservation</label>
                 <input type="text" id="id" name="id" value="">
                 <button class="submit-btn" id="look-up-btn">Look Up</button>
             </div>

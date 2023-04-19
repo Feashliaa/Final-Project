@@ -2,15 +2,22 @@
 Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
 03/13/2023 - 05/14/2023 */
 
-body,
 html {
-  height: 100%;
+  height: auto;
   min-width: 300px;
   position: relative;
+  background-image: linear-gradient(to bottom,
+      white 0%,
+      #b2f6f6 20%,
+      #84e6e6 40%,
+      #b2f6f6 80%,
+      white 100%);
+
+  /* set font to roboto */
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  /* set max width and center content */
   max-width: 1300px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -18,6 +25,7 @@ body {
   padding: 0;
   background-color: white;
 }
+
 
 :root {
   --notification-background-color: rgb(0, 200, 83);
@@ -49,7 +57,7 @@ body {
 header {
   background-color: teal;
   /* Set a specific height */
-  height: 10%;
+  height: 10vh;
   width: 100%;
   text-align: center;
   position: sticky;
@@ -140,6 +148,9 @@ header {
   text-decoration: none;
   width: auto;
   text-align: center;
+
+  /* round the element's corners */
+  border-radius: 20px;
 }
 
 @media only screen and (max-width: 974px) {
@@ -178,6 +189,9 @@ header {
   letter-spacing: 0;
   padding: 8px 25px;
   text-transform: uppercase;
+
+  /* round the element's corners */
+  border-radius: 20px;
 }
 
 .book-now-btn:hover {
@@ -194,6 +208,9 @@ header {
   letter-spacing: 0;
   padding: 8px 25px;
   text-transform: uppercase;
+
+  /* round the element's corners */
+  border-radius: 20px;
 }
 
 .login-btn:hover {
@@ -210,6 +227,9 @@ header {
   letter-spacing: 0;
   padding: 8px 10px;
   text-transform: uppercase;
+
+  /* round the element's corners */
+  border-radius: 10px;
 }
 
 .rewards-btn:hover {
@@ -241,7 +261,7 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url("../images/backdrop.jpg");
 
   /* Set a specific height */
-  height: 5%;
+  height: 5vh;
   width: 100%;
 
   /* Position and center the image to scale nicely on all screens */
@@ -455,6 +475,7 @@ img.align-left {
   overflow: hidden;
 }
 
+
 .location-container img {
   max-width: 100%;
   height: 130px;
@@ -483,12 +504,23 @@ img.align-left {
   }
 
   .location-desc {
-    height: 350px;
+    height: 450px;
   }
 
-  .location-container h2,
-  .location-container p {
+  .location-desc {
     font-size: 1rem;
+  }
+
+
+  .location-container h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .location-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row-gap: 10px;
   }
 }
 
@@ -611,7 +643,9 @@ li span {
   width: 200px;
   height: 100px;
   border: solid 1px teal;
+  resize: none;
 }
+
 
 .email_text {
   color: teal;
@@ -1115,6 +1149,7 @@ li span {
 }
 
 /* footer styles */
+
 footer {
   background: teal;
   color: #ddd;
@@ -1133,8 +1168,8 @@ footer {
   margin-top: 20px;
 
   bottom: 0;
+  position: relative;
 }
-
 
 
 .no-bullets {

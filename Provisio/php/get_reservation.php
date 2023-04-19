@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode($json);
 
     // $data is now a PHP object containing the reservation id
-
     $id = $data->reservationID;
 
     // Connect to the MySQL database (replace the database credentials with your own)

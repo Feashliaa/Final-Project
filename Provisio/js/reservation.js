@@ -25,8 +25,15 @@ class Reservation {
 const reservation = JSON.parse(localStorage.getItem("reservation"));
 
 document.addEventListener("DOMContentLoaded", () => {
-    // enable lookup button
-    enableLookupButton();
+
+    // console log the login button text
+    console.log(document.getElementById("login-btn").innerHTML);
+    console.log(document.getElementById("login-btn").innerHTML.toUpperCase() == "LOGOUT");
+    // Check if the user is logged in
+    if (document.getElementById("login-btn").innerHTML.toUpperCase() == "LOGOUT") {
+        // enable the lookup button
+        enableLookupButton();
+    }
 });
 
 
@@ -76,6 +83,7 @@ function addDataToTextArea() {
 }
 
 function enableLookupButton() {
+
     // check if the page has the lookup button
     const lookupBtn = document.getElementById("look-up-btn");
 
@@ -86,14 +94,33 @@ function enableLookupButton() {
     if (reservationIDInput) {
         reservationIDInput.addEventListener("input", () => {
             console.log("Input detected");
-            // if so, get the value of the input field
-            const reservationID = reservationIDInput.value;
 
+            // check if the input field is empty
+            if (reservationIDInput.value == "") {
+                // disable the lookup button
+                lookupBtn.disabled = true;
+            }
+            else {
+                // enable the lookup button
+                lookupBtn.disabled = false;
+            }
+        });
+        // if the lookup button is enabled
+        if (!lookupBtn.disabled) {
             lookupBtn.addEventListener("click", () => {
+
+                console.log("Lookup button clicked");
+
+                // if so, get the value of the input field
+                let reservationID = document.getElementById("id");
+
+                reservationID = reservationID.value;
+
                 // send request to the server to get the reservation data
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "get_reservation.php");
                 xhr.setRequestHeader("Content-Type", "application/json");
+                console.log(reservationID)
                 xhr.send(JSON.stringify({ reservationID: reservationID }));
                 console.log("Sent request to get_reservation.php");
                 xhr.onload = function () {
@@ -109,23 +136,22 @@ function enableLookupButton() {
                                 console.log(response.message);
                                 // alert the error
                                 alert(response.message);
-                                // send you to index.php
-                                //window.location.href = "index.php";
+                                // send the user back to the reservation page
+                                window.location.href = "reservation.php";
                             }
                         } catch (e) {
                             console.log("Error: " + e.message);
                             // alert the error
                             alert("Error: " + e.message);
-                            // send you to index.php
-                            //window.location.href = "index.php";
+                            // send the user back to the reservation page
+                            window.location.href = "reservation.php";
                         }
                     }
                 }
             });
-        });
+        }
     }
 }
-
 
 // Print the reservation data to the console
 function printReservation(response_object) {
