@@ -100,7 +100,6 @@ session_start();
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>
         &copy; 2023 Provisio Booking | Website by Bravo Team
     </footer>
-    </div><!--end content-->
 </body>
 
 </html>

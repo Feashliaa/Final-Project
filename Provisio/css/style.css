@@ -132,6 +132,7 @@ header {
   font-size: 2rem;
   padding-top: 10px;
   justify-content: end;
+  padding: 5px 10px;
 }
 
 .nav .login-btn {
@@ -152,6 +153,9 @@ header {
 
   /* round the element's corners */
   border-radius: 20px;
+
+  /*   give an outer shadow effect*/
+  box-shadow: 0 0 10px teal;
 }
 
 @media only screen and (max-width: 974px) {
@@ -555,6 +559,10 @@ figure img {
   max-height: 225px;
 }
 
+figure img:hover {
+  cursor: pointer;
+}
+
 #full,
 #queen,
 #dblqueen,
@@ -594,7 +602,7 @@ li span {
   border: solid 3px teal;
 
   /* Set a specific height */
-  height: 40%;
+  height: 40vh;
 
   /* Position and center the image to scale nicely on all screens */
   background-position: center;
