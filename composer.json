@@ -1,0 +1,17 @@
+{
+    "name": "rwdor/provisio",
+    "autoload": {
+        "psr-4": {
+            "Rwdor\\Provisio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Riley Dorrington",
+            "email": "63278050+Feashliaa@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}

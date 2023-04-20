@@ -74,7 +74,7 @@ session_start();
             easy while providing high-end security features to protect customer data. <br><br>
 
             <div class="contact-grid">
-                <form class="contact">
+                <form class="contact" id="contact-form">
                     <p class="contact-p"><span>Thank you for your interest in Provisio!<br>
                             Have comments or questions for us?</span><br>
                         Use the form below <br> Or email us at <a class="email_text" href="mailto:provisiobravo@gmail.com">provisiobravo@gmail.com</a> and we will be in touch!</p>
@@ -84,7 +84,7 @@ session_start();
                     <input type="text" id="email" name="email" value=""><br>
                     <label for="message" style="font-weight: bold; color:teal;">Message:</label><br>
                     <textarea id="message" name="message" maxlength="1000"></textarea> <br><br>
-                    <button class="submit_btn_contact_form" onclick="sendEmail()">Send Email</button>
+                    <button class="submit_btn_contact_form" type="submit">Send Email</button>
                 </form>
                 <div class="contact">
                     <h2>Reservations</h2>
