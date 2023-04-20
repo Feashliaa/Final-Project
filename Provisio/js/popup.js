@@ -66,3 +66,55 @@ function closeImage() {
     // Reset the src attribute to an empty string
     img.src = '';
 }
+
+function showHolidayRateDisclaimer() {
+
+    // Get the id that was moused over
+    var id = event.target.id;
+
+    // switch statement to determine which id was moused over
+    // guestbold1,guestbold2, guestbold3, guestbold4
+    // guestbold1 is with holiday-rate-disclaimer1, and so on
+    switch (id) {
+        case "guestbold1":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer1");
+            break;
+        case "guestbold2":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer2");
+            break;
+        case "guestbold3":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer3");
+            break;
+        case "guestbold4":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer4");
+            break;
+    }
+
+    disclaimer.style.visibility = "visible";
+}
+
+function hideHolidayRateDisclaimer() {
+
+    // Get the id that was moused over
+    var id = event.target.id;
+
+    // switch statement to determine which id was moused over
+    // guestbold1,guestbold2, guestbold3, guestbold4
+    // guestbold1 is with holiday-rate-disclaimer1, and so on
+    switch (id) {
+        case "guestbold1":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer1");
+            break;
+        case "guestbold2":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer2");
+            break;
+        case "guestbold3":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer3");
+            break;
+        case "guestbold4":
+            var disclaimer = document.getElementById("holiday-rate-disclaimer4");
+            break;
+    }
+
+    disclaimer.style.visibility = "hidden";
+}

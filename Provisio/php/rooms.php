@@ -21,59 +21,6 @@ session_start();
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
     <script src="../js/checks.js"></script>
     <script src="../js/popup.js"></script>
-    <script>
-        function showHolidayRateDisclaimer() {
-
-            // Get the id that was moused over
-            var id = event.target.id;
-
-            // switch statement to determine which id was moused over
-            // guestbold1,guestbold2, guestbold3, guestbold4
-            // guestbold1 is with holiday-rate-disclaimer1, and so on
-            switch (id) {
-                case "guestbold1":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer1");
-                    break;
-                case "guestbold2":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer2");
-                    break;
-                case "guestbold3":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer3");
-                    break;
-                case "guestbold4":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer4");
-                    break;
-            }
-
-            disclaimer.style.visibility = "visible";
-        }
-
-        function hideHolidayRateDisclaimer() {
-
-            // Get the id that was moused over
-            var id = event.target.id;
-
-            // switch statement to determine which id was moused over
-            // guestbold1,guestbold2, guestbold3, guestbold4
-            // guestbold1 is with holiday-rate-disclaimer1, and so on
-            switch (id) {
-                case "guestbold1":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer1");
-                    break;
-                case "guestbold2":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer2");
-                    break;
-                case "guestbold3":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer3");
-                    break;
-                case "guestbold4":
-                    var disclaimer = document.getElementById("holiday-rate-disclaimer4");
-                    break;
-            }
-
-            disclaimer.style.visibility = "hidden";
-        }
-    </script>
 </head>
 
 <body>
@@ -119,7 +66,7 @@ session_start();
     </div>
 
     <!-- Add an overlay that covers the entire page -->
-    <div class="overlay"></div>
+    <div class="overlay" onclick="closeImage()"></div>
 
     <figure class="gallery">
         <img src="../images/double.jpeg" id="full" alt="dbl full beds" onclick="onClick(this)" />

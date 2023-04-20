@@ -83,7 +83,7 @@ session_start();
                     <label for="email" style="font-weight: bold; color:teal;">E-Mail:</label><br>
                     <input type="text" id="email" name="email" value=""><br>
                     <label for="message" style="font-weight: bold; color:teal;">Message:</label><br>
-                    <textarea id="message" name="message" maxlength="255"></textarea> <br><br>
+                    <textarea id="message" name="message" maxlength="1000"></textarea> <br><br>
                     <button class="submit_btn_contact_form" onclick="sendEmail()">Send Email</button>
                 </form>
                 <div class="contact">

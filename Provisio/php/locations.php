@@ -91,8 +91,8 @@ session_start();
             <div class="location-desc">
                 <img src="../images/westpalmbeach.jpg">
                 <p class="twn-desc"><b>So much beach, so little time!</b></p>
-                <h2>West Palm Beach, FL</h2>
-                <p style="padding-top: 10px;">
+                <h2 style="padding-top: 17px;">West Palm Beach, FL</h2>
+                <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
                     Secure Parking<br>
@@ -109,8 +109,8 @@ session_start();
             <div class="location-desc">
                 <img src="../images/mobile.jpg">
                 <p class="twn-desc"><b>This port city has so much to offer!</b></p>
-                <h2>Mobile, AL</h2>
-                <p style="padding-top: 10px;">
+                <h2 style="padding-top: 17px;">Mobile, AL</h2>
+                <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
                     Secure Parking<br>
@@ -123,8 +123,6 @@ session_start();
             </div>
         </div>
     </div>
-
-
 
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>

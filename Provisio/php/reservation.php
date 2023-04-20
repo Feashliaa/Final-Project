@@ -108,11 +108,8 @@ session_start();
                 <input type="checkbox" name="amenities" id="parking" value="parking"> Parking ($19.99/night)</input><br>
             </div>
 
-
             <br>
             <br>
-
-
 
         </div>
 
