@@ -41,6 +41,44 @@ session_start();
         <a href="amenities.php">Amenities</a>
         <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+
+        <button class="open-button" onmouseover="openForm()"><i class="fa-solid fa-circle-user fa-2xl" aria-hidden="true">
+            <?php if(isset($_SESSION['email'])) { ?>
+                <p class="welcome">Hello<?php echo "&nbsp&nbsp" . $_SESSION['firstname'] . "&nbsp!"?></p></i>
+            <?php } ?>
+            
+            <?php if(!isset($_SESSION['email'])) { ?>
+                <p class="welcome" style="color:red">Login</p></i>
+            <?php }?>
+            <?php if (isset($_GET['error'])) { ?>
+                <p class="error"><?php echo $_GET['error']; ?></p>
+            <?php } ?>
+        </button>
+            
+        <div class="form-popup" id="myForm"   onmouseleave="closeForm()" >
+        <?php if(!isset($_SESSION['email'])) { ?>            
+            <form class="form-container" action="login.php" method="POST">
+                <label for="email"><b>Email<span>*</span></b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                <label for="password"><b>Password<span>*</span></b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                
+                <button type="submit" class="btn" id="login-btn">Login</button>
+            </form>
+            <div class="form-container">
+                <p><b>Don't have an account?</b></p>
+                <p>Create one today to make a reservation and earning rewards!</p>
+                <button type="button" class="btn" onclick="window.location.href='register.php';">Create Account</button>
+            </div> 
+        <?php } else { ?>
+            <form class="form-container" action="logout.php">            
+                <p style="text-align:center">Thank you for visiting!<br>Please logout to end session</p>                            
+                <button class="btn logout" id="logout-btn">Logout</button>
+            </form>
+        <?php } ?>                   
+        </div>
+
     </nav>
     <div class="nav2">
         <p style="font-size:1.5rem;">

@@ -139,6 +139,123 @@ header {
   grid-column: 4 / 5;
 }
 
+/*******************
+DROP DOWN LOG IN
+******************/
+/* button to open login form on nav */
+.open-button {
+  color: teal;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  float: right;
+  margin-right: 25px;
+}
+
+.open-button .welcome{
+  font-size: 15px;
+  color: teal;
+  border: solid 1px teal;
+  border-radius: 5px;  
+  padding: 10px 5px;  
+}
+
+.error {
+  color: red;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 110px;
+  right: 220px;
+  border: 3px solid teal;
+  z-index: 9;
+}
+  
+/* Add styles to the form container */
+.form-container {
+  width: 300px;
+  padding: 5px;
+  background-color: white;
+}
+
+.form-container h3 {
+  text-align: left;
+  background-color: teal;
+  color: white;
+  padding: 10px;
+}
+
+/* style form 'X' button*/
+.close-button {
+  border: none;
+  background-color: red;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 152px;
+  right: 240px;
+  width: 40px;
+  height: 40px;
+}
+
+.form-container label{
+  font-size: 12px;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+  border: solid 1px grey;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* for the submit/login button */
+.form-container .btn {
+  background-color: teal;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .logout {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover, .close-button:hover {
+  opacity: 1;
+}
+
+.form-container p {
+  font-size: 18px;
+}
+
+
 .nav .book-now-btn {
   grid-column: 5 / -1;
 }

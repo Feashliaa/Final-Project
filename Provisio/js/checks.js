@@ -308,3 +308,11 @@ function getElementByIdAsync(id) {
         }
     });
 }
+// function to open and close login form
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
