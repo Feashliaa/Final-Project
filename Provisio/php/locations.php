@@ -63,10 +63,10 @@ session_start();
                     Secure Parking<br>
                     Continental Breakfast<br><br>
                     <strong>Attractions:</strong><br>
-                    <a href="https://tiogadowns.com/site.xml/" class="link">Tioga Downs Casino Resort</a><br>
-                    <a href="https://www.milb.com/binghamton" class="link">Binghamton Rumble Ponies</a><br>
-                    <a href="https://www.gobroomecounty.com/community/carousels" class="link">Broome County Carousels</a><br>
-                    <a href="https://rossparkzoo.org/" class="link">Ross Park Zoo</a>
+                    <a href="https://tiogadowns.com/site.xml/" class="link" target="_blank">Tioga Downs Casino Resort</a><br>
+                    <a href="https://www.milb.com/binghamton" class="link" target="_blank">Binghamton Rumble Ponies</a><br>
+                    <a href="https://www.gobroomecounty.com/community/carousels" class="link" target="_blank">Broome County Carousels</a><br>
+                    <a href="https://rossparkzoo.org/" class="link" target="_blank">Ross Park Zoo</a>
                 </p>
             </div>
         </div>
@@ -81,9 +81,9 @@ session_start();
                     Secure Parking<br>
                     Continental Breakfast<br><br>
                     <strong>Attractions:</strong><br>
-                    <a href="https://springfieldmuseums.org/about/dr-seuss-sculpture-garden/" class="link">Dr. Seuss National Memorial Sculpture Garden</a><br>
-                    <a href="https://www.hoophall.com/" class="link">Naismith Memorial Basketball Hall of Fame</a><br>
-                    <a href="https://indianofspringfield.com/" class="link">Indian Motorcycles</a><br>
+                    <a href="https://springfieldmuseums.org/about/dr-seuss-sculpture-garden/" class="link" target="_blank">Dr. Seuss National Memorial Sculpture Garden</a><br>
+                    <a href="https://www.hoophall.com/" class="link" target="_blank">Naismith Memorial Basketball Hall of Fame</a><br>
+                    <a href="https://indianofspringfield.com/" class="link" target="_blank">Indian Motorcycles</a><br>
                 </p>
             </div>
         </div>
@@ -98,9 +98,9 @@ session_start();
                     Secure Parking<br>
                     Continental Breakfast<br><br>
                     <strong>Attractions:</strong><br>
-                    <a href="https://www.norton.org/" class="link">The Norton Museum of Art</a><br>
-                    <a href="https://www.rapidswaterpark.com/" class="link">The Rapids Waterpark</a><br>
-                    <a href="https://www.lioncountrysafari.com/" class="link">Lion Country Safari</a>
+                    <a href="https://www.norton.org/" class="link" target="_blank">The Norton Museum of Art</a><br>
+                    <a href="https://www.rapidswaterpark.com/" class="link" target="_blank">The Rapids Waterpark</a><br>
+                    <a href="https://www.lioncountrysafari.com/" class="link" target="_blank">Lion Country Safari</a>
 
                 </p>
             </div>
@@ -116,9 +116,9 @@ session_start();
                     Secure Parking<br>
                     Continental Breakfast<br><br>
                     <strong>Attractions:</strong><br>
-                    <a href="https://www.mobile.org/listing/mobile-carnival-museum/394/" class="link">Birthplace of Mardi Gras -- Carnival Muesum</a><br>
-                    <a href="https://www.ussalabama.com/" class="link">USS Alabama Battleship Memorial Park</a><br>
-                    <a href="https://www.mobilemuseumofart.com/" class="link">Mobile Museum of Art</a><br>
+                    <a href="https://www.mobile.org/listing/mobile-carnival-museum/394/" class="link" target="_blank">Birthplace of Mardi Gras -- Carnival Muesum</a><br>
+                    <a href="https://www.ussalabama.com/" class="link" target="_blank">USS Alabama Battleship Memorial Park</a><br>
+                    <a href="https://www.mobilemuseumofart.com/" class="link" target="_blank">Mobile Museum of Art</a><br>
                 </p>
             </div>
         </div>

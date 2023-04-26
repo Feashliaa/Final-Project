@@ -5,33 +5,35 @@ Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morale
 
 // Start the session
 session_start();
+
+// Check if user is logged in
 if (!isset($_SESSION['email'])) {
-    // user is not logged in, redirect to page that they were previously on
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-    $_SESSION['message'] = "You must be logged in to view this page.";
-    exit();
+    // nothing to do here
+    $user_logged_in = false;
+} else {
+    $user_logged_in = true;
+    // if user gets deleted from database, redirect to registration page
+    $email = $_SESSION['email'];
+    $mysqli = new mysqli('localhost', 'root', 'root', 'probrav');
+    $result = $mysqli->query("SELECT * FROM customers WHERE email = '$email'");
+    if ($result->num_rows == 0) {
+        // user does not exist, redirect to registration page
+        session_destroy();
+        header("Location: registration.php");
+        exit();
+    }
+
+    // Get customer id from email
+    $customer_id_query = "SELECT customer_id FROM customers WHERE email = '$email'";
+    $customer_id_result = $mysqli->query($customer_id_query);
+    $customer_id_row = $customer_id_result->fetch_assoc();
+    $customer_id = $customer_id_row['customer_id'];
+
+    // Query the database for rewards data
+    $rewards_query = "SELECT * FROM reservations WHERE customer_id = '$customer_id'";
+    $rewards_result = $mysqli->query($rewards_query);
 }
 
-// if user gets deleted from database, redirect to registration page
-$email = $_SESSION['email'];
-$mysqli = new mysqli('localhost', 'root', 'root', 'probrav');
-$result = $mysqli->query("SELECT * FROM customers WHERE email = '$email'");
-if ($result->num_rows == 0) {
-    // user does not exist, redirect to registration page
-    session_destroy();
-    header("Location: registration.php");
-    exit();
-}
-
-// Get customer id from email
-$customer_id_query = "SELECT customer_id FROM customers WHERE email = '$email'";
-$customer_id_result = $mysqli->query($customer_id_query);
-$customer_id_row = $customer_id_result->fetch_assoc();
-$customer_id = $customer_id_row['customer_id'];
-
-// Query the database for rewards data
-$rewards_query = "SELECT * FROM reservations WHERE customer_id = '$customer_id'";
-$rewards_result = $mysqli->query($rewards_query);
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +81,11 @@ $rewards_result = $mysqli->query($rewards_query);
         <?php
         // Loop through rewards data and generate table rows dynamically
         $total_points = 0;
-        if ($rewards_result->num_rows > 0) { // if there is rewards data
+        if (!$user_logged_in) {
+
+            echo "<div class='center'>No Data - User Not Logged In</div>";
+
+        } else {
             $is_mobile = false;
             if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile/i', $_SERVER['HTTP_USER_AGENT'])) {
                 // if user agent contains "mobile", assume it's a mobile device
@@ -187,11 +193,7 @@ $rewards_result = $mysqli->query($rewards_query);
                 echo "</tr>";
                 echo "</table>";
             }
-        } else {
-            // No rewards data available
-            echo "<div style='text-align: center;'><p>No Rewards Data Available.</p></div>";
         }
-
         ?>
 
     </div>

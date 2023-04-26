@@ -126,6 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("wifi").checked = reservation.amenities.wifi;
             document.getElementById("breakfast").checked = reservation.amenities.breakfast;
             document.getElementById("parking").checked = reservation.amenities.parking;
+
+            // Enable the submit-btn
+            document.getElementById("submit-btn").disabled = false;
         }
     }
     setupDateValidation();
