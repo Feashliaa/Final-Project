@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="../css/styles2.css">
     <link rel="icon" type="image/png" href="../favicons/letter_p.png" />
+    <script src="https://kit.fontawesome.com/6bf5e18f11.js" crossorigin="anonymous"></script>
     <script src="../js/popup.js"></script>
     <script src="../js/checks.js"></script>
     <script src="../js/login.js"></script>
