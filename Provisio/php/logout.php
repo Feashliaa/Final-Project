@@ -5,4 +5,5 @@ Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morale
 
 session_start();
 session_destroy();
-echo "Logout successful";
+
+header("Location: index.php");

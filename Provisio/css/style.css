@@ -121,29 +121,55 @@ header {
     1px 1px 0 #000;
 }
 
+/* start of nav styles */
 .nav {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
   background-color: white;
   font-size: 2rem;
-  padding-top: 10px;
-  justify-content: end;
   padding: 5px 10px;
+  justify-content: flex-end;
 }
 
-.nav .login-btn {
-  grid-column: 4 / 5;
+.login-container {
+  position: relative;
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: teal;
+  border-radius: 20px;
+  box-shadow: 0 0 10px teal;
+  order: 5;
+  transition: all 0.5s ease;
 }
 
+.login-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: inherit;
+}
+
+.nav a,
 .nav .book-now-btn {
-  grid-column: 5 / -1;
-}
-
-.nav a {
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
   display: inline-block;
   color: teal;
   padding: 15px 0;
@@ -154,38 +180,11 @@ header {
   /* round the element's corners */
   border-radius: 20px;
 
-  /*   give an outer shadow effect*/
+  /* give an outer shadow effect */
   box-shadow: 0 0 10px teal;
 }
 
-@media only screen and (max-width: 974px) {
-
-  /* adjust the grid columns for smaller screens */
-  .nav {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .nav .login-btn {
-    grid-column: 2 / 3;
-  }
-
-  .nav .book-now-btn {
-    grid-column: 3 / -1;
-  }
-
-  /* reduce the font size for smaller screens */
-  .nav a {
-    font-size: 1.5rem;
-  }
-}
-
-
-.nav a:hover {
-  background-color: teal;
-  color: white;
-}
-
-.book-now-btn {
+.nav .book-now-btn {
   background: teal;
   border: medium none;
   color: #fff;
@@ -199,13 +198,223 @@ header {
   border-radius: 20px;
 }
 
-.book-now-btn:hover {
+.nav .book-now-btn:hover {
   background: #162541;
   cursor: pointer;
 }
 
+.nav .book-now-btn {
+  color: white;
+}
+
+.nav .book-now-btn {
+  order: 4;
+}
+
+@media only screen and (max-width: 974px) {
+
+  .nav a,
+  .nav .book-now-btn {
+    flex: 1 1 calc(33.333% - 10px);
+    margin: 5px;
+    display: inline-block;
+    background-color: white;
+    color: teal;
+    padding: 15px 0;
+    text-decoration: none;
+    width: auto;
+    text-align: center;
+
+    /* round the element's corners */
+    border-radius: 20px;
+
+    /* give an outer shadow effect */
+    box-shadow: 0 0 10px teal;
+  }
+
+  .nav .book-now-btn {
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: initial;
+    font-size: 1.5rem;
+
+    text-decoration: none;
+    padding: 15px 0;
+    margin: 5px;
+  }
+
+  .nav .book-now-btn:hover {
+    background-color: teal;
+    color: white;
+  }
+
+  /* reduce the font size for smaller screens */
+  .nav a {
+    font-size: 1.5rem;
+  }
+
+  .login-container {
+    flex-basis: 100%;
+    margin: 5px;
+    display: inline-block;
+    color: teal;
+    padding: 25px 0;
+    text-decoration: none;
+    width: auto;
+    text-align: center;
+
+    /* round the element's corners */
+    border-radius: 20px;
+
+    /* give an outer shadow effect */
+    box-shadow: 0 0 10px teal;
+  }
+}
+
+.nav-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown-form {
+  /* hide the dropdown form by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  box-shadow: 0 0 10px teal;
+  z-index: 2;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+#noAccount {
+  font-size: 1rem;
+
+  /* move to the right */
+  text-align: right;
+
+  /* move to the bottom */
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+#noAccount button[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 10px teal;
+}
+
+#noAccount button[type="button"]:hover {
+  background-color: #162541;
+}
+
+label {
+  font-family: 'calibri';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1rem;
+  color: rgba(72, 72, 72, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+input[type="email"],
+input[type="password"] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
+  color: #000;
+  outline: none;
+  width: 125%;
+  padding: 5px 0;
+  margin-top: 5px;
+}
+
+.dropdown-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+.dropdown-form input[type="email"],
+.dropdown-form input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px teal;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+.dropdown-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 10px teal;
+}
+
+.dropdown-form button[type="submit"]:hover {
+  background-color: #162541;
+}
+
+.login-container:hover,
+.login-btn:hover {
+  background-color: #162541;
+  cursor: pointer;
+  /* give the bottom corners a round effect */
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+
+.login-container:hover .dropdown-form {
+  /* show the dropdown form */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav a:hover {
+  background-color: teal;
+  color: white;
+}
+
 .login-btn {
-  background: teal;
   border: medium none;
   color: #fff;
   font-size: 16px;
@@ -218,9 +427,12 @@ header {
   border-radius: 20px;
 }
 
-.login-btn:hover {
-  background: #162541;
-  cursor: pointer;
+.nav2 {
+  display: inline;
+  text-align: center;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .rewards-btn {
@@ -249,13 +461,7 @@ header {
   margin-top: 20px;
 }
 
-.nav2 {
-  display: inline;
-  text-align: center;
-  height: 50px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
+
 
 .p-align {
   text-align: center;

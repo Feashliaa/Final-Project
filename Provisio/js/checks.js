@@ -3,29 +3,31 @@
     03/13/2023 - 05/14/2023 */
 
 function checkLogin() {
-    var loginBtn = document.getElementById("login-btn");
-    var baseUrl = window.location.origin + '/provisio/provisio/php';
-    if (loginBtn.innerHTML == "Login") {
-        window.location.href = baseUrl + "/login.php";
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', baseUrl + '/logout.php');
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                console.log("Logout successful");
-                loginBtn.innerHTML = "Login";
 
-                // delete the reservation data from the local storage
-                localStorage.removeItem("reservation");
+    // get the url of the current page
+    let url = window.location.href;
+    if (document.querySelector('#login-btn').textContent.trim() == "Login") {
+        // check if the url contains "php/
+        if (url.includes("php/")) {
+            window.location.href = "login.php"
+        } else {
+            window.location.href = "provisio/php/login.php"
+        }
 
-                window.location.href = baseUrl + "/index.php";
-            } else {
-                console.log("Logout failed");
-            }
-        };
-        xhr.send();
+    } else if (document.querySelector('#login-btn').textContent.trim() == "Logout") {
+        // check if the url contains "php/
+        if (url.includes("php/")) {
+            window.location.href = "logout.php"
+        } else {
+            window.location.href = "provisio/php/logout.php"
+        }
     }
 }
+
+
+
+
+
 async function setupDateValidation() {
 
     // check if there is reservation data in local storage
@@ -85,6 +87,21 @@ function getElementByIdAsync(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const loginBtn = document.querySelector('.login-btn');
+    const test = document.querySelector('.test');
+
+    loginBtn.addEventListener('mouseover', () => {
+
+    });
+
+    loginBtn.addEventListener('mouseout', () => {
+
+    });
+
+
+
+
 
     // check if the page is reservation.php
     if (window.location.pathname.includes("reservation.php")) {

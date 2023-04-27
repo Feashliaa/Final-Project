@@ -25,21 +25,47 @@ session_start();
 </head>
 
 <body>
+    
     <header id="top">
         <div class="header-text">
             <h1>Provisio</h1>
         </div>
     </header>
 
-    <nav class="nav">
-        <a href="index.php">Home</a>
-        <a href="about.php">About</a>
-        <a href="locations.php">Locations</a>
-        <a href="rooms.php">Rooms</a>
-        <a href="amenities.php">Amenities</a>
-        <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-        <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
-    </nav>
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <a href="index.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="locations.php">Locations</a>
+            <a href="rooms.php">Rooms</a>
+            <a href="amenities.php">Amenities</a>
+
+            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+
+            <div class="login-container">
+                <button id="login-btn" class="login-btn" onclick="checkLogin()">
+                    <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+                </button>
+                <div class="dropdown-form">
+                    <form action="signin.php" method="post">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required />
+
+                        <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;

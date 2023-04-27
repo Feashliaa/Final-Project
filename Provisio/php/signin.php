@@ -3,6 +3,14 @@
 Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
 03/13/2023 - 05/14/2023 */
 
+// get the name of the form
+
+// check if there is a form name
+if (isset($_POST['form'])) {
+    $form = $_POST['form'];
+} else {
+    $form = "";
+}
 $email = $_POST['email'];
 $login_password = $_POST['password'];
 
@@ -50,7 +58,11 @@ if ($result->num_rows > 0) {
             "email" => $email
         );
 
-        echo json_encode($response);
+        if ($form == "login-form") {
+            echo json_encode($response);
+        } else {
+            header("Location: ../php/index.php");
+        }
     } else { // if the password is incorrect
         $response = array(
             "status" => "error",

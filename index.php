@@ -19,9 +19,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="provisio/css/style.css">
     <link rel="stylesheet" type="text/css" href="provisio/css/styles2.css">
     <link rel="icon" type="image/png" href="provisio/favicons/letter_p.png" />
-    <script src="Provisio/js/popup.js"></script>
-    <script src="Provisio/js/checks.js"></script>
-    <script src="Provisio/js/login.js"></script>
+    <script src="provisio/js/popup.js"></script>
+    <script src="provisio/js/checks.js"></script>
+    <script src="provisio/js/login.js"></script>
 </head>
 
 <body>
@@ -31,15 +31,39 @@ session_start();
         </div>
     </header>
 
-    <nav class="nav">
-        <a href="provisio/php/index.php">Home</a>
-        <a href="provisio/php/about.php">About</a>
-        <a href="provisio/php/locations.php">Locations</a>
-        <a href="provisio/php/rooms.php">Rooms</a>
-        <a href="provisio/php/amenities.php">Amenities</a>
-        <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
-        <button onclick="window.location.href='provisio/php/reservation.php';" class="book-now-btn">Book Now</button>
-    </nav>
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <a href="provisio/php/index.php">Home</a>
+            <a href="provisio/php/about.php">About</a>
+            <a href="provisio/php/locations.php">Locations</a>
+            <a href="provisio/php/rooms.php">Rooms</a>
+            <a href="provisio/php/amenities.php">Amenities</a>
+
+            <button onclick="window.location.href='provisio/php/reservation.php';" class="book-now-btn">Book Now</button>
+
+            <div class="login-container">
+                <button id="login-btn" class="login-btn" onclick="checkLogin()">
+                    <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+                </button>
+                <div class="dropdown-form">
+                    <form action="provisio/php/signin.php" method="post">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required />
+
+                        <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='provisio/php/registration.php'">Don't have an account?</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;
