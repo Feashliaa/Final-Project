@@ -121,29 +121,42 @@ header {
     1px 1px 0 #000;
 }
 
+/* start of nav styles */
 .nav {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
   background-color: white;
   font-size: 2rem;
-  padding-top: 10px;
-  justify-content: end;
   padding: 5px 10px;
+  justify-content: flex-end;
+
+
 }
 
-.nav .login-btn {
-  grid-column: 4 / 5;
+/* Add this */
+.login-container,
+.login-btn {
+  position: relative;
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  background-color: teal;
+
+  /* round the element's corners */
+  border-radius: 20px;
+
+  /* give an outer shadow effect */
+  box-shadow: 0 0 10px teal;
 }
 
-.nav .book-now-btn {
-  grid-column: 5 / -1;
-}
-
-.nav a {
+.nav a,
+.nav .book-now-btn{
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
   display: inline-block;
   color: teal;
   padding: 15px 0;
@@ -154,23 +167,37 @@ header {
   /* round the element's corners */
   border-radius: 20px;
 
-  /*   give an outer shadow effect*/
+  /* give an outer shadow effect */
   box-shadow: 0 0 10px teal;
+}
+
+.nav .login-btn,
+.nav .book-now-btn {
+  color: white;
+}
+
+.nav .login-btn {
+  order: 5;
+}
+
+.nav .book-now-btn {
+  order: 4;
 }
 
 @media only screen and (max-width: 974px) {
 
-  /* adjust the grid columns for smaller screens */
-  .nav {
-    grid-template-columns: repeat(3, 1fr);
+  .nav a,
+  .nav .login-btn,
+  .nav .book-now-btn {
+    flex: 1 1 calc(33.333% - 10px);
   }
 
   .nav .login-btn {
-    grid-column: 2 / 3;
+    order: 3;
   }
 
   .nav .book-now-btn {
-    grid-column: 3 / -1;
+    order: 2;
   }
 
   /* reduce the font size for smaller screens */
@@ -179,6 +206,56 @@ header {
   }
 }
 
+.nav-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.login-btn {
+  position: relative;
+  flex: 1 1 calc(20% - 10px);
+  margin: 5px;
+  display: inline-block;
+  color: teal;
+  padding: 15px 0;
+  text-decoration: none;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.login-text {
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+
+.dropdown-form {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  box-shadow: 0 0 10px teal;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.login-btn:hover .dropdown-form {
+  display: block;
+}
+
+/* Modify the selector from .login-btn:hover .dropdown-form to */
+.login-container:hover .dropdown-form {
+  display: block;
+}
 
 .nav a:hover {
   background-color: teal;
@@ -223,6 +300,14 @@ header {
   cursor: pointer;
 }
 
+.nav2 {
+  display: inline;
+  text-align: center;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
 .rewards-btn {
   background: teal;
   border: medium none;
@@ -249,13 +334,7 @@ header {
   margin-top: 20px;
 }
 
-.nav2 {
-  display: inline;
-  text-align: center;
-  height: 50px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
+
 
 .p-align {
   text-align: center;

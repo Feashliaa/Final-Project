@@ -33,15 +33,57 @@ session_start();
     </header>
 
 
-    <nav class="nav">
+
+    <!--     <nav class="nav">
         <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="locations.php">Locations</a>
         <a href="rooms.php">Rooms</a>
         <a href="amenities.php">Amenities</a>
-        <button id="login-btn" class="login-btn" onclick="checkLogin()"><?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?></button>
+
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
-    </nav>
+
+        <button id="login-btn" class="login-btn" onclick="checkLogin()">
+            <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+        </button>
+
+        <div class="dropdown-form">
+            <form action="your_form_action" method="post">
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </nav> -->
+
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <a href="index.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="locations.php">Locations</a>
+            <a href="rooms.php">Rooms</a>
+            <a href="amenities.php">Amenities</a>
+
+            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+
+            <div class="login-container">
+                <button id="login-btn" class="login-btn" onclick="checkLogin()">
+                    <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+                </button>
+                <div class="dropdown-form">
+                    <form action="signin.php" method="post">
+                        <input type="email" name="email" placeholder="Email" required />
+                        <input type="password" name="password" placeholder="Password" required />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;

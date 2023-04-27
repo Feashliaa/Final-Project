@@ -50,6 +50,15 @@ if ($result->num_rows > 0) {
             "email" => $email
         );
 
+        // check where the user is coming from, if coming from anything but the login page, make sure to put in a redirect
+        $referer = $_SERVER['HTTP_REFERER'];
+        $referer = explode("/", $referer);
+        $referer = end($referer);
+
+        if ($referer != "login.php") {
+            header("Location: ../php/index.php");
+        }
+
         echo json_encode($response);
     } else { // if the password is incorrect
         $response = array(

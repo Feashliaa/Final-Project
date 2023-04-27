@@ -86,6 +86,21 @@ function getElementByIdAsync(id) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const loginBtn = document.querySelector('.login-btn');
+    const test = document.querySelector('.test');
+
+    loginBtn.addEventListener('mouseover', () => {
+
+    });
+
+    loginBtn.addEventListener('mouseout', () => {
+
+    });
+
+
+
+
+
     // check if the page is reservation.php
     if (window.location.pathname.includes("reservation.php")) {
         // Check if there is reservation data in local storage
