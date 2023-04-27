@@ -3,29 +3,18 @@
     03/13/2023 - 05/14/2023 */
 
 function checkLogin() {
-    var loginBtn = document.getElementById("login-btn");
-    var baseUrl = window.location.origin + '/provisio/provisio/php';
-    if (loginBtn.innerHTML == "Login") {
-        window.location.href = baseUrl + "/login.php";
-    } else {
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', baseUrl + '/logout.php');
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                console.log("Logout successful");
-                loginBtn.innerHTML = "Login";
-
-                // delete the reservation data from the local storage
-                localStorage.removeItem("reservation");
-
-                window.location.href = baseUrl + "/index.php";
-            } else {
-                console.log("Logout failed");
-            }
-        };
-        xhr.send();
+    // check the text on the login-btn
+    if (document.querySelector('#login-btn').textContent.trim() == "Login") {
+        // if the text is login, send to login.php
+        window.location.href = "login.php";
+    } else if (document.querySelector('#login-btn').textContent.trim() == "Logout") {
+        // if the text is logout, send to logout.php
+        window.location.href = "logout.php";
     }
 }
+
+
+
 async function setupDateValidation() {
 
     // check if there is reservation data in local storage

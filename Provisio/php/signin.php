@@ -6,6 +6,7 @@ Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morale
 $email = $_POST['email'];
 $login_password = $_POST['password'];
 
+
 // Connect to the MySQL database (replace the database credentials with your own)
 $servername = "localhost";
 $username = "root";

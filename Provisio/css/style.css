@@ -134,9 +134,7 @@ header {
 
 }
 
-/* Add this */
-.login-container,
-.login-btn {
+.login-container {
   position: relative;
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
@@ -145,14 +143,31 @@ header {
   text-align: center;
   cursor: pointer;
   background-color: teal;
-
-  /* round the element's corners */
   border-radius: 20px;
-
-  /* give an outer shadow effect */
   box-shadow: 0 0 10px teal;
   order: 5;
+  transition: all 0.5s ease;
 }
+
+.login-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: inherit;
+}
+
 
 .nav a,
 .nav .book-now-btn {
@@ -172,13 +187,8 @@ header {
   box-shadow: 0 0 10px teal;
 }
 
-.nav .login-btn,
 .nav .book-now-btn {
   color: white;
-}
-
-.nav .login-btn {
-  order: 5;
 }
 
 .nav .book-now-btn {
@@ -191,10 +201,6 @@ header {
   .nav .login-btn,
   .nav .book-now-btn {
     flex: 1 1 calc(33.333% - 10px);
-  }
-
-  .nav .login-btn {
-    order: 3;
   }
 
   .nav .book-now-btn {
@@ -212,32 +218,11 @@ header {
   z-index: 10;
 }
 
-.login-btn {
-  position: relative;
-  flex: 1 1 calc(20% - 10px);
-  margin: 5px;
-  display: inline-block;
-  color: teal;
-  padding: 15px 0;
-  text-decoration: none;
-  background-color: teal;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.login-text {
-  display: block;
-  z-index: 1;
-  position: relative;
-}
-
 .dropdown-form {
-  display: none;
+  /* hide the dropdown form by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
   position: absolute;
   background-color: white;
   top: 100%;
@@ -245,17 +230,90 @@ header {
   right: 0;
   padding: 15px;
   box-shadow: 0 0 10px teal;
-  border-radius: 20px;
   z-index: 2;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.login-btn:hover .dropdown-form {
+label {
+  font-family: 'calibri';
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1rem;
+  color: rgba(72, 72, 72, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+input[type="email"],
+input[type="password"] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(90deg, #008080 0%, #008080 29.43%, #008080 50%) 1;
+  color: #000;
+  outline: none;
+  width: 125%;
+  padding: 5px 0;
+  margin-top: 5px;
+}
+
+.dropdown-form label {
   display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-/* Modify the selector from .login-btn:hover .dropdown-form to */
+
+.dropdown-form input[type="email"],
+.dropdown-form input[type="password"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px teal;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+.dropdown-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 10px teal;
+}
+
+.dropdown-form button[type="submit"]:hover {
+  background-color: #162541;
+}
+
+.login-container:hover,
+.login-btn:hover {
+  background-color: #162541;
+  cursor: pointer;
+  /* give the bottom corners a round effect */
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+
 .login-container:hover .dropdown-form {
-  display: block;
+  /* show the dropdown form */
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .nav a:hover {
@@ -283,7 +341,6 @@ header {
 }
 
 .login-btn {
-  background: teal;
   border: medium none;
   color: #fff;
   font-size: 16px;
@@ -294,11 +351,6 @@ header {
 
   /* round the element's corners */
   border-radius: 20px;
-}
-
-.login-btn:hover {
-  background: #162541;
-  cursor: pointer;
 }
 
 .nav2 {

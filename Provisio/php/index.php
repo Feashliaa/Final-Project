@@ -44,7 +44,8 @@ session_start();
         <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
 
         <button id="login-btn" class="login-btn" onclick="checkLogin()">
-            <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
+            <?php //echo isset($_SESSION['email']) ? 'Logout' : 'Login'; 
+            ?>
         </button>
 
         <div class="dropdown-form">
@@ -73,8 +74,12 @@ session_start();
                 </button>
                 <div class="dropdown-form">
                     <form action="signin.php" method="post">
-                        <input type="email" name="email" placeholder="Email" required />
-                        <input type="password" name="password" placeholder="Password" required />
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required />
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required />
+
                         <button type="submit">Submit</button>
                     </form>
                 </div>
