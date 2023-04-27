@@ -151,10 +151,11 @@ header {
 
   /* give an outer shadow effect */
   box-shadow: 0 0 10px teal;
+  order: 5;
 }
 
 .nav a,
-.nav .book-now-btn{
+.nav .book-now-btn {
   flex: 1 1 calc(20% - 10px);
   margin: 5px;
   display: inline-block;
