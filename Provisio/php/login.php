@@ -47,12 +47,13 @@ session_start();
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post">
+                    <form action="signin.php" method="post" name="drop-form">
+                        <input type="hidden" name="form" value="drop-form">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required />
+                        <input type="email" id="email" name="email" placeholder="Email" required>
 
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" placeholder="Password" required />
+                        <input type="password" id="password" name="password" placeholder="Password" required>
 
                         <button type="submit">Submit</button>
 
@@ -103,7 +104,8 @@ session_start();
             <div id="header">Start Booking Hotels At Provisio </div>
             <div id="subheader"> Start Booking Now with the Great Tool Provisio!</div>
         </div>
-        <form method="POST" action="signin.php">
+        <form method="POST" action="signin.php" name="login-form">
+            <input type="hidden" name="form" value="login-form">
             <div id="input_fields_container">
                 <div id="email_input">
                     <label for="email">Email<span>*</span></label>

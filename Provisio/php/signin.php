@@ -3,9 +3,16 @@
 Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
 03/13/2023 - 05/14/2023 */
 
+// get the name of the form
+
+// check if there is a form name
+if (isset($_POST['form'])) {
+    $form = $_POST['form'];
+} else {
+    $form = "";
+}
 $email = $_POST['email'];
 $login_password = $_POST['password'];
-
 
 // Connect to the MySQL database (replace the database credentials with your own)
 $servername = "localhost";
@@ -51,16 +58,11 @@ if ($result->num_rows > 0) {
             "email" => $email
         );
 
-        // check where the user is coming from, if coming from anything but the login page, make sure to put in a redirect
-        $referer = $_SERVER['HTTP_REFERER'];
-        $referer = explode("/", $referer);
-        $referer = end($referer);
-
-        if ($referer != "login.php") {
+        if ($form == "login-form") {
+            echo json_encode($response);
+        } else {
             header("Location: ../php/index.php");
         }
-
-        echo json_encode($response);
     } else { // if the password is incorrect
         $response = array(
             "status" => "error",
