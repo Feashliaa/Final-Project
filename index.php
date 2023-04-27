@@ -19,9 +19,9 @@ session_start();
     <link rel="stylesheet" type="text/css" href="provisio/css/style.css">
     <link rel="stylesheet" type="text/css" href="provisio/css/styles2.css">
     <link rel="icon" type="image/png" href="provisio/favicons/letter_p.png" />
-    <script src="Provisio/js/popup.js"></script>
-    <script src="Provisio/js/checks.js"></script>
-    <script src="Provisio/js/login.js"></script>
+    <script src="provisio/js/popup.js"></script>
+    <script src="provisio/js/checks.js"></script>
+    <script src="provisio/js/login.js"></script>
 </head>
 
 <body>
@@ -54,6 +54,10 @@ session_start();
                         <input type="password" id="password" name="password" placeholder="Password" required />
 
                         <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='provisio/php/registration.php'">Don't have an account?</button>
+                        </div>
                     </form>
                 </div>
             </div>

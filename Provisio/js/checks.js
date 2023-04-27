@@ -3,15 +3,28 @@
     03/13/2023 - 05/14/2023 */
 
 function checkLogin() {
-    // check the text on the login-btn
+
+    // get the url of the current page
+    let url = window.location.href;
     if (document.querySelector('#login-btn').textContent.trim() == "Login") {
-        // if the text is login, send to login.php
-        window.location.href = "login.php";
+        // check if the url contains "php/
+        if (url.includes("php/")) {
+            window.location.href = "login.php"
+        } else {
+            window.location.href = "provisio/php/login.php"
+        }
+
     } else if (document.querySelector('#login-btn').textContent.trim() == "Logout") {
-        // if the text is logout, send to logout.php
-        window.location.href = "logout.php";
+        // check if the url contains "php/
+        if (url.includes("php/")) {
+            window.location.href = "logout.php"
+        } else {
+            window.location.href = "provisio/php/logout.php"
+        }
     }
 }
+
+
 
 
 

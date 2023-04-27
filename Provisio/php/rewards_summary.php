@@ -80,11 +80,16 @@ if (!isset($_SESSION['email'])) {
                         <input type="password" id="password" name="password" placeholder="Password" required />
 
                         <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </nav>
     </div>
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;

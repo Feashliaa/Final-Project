@@ -25,11 +25,13 @@ session_start();
 </head>
 
 <body>
+    
     <header id="top">
         <div class="header-text">
             <h1>Provisio</h1>
         </div>
     </header>
+
     <div class="nav-wrapper">
         <nav class="nav">
             <a href="index.php">Home</a>
@@ -53,11 +55,17 @@ session_start();
                         <input type="password" id="password" name="password" placeholder="Password" required />
 
                         <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </nav>
     </div>
+
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;

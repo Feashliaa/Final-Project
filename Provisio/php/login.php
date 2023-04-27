@@ -54,7 +54,11 @@ session_start();
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" placeholder="Password" required />
 
-                        <button type="submit" onclick="login(event)">Submit</button>
+                        <button type="submit">Submit</button>
+
+                        <div id="noAccount">
+                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
+                        </div>
                     </form>
                 </div>
             </div>

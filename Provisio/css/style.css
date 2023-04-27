@@ -130,8 +130,6 @@ header {
   font-size: 2rem;
   padding: 5px 10px;
   justify-content: flex-end;
-
-
 }
 
 .login-container {
@@ -168,7 +166,6 @@ header {
   border-radius: inherit;
 }
 
-
 .nav a,
 .nav .book-now-btn {
   flex: 1 1 calc(20% - 10px);
@@ -188,6 +185,25 @@ header {
 }
 
 .nav .book-now-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 8px 25px;
+  text-transform: uppercase;
+
+  /* round the element's corners */
+  border-radius: 20px;
+}
+
+.nav .book-now-btn:hover {
+  background: #162541;
+  cursor: pointer;
+}
+
+.nav .book-now-btn {
   color: white;
 }
 
@@ -198,18 +214,60 @@ header {
 @media only screen and (max-width: 974px) {
 
   .nav a,
-  .nav .login-btn,
   .nav .book-now-btn {
     flex: 1 1 calc(33.333% - 10px);
+    margin: 5px;
+    display: inline-block;
+    background-color: white;
+    color: teal;
+    padding: 15px 0;
+    text-decoration: none;
+    width: auto;
+    text-align: center;
+
+    /* round the element's corners */
+    border-radius: 20px;
+
+    /* give an outer shadow effect */
+    box-shadow: 0 0 10px teal;
   }
 
   .nav .book-now-btn {
-    order: 2;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: initial;
+    font-size: 1.5rem;
+
+    text-decoration: none;
+    padding: 15px 0;
+    margin: 5px;
+  }
+
+  .nav .book-now-btn:hover {
+    background-color: teal;
+    color: white;
   }
 
   /* reduce the font size for smaller screens */
   .nav a {
     font-size: 1.5rem;
+  }
+
+  .login-container {
+    flex-basis: 100%;
+    margin: 5px;
+    display: inline-block;
+    color: teal;
+    padding: 25px 0;
+    text-decoration: none;
+    width: auto;
+    text-align: center;
+
+    /* round the element's corners */
+    border-radius: 20px;
+
+    /* give an outer shadow effect */
+    box-shadow: 0 0 10px teal;
   }
 }
 
@@ -233,6 +291,41 @@ header {
   z-index: 2;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+#noAccount {
+  font-size: 1rem;
+
+  /* move to the right */
+  text-align: right;
+
+  /* move to the bottom */
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+#noAccount button[type="button"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: teal;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 10px teal;
+}
+
+#noAccount button[type="button"]:hover {
+  background-color: #162541;
 }
 
 label {
@@ -319,25 +412,6 @@ input[type="password"] {
 .nav a:hover {
   background-color: teal;
   color: white;
-}
-
-.book-now-btn {
-  background: teal;
-  border: medium none;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  padding: 8px 25px;
-  text-transform: uppercase;
-
-  /* round the element's corners */
-  border-radius: 20px;
-}
-
-.book-now-btn:hover {
-  background: #162541;
-  cursor: pointer;
 }
 
 .login-btn {
