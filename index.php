@@ -33,20 +33,21 @@ session_start();
 
     <div class="nav-wrapper">
         <nav class="nav">
-            <a href="provisio/php/index.php">Home</a>
-            <a href="provisio/php/about.php">About</a>
-            <a href="provisio/php/locations.php">Locations</a>
-            <a href="provisio/php/rooms.php">Rooms</a>
-            <a href="provisio/php/amenities.php">Amenities</a>
+            <a href="index.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="locations.php">Locations</a>
+            <a href="rooms.php">Rooms</a>
+            <a href="amenities.php">Amenities</a>
 
-            <button onclick="window.location.href='provisio/php/reservation.php';" class="book-now-btn">Book Now</button>
+            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
 
             <div class="login-container">
                 <button id="login-btn" class="login-btn" onclick="checkLogin()">
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="provisio/php/signin.php" method="post">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
 
@@ -56,7 +57,7 @@ session_start();
                         <button type="submit">Submit</button>
 
                         <div id="noAccount">
-                            <button type="button" onclick="window.location.href='provisio/php/registration.php'">Don't have an account?</button>
+                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
                         </div>
                     </form>
                 </div>

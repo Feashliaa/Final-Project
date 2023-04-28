@@ -8,11 +8,14 @@ Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morale
 // check if there is a form name
 if (isset($_POST['form'])) {
     $form = $_POST['form'];
+    $email = $_POST['email-login'];
+    $login_password = $_POST['password-login'];
 } else {
     $form = "";
+    $email = $_POST['email'];
+    $login_password = $_POST['password'];
 }
-$email = $_POST['email'];
-$login_password = $_POST['password'];
+
 
 // Connect to the MySQL database (replace the database credentials with your own)
 $servername = "localhost";
@@ -54,28 +57,40 @@ if ($result->num_rows > 0) {
 
         $response = array(
             "status" => "success",
-            "message" => "User logged in successfully",
-            "email" => $email
+            "message" => "Login Successful!",
+            "redirect" => "../php/index.php"
+        );
+
+        if ($form == "login-form") {
+            echo json_encode($response);
+            exit;
+        } else {
+            echo json_encode($response);
+            exit;
+        }
+    } else { // if the password is incorrect
+        $response = array(
+            "status" => "error",
+            "message" => "Incorrect Password!"
         );
 
         if ($form == "login-form") {
             echo json_encode($response);
         } else {
-            header("Location: ../php/index.php");
+            echo json_encode($response);
+            exit;
         }
-    } else { // if the password is incorrect
-        $response = array(
-            "status" => "error",
-            "message" => "Incorrect password"
-        );
-
-        echo json_encode($response);
     }
 } else { // if the email does not exist
     $response = array(
         "status" => "error",
-        "message" => "Email does not exist"
+        "message" => "Email Does Not Exist!"
     );
 
-    echo json_encode($response);
+    if ($form == "login-form") {
+        echo json_encode($response);
+    } else {
+        echo json_encode($response);
+        exit;
+    }
 }

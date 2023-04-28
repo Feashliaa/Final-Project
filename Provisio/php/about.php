@@ -45,7 +45,8 @@ session_start();
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
 
@@ -102,11 +103,11 @@ session_start();
                     <p class="contact-p"><span>Thank you for your interest in Provisio!<br>
                             Have comments or questions for us?</span><br>
                         Use the form below <br> Or email us at <a class="email_text" href="mailto:provisiobravo@gmail.com">provisiobravo@gmail.com</a> and we will be in touch!</p>
-                    <label for="name" style="font-weight: bold; color:teal;">Name:</label><br>
+                    <label for="name" style="font-weight: bold; color:teal; text-align: center; display: block;">Name:</label><br>
                     <input type="text" id="name" name="name" value=""><br>
-                    <label for="email" style="font-weight: bold; color:teal;">E-Mail:</label><br>
+                    <label for="email" style="font-weight: bold; color:teal; text-align: center; display: block;">E-Mail:</label><br>
                     <input type="text" id="email" name="email" value=""><br>
-                    <label for="message" style="font-weight: bold; color:teal;">Message:</label><br>
+                    <label for="message" style="font-weight: bold; color:teal; text-align: center; display: block;">Message:</label><br>
                     <textarea id="message" name="message" maxlength="1000"></textarea> <br><br>
                     <button class="submit_btn_contact_form" type="submit">Send Email</button>
                 </form>
@@ -121,7 +122,6 @@ session_start();
             <h3 id="abouttagline">Book with Provisio and let us handle the rest!</h3>
         </span>
     </p>
-    </div><!--end content-->
 
     <footer>
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>

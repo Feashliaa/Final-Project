@@ -43,7 +43,8 @@ session_start();
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
 
@@ -61,7 +62,7 @@ session_start();
         </nav>
     </div>
 
-    
+
     <div class="nav2">
         <p style="font-size:1.5rem;">
             Earn 150 points for every night booked!&nbsp;&nbsp;

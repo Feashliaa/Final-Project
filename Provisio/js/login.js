@@ -2,30 +2,6 @@
     Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
     03/13/2023 - 05/14/2023 */
 
-function checkFieldsLogin() {
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    console.log("Email: " + email);
-    console.log("Password: " + password);
-
-    if (email != "" && password != "") {
-        return true;
-    }
-    else {
-        if (email == "") {
-            document.querySelector("#email_input span").classList.add("error");
-            document.getElementById("email").classList.add("email-error");
-            document.getElementById("email").placeholder = "Email is required";
-        }
-        if (password == "") {
-            document.querySelector("#password_input span").classList.add("error");
-            document.getElementById("password").placeholder = "Password is required";
-        }
-        return false;
-    }
-}
-
 function showNotification() {
     console.log("Showing notification");
 
@@ -50,7 +26,7 @@ function showNotification() {
 }
 
 function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
+    var passwordInput = document.getElementById("password-login");
     var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
 
     if (showPasswordCheckbox.checked) {
@@ -62,6 +38,7 @@ function togglePasswordVisibility() {
         passwordInput.classList.remove("text");
     }
 }
+
 
 
 function showNotificationWrongPassword() {
@@ -104,8 +81,8 @@ function login(event) {
         return;
     }
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email-login").value;
+    const password = document.getElementById("password-login").value;
 
     console.log("Email: " + email);
     console.log("Password: " + password);
@@ -137,10 +114,10 @@ function login(event) {
                     }, 2000);
                 } else {
                     console.log(response.message);
-                    if (response.message === "Incorrect password") {
+                    if (response.message === "Incorrect Password!") {
                         showNotificationWrongPassword();
                     }
-                    else if (response.message === "Email does not exist") {
+                    else if (response.message === "Email Does Not Exist!") {
                         showNotificationNoAccount();
                     }
                 }

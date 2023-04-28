@@ -47,13 +47,13 @@ session_start();
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post" name="drop-form">
-                        <input type="hidden" name="form" value="drop-form">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <input type="email" id="email" name="email" placeholder="Email" required />
 
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required />
 
                         <button type="submit">Submit</button>
 
@@ -109,11 +109,11 @@ session_start();
             <div id="input_fields_container">
                 <div id="email_input">
                     <label for="email">Email<span>*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                    <input type="email" id="email-login" name="email-login" required placeholder="example@domain.com">
                 </div>
                 <div id="password_input">
                     <label for="password">Password<span>*</span></label>
-                    <input type="password" id="password" name="password" required class="password-input">
+                    <input type="password" id="password-login" name="password-login" required class="password-input">
                 </div>
                 <label>
                     <input type="checkbox" onclick="togglePasswordVisibility()" id="showPasswordCheckbox"> Show Password

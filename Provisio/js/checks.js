@@ -86,7 +86,99 @@ function getElementByIdAsync(id) {
     });
 }
 
+function checkFieldsLogin() {
+    let email = document.getElementById("email-login").value;
+    let password = document.getElementById("password-login").value;
+
+    if (email != "" && password != "") {
+        return true;
+    }
+    else {
+        if (email == "") {
+            document.querySelector("#email_input span").classList.add("error");
+            document.getElementById("email-login").classList.add("email-error");
+            document.getElementById("email-login").placeholder = "Email is required";
+        }
+        if (password == "") {
+            document.querySelector("#password_input span").classList.add("error");
+            document.getElementById("password-login").placeholder = "Password is required";
+        }
+        return false;
+    }
+}
+
+function checkFieldsLoginDropDown() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if (email != "" && password != "") {
+        return true;
+    }
+    else {
+        if (email == "") {
+            document.querySelector("#email_input span").classList.add("error");
+            document.getElementById("email").classList.add("email-error");
+            document.getElementById("email").placeholder = "Email is required";
+        }
+        if (password == "") {
+            document.querySelector("#password_input span").classList.add("error");
+            document.getElementById("password").placeholder = "Password is required";
+        }
+        return false;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Listen for the form submission
+    document.getElementById('signin-form').addEventListener('submit', function (event) {
+        // check if all fields are filled
+        if (checkFieldsLoginDropDown() == false) {
+            console.log("Error: All fields are required");
+            event.preventDefault();
+            return;
+        }
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        event.preventDefault(); // prevent the default form submission behavior
+        var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
+        xhr.open('POST', '../php/signin.php'); // open a POST request to the login.php file
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // set the request header
+        xhr.send("email=" + email + "&password=" + password); // send the email and password to the login.php file
+        console.log("Sent data to signin.php");
+
+        xhr.onload = function () {
+            console.log("Response received");
+            if (xhr.status === 200) {
+                try {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.status === "success") {
+                        console.log(response.message);
+
+                        // set the loggedIn item in local storage to true
+                        localStorage.setItem("loggedIn", "true");
+
+                        // Redirect to the appropriate page
+                        window.location.href = response.redirect;
+                    } else {
+                        // Display the error message for 2s
+                        document.getElementById('error-message').textContent = response.message;
+                        document.getElementById('error-message').style.display = 'block';
+                        document.getElementById('error-message').style.color = 'red';
+                        setInterval(function () {
+                            document.getElementById('error-message').style.display = 'none';
+                        }, 2000);
+                    }
+                } catch (e) {
+                    console.log("Error: " + e.message);
+                }
+            } else {
+                console.log("Error: " + xhr.status);
+            }
+        };
+    });
 
     const loginBtn = document.querySelector('.login-btn');
     const test = document.querySelector('.test');

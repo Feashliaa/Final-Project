@@ -62,7 +62,8 @@ if ($result->num_rows == 0) {
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
 

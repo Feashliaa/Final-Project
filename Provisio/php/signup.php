@@ -6,9 +6,9 @@ Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morale
 // Retrieve the form data
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
-$email = $_POST['email'];
+$email = $_POST['email-registration'];
 $phone_number = $_POST['phone'];
-$password = $_POST['password'];
+$password = $_POST['password-login'];
 
 // Hash the password for security
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -44,11 +44,6 @@ if ($result->num_rows > 0) { // if the email already exists
         "status" => "error",
         "message" => "Email already exists"
     );
-
-    echo json_encode($response);
-
-    // Close the database connection
-    $conn->close();
 } else {
     // Insert the user data into the database
     // prepare the SQL statement
@@ -70,14 +65,15 @@ if ($result->num_rows > 0) { // if the email already exists
             "message" => "User registered successfully",
             "email" => $email
         );
-        echo json_encode($response);
     } else { // some error occurred
         $response = array(
             "status" => "error",
             "message" => "Error: " . $stmt->error
         );
-        echo json_encode($response);
     }
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
 
     // Close the statement
     $stmt->close();

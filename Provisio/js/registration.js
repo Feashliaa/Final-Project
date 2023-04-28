@@ -2,7 +2,7 @@
     Bravo Team: Riley Dorrington, Kelly Bordonhos, Robin Tageant, Christopher Morales
     03/13/2023 - 05/14/2023 */
 
-const passwordInput = document.getElementById("password");
+const passwordInput = document.getElementById("password-login");
 const password_circle = document.getElementById("password_circle");
 const passwordCriteriaBox = document.getElementById("password-criteria-box");
 const closePasswordCriteriaBox = document.getElementById("close-password-criteria-box");
@@ -212,7 +212,7 @@ inputElement.addEventListener('keyup', formatToPhone);
 // Check if all fields are filled, and if the password is valid
 function checkPasswordField() {
     // get the text from the password input field
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("password-login").value;
 
     // check if all the password criteria have been met
     if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password)) {
@@ -232,8 +232,8 @@ function checkFields() {
     // get the text from the firstname, lastname, email, and password input fields
     const firstname = document.getElementById("firstname").value;
     const lastname = document.getElementById("lastname").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email-registration").value;
+    const password = document.getElementById("password-login").value;
     const confirmPassword = document.getElementById("confirm_password").value;
 
     // check if all fields are filled
@@ -256,13 +256,13 @@ function checkFields() {
         }
         if (email == "") {
             document.querySelector("#email_input span").classList.add("error");
-            document.getElementById("email").classList.add("email-error");
-            document.getElementById("email").placeholder = "Email is required";
+            document.getElementById("email-registration").classList.add("email-error");
+            document.getElementById("email-registration").placeholder = "Email is required";
 
         }
         if (password == "") {
             document.querySelector("#password_input span").classList.add("error");
-            document.getElementById("password").placeholder = "Password is required";
+            document.getElementById("password-login").placeholder = "Password is required";
         }
         if (confirmPassword == "") {
             document.querySelector("#password_confirm span").classList.add("error");
@@ -278,19 +278,19 @@ window.addEventListener("resize", function () {
     // if screen is less than equal to 540px
     if (window.innerWidth <= 540) {
         // make the input field 80% of the width of the parent element
-        document.getElementById("password").style.width = "80%";
+        document.getElementById("password-login").style.width = "80%";
         document.getElementById("confirm_password").style.width = "80%";
     }
     else {
         // make the input field 100% of the width of the parent element
-        document.getElementById("password").style.width = "100%";
+        document.getElementById("password-login").style.width = "100%";
         document.getElementById("confirm_password").style.width = "100%";
     }
 });
 
 
 function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
+    var passwordInput = document.getElementById("password-login");
     var passwordConfirmInput = document.getElementById("confirm_password");
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
@@ -346,17 +346,17 @@ function signup(event) {
     // get the text from the firstname, lastname, email, and password input fields
     const firstname = document.getElementById("firstname").value;
     const lastname = document.getElementById("lastname").value;
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email-registration").value;
     const phone = document.getElementById("phone").value;
-    const password = document.getElementById("password").value;
+    const password = document.getElementById("password-login").value;
 
     // check if the email is valid
     if (!validateEmail(email)) {
         // clear the email input field
-        document.getElementById("email").value = "";
+        document.getElementById("email-registration").value = "";
         document.querySelector("#email_input span").classList.add("error");
-        document.getElementById("email").classList.add("email-error");
-        document.getElementById("email").placeholder = "Invalid email";
+        document.getElementById("email-registration").classList.add("email-error");
+        document.getElementById("email-registration").placeholder = "Invalid email";
         return;
     }
 
@@ -373,7 +373,7 @@ function signup(event) {
     var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
     xhr.open('POST', '../php/signup.php'); // open a POST request to the signup.php file
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // set the request header
-    var formData = new FormData(document.querySelector('form')); // create a new FormData object
+    var formData = new FormData(document.getElementById("signup-form"));// create a new FormData object
     xhr.send(new URLSearchParams(formData)); // send the form data to the signup.php file
 
     console.log("Sent");
@@ -395,9 +395,9 @@ function signup(event) {
                         // clear all input fields
                         document.getElementById("firstname").value = "";
                         document.getElementById("lastname").value = "";
-                        document.getElementById("email").value = "";
+                        document.getElementById("email-registration").value = "";
                         document.getElementById("phone").value = "";
-                        document.getElementById("password").value = "";
+                        document.getElementById("password-login").value = "";
                         document.getElementById("confirm_password").value = "";
 
                         // remove error class from all span elements
@@ -414,11 +414,14 @@ function signup(event) {
             console.log("Error: " + xhr.status);
         }
     };
+
 }
 
 
 // if click into email_input, remove the error class
-document.getElementById("email").addEventListener("click", function () {
-    document.getElementById("email").classList.remove("email-error");
-    document.getElementById("email").placeholder = "example@domain.com";
+document.getElementById("email-registration").addEventListener("click", function () {
+    document.getElementById("email-registration").classList.remove("email-error");
+    document.getElementById("email-registration").placeholder = "example@domain.com";
 });
+
+document.getElementById("signup-form").addEventListener("submit", signup);

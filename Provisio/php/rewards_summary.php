@@ -72,7 +72,8 @@ if (!isset($_SESSION['email'])) {
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form action="signin.php" method="post">
+                    <form id="signin-form" action="signin.php" method="post">
+                        <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
 
@@ -108,7 +109,6 @@ if (!isset($_SESSION['email'])) {
         if (!$user_logged_in) {
 
             echo "<div class='center'>No Data - User Not Logged In</div>";
-
         } else {
             $is_mobile = false;
             if (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/mobile/i', $_SERVER['HTTP_USER_AGENT'])) {
