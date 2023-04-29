@@ -33,11 +33,11 @@ session_start();
 
     <div class="nav-wrapper">
         <nav class="nav">
-            <a href="index.php">Home</a>
-            <a href="about.php">About</a>
-            <a href="locations.php">Locations</a>
-            <a href="rooms.php">Rooms</a>
-            <a href="amenities.php">Amenities</a>
+            <a href="provisio/php/index.php">Home</a>
+            <a href="provisio/php/about.php">About</a>
+            <a href="provisio/php/locations.php">Locations</a>
+            <a href="provisio/php/rooms.php">Rooms</a>
+            <a href="provisio/php/amenities.php">Amenities</a>
 
             <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
 

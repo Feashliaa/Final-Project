@@ -106,7 +106,7 @@ session_start();
                     <label for="name" style="font-weight: bold; color:teal; text-align: center; display: block;">Name:</label><br>
                     <input type="text" id="name" name="name" value=""><br>
                     <label for="email" style="font-weight: bold; color:teal; text-align: center; display: block;">E-Mail:</label><br>
-                    <input type="text" id="email" name="email" value=""><br>
+                    <input type="text" id="contact-email" name="contact-email" value=""><br>
                     <label for="message" style="font-weight: bold; color:teal; text-align: center; display: block;">Message:</label><br>
                     <textarea id="message" name="message" maxlength="1000"></textarea> <br><br>
                     <button class="submit_btn_contact_form" type="submit">Send Email</button>
