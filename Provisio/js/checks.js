@@ -144,7 +144,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         event.preventDefault(); // prevent the default form submission behavior
         var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
-        xhr.open('POST', 'provisio/php/signin.php'); // open a POST request to the login.php file
+
+        // Check if the user is logging in from the provisio/php/ folder or the root folder
+        if (window.location.pathname.includes("php/")) {
+            xhr.open('POST', 'signin.php'); // open a POST request to the login.php file
+        } else {
+            xhr.open('POST', 'provisio/php/signin.php'); // open a POST request to the login.php file
+        }
+
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // set the request header
         xhr.send("email=" + email + "&password=" + password); // send the email and password to the login.php file
         console.log("Sent data to signin.php");
@@ -166,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else {
                             window.location.href = "provisio/php/index.php";
                         }
-                        
+
                     } else {
                         // Display the error message for 2s
                         document.getElementById('error-message').textContent = response.message;
