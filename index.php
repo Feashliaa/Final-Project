@@ -39,14 +39,14 @@ session_start();
             <a href="provisio/php/rooms.php">Rooms</a>
             <a href="provisio/php/amenities.php">Amenities</a>
 
-            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+            <button onclick="window.location.href='provisio/php/reservation.php';" class="book-now-btn">Book Now</button>
 
             <div class="login-container">
                 <button id="login-btn" class="login-btn" onclick="checkLogin()">
                     <?php echo isset($_SESSION['email']) ? 'Logout' : 'Login'; ?>
                 </button>
                 <div class="dropdown-form">
-                    <form id="signin-form" action="signin.php" method="post">
+                    <form id="signin-form" action="provisio/php/signin.php" method="post">
                         <div id="error-message" style="display: none;"></div>
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" placeholder="Email" required />
@@ -57,7 +57,7 @@ session_start();
                         <button type="submit">Submit</button>
 
                         <div id="noAccount">
-                            <button type="button" onclick="window.location.href='registration.php'">Don't have an account?</button>
+                            <button type="button" onclick="window.location.href='provisio/php/registration.php'">Don't have an account?</button>
                         </div>
                     </form>
                 </div>
@@ -129,7 +129,6 @@ session_start();
         <p>1000 Galvin Road South, Bellevue NE 68005 <br> 402.293.2000 | 1.800.756.7920</p><br>
         &copy; 2023 Provisio Booking | Website by Bravo Team
     </footer>
-    </div><!--end content-->
 </body>
 
 </html>
