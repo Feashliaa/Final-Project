@@ -26,12 +26,14 @@ const reservation = JSON.parse(localStorage.getItem("reservation"));
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // console log the login button text
-    console.log(document.getElementById("login-btn").innerHTML);
-    console.log(document.getElementById("login-btn").innerHTML.toUpperCase() == "LOGOUT");
-    // Check if the user is logged in
-    if (document.getElementById("login-btn").innerHTML.toUpperCase() == "LOGOUT") {
-        // enable the lookup button
+    let check = document.getElementById("login-btn").innerHTML.toUpperCase();
+
+    // remove the spaces
+    check = check.replace(/\s/g, '');
+
+    console.log(check);
+
+    if (check == "LOGOUT") {
         enableLookupButton();
     }
 });
