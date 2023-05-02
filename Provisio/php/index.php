@@ -81,7 +81,7 @@ session_start();
         </div>
     </div>
 
-    <div id="notification">User Logged in Successfully</div>
+    <h2 id="h2title">Let Provisio Welcome You At Your Next Stay</h2>
 
     <p id="details">Choose from one of several locations Provisio has to offer. Each
         location has several room types as well as the option to choose what amenities suit your needs.
