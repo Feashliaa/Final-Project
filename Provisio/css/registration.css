@@ -180,10 +180,13 @@ input[type="password"] {
     color: red;
 }
 
-input[type="password"]::placeholder {
+#password-login::placeholder {
     color: red;
 }
 
+#confirm_password::placeholder {
+    color: red;
+}
 
 #password-criteria-box {
     display: none;

@@ -143,18 +143,6 @@ input[type="password"] {
     margin-top: 5px;
 }
 
-input[type="password"]::placeholder {
-    color: red;
-}
-
-span.error {
-    color: red;
-}
-
-.email-error::placeholder {
-    color: red;
-}
-
 @media (max-width: 540px) {
 
     #firstname,
