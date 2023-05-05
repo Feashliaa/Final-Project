@@ -103,7 +103,7 @@ session_start();
         <div id="header_subheader_container">
             <div id="header">Start Booking Hotels At Provisio </div>
         </div>
-        <form method="POST" action="signup.php" id="signup-form">
+        <form id="signup-form">
             <div id="input_fields_container">
                 <div id="firstName">
                     <label for="firstName">First Name <span>*</span>
@@ -118,16 +118,16 @@ session_start();
                 <div id="email_input">
                     <label for="email">Email Address<span>*</span>
                     </label>
-                    <input type="email" id="email-registration" name="email-registration" required placeholder="example@domain.com">
+                    <input type="email" id="email-registration" name="email-registration" required placeholder="example@domain.com" autocomplete="new-password"">
                 </div>
-                <div id="phoneNumber">
+                <div id=" phoneNumber">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
                 </div>
                 <div id="password_input">
                     <label for="password-login">Password <span>* </span> <i class="fa-solid fa-circle-exclamation fa-sm" id="password_circle"></i>
                     </label>
-                    <input type="password" id="password-login" name="password-login" required class="password-input">
+                    <input type="password" id="password-login" name="password-login" required class="password-input" autocomplete="new-password">
                 </div>
                 <div id="password_confirm">
                     <label for="confirm_password">Confirm Password <span>*</span>
@@ -146,7 +146,7 @@ session_start();
                     <p>Include one number</p>
                 </div>
             </div>
-            <button id="signup-login_button">Sign Up</button>
+            <button id="signup-login_button" onclick="signup(event)">Sign Up</button>
         </form>
         <div id="dont_have_account_container">
             <div id="dont_have_account_text">Have an account? <a href="login.php" id="signup_link">Login</a>

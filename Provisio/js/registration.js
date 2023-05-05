@@ -213,13 +213,13 @@ inputElement.addEventListener('keyup', formatToPhone);
 function checkPasswordField() {
     // get the text from the password input field
     const password = document.getElementById("password-login").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
 
     // check if all the password criteria have been met
     if (password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password)) {
-        const confirmPassword = document.getElementById("confirm_password").value;
 
         // check if the password and confirm password fields match
-        if (password == confirmPassword) {
+        if (password === confirmPassword) {
             return true;
         }
     }
@@ -357,6 +357,17 @@ function signup(event) {
         document.querySelector("#email_input span").classList.add("error");
         document.getElementById("email-registration").classList.add("email-error");
         document.getElementById("email-registration").placeholder = "Invalid email";
+        return;
+    }
+
+    // check if the password is valid
+    if (checkPasswordField() == false) {
+        document.getElementById("password-login").value = "";
+        document.getElementById("confirm_password").value = "";
+        document.querySelector("#password_input span").classList.add("error");
+        document.querySelector("#password_confirm span").classList.add("error");
+        document.getElementById("password-login").placeholder = "Invalid password";
+        document.getElementById("confirm_password").placeholder = "Invalid password";
         return;
     }
 
