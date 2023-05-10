@@ -84,8 +84,8 @@ session_start();
         </div>
     </div>
 
-    <p id="details"><span id="aboutsize">About Us</span><br>Hotel Reservation Site</p>
-    <p id="details"><span id="ptitlesize">Top Choice For Hotel Booking</span><br><br>
+    <p id="details" style="text-align:center;"><span id="aboutsize">Top Choice For Hotel Booking</span><br>Hotel Reservation Site</p><br>
+    <p id="details" style="width: 80%">
         <span id="pfontweight">Founded in 2023, Provisio currently has four locations located along the East Coast.
             Each location provides a selection of rooms to choose from as well as add-on amenities.
             Provisio's exclusive brand includes heated indoor pools at all locations. <br><br>
