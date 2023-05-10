@@ -88,14 +88,15 @@ session_start();
 
     <div class="res-summary-box">
         <div id="grid-item-1">
-            <h3>Reservation Summary:</h3>
-            <textarea id="summary" readonly></textarea>
+            <h3 style="text-align:center">Reservation Summary:</h3>
+            <div id="summary"></div>
         </div>
         <div id="grid-item-2">
             <button class="confirm-btn-reservation-confirmation" id="cancel-reservation">Cancel</button>
             <button class="confirm-btn-reservation-confirmation" id="confirm-reservation">Confirm</button>
         </div>
     </div>
+
 
 
     <footer>
