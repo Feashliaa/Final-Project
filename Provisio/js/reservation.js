@@ -76,53 +76,6 @@ function addDataToTextArea() {
     summaryDiv.innerHTML = summaryText;
 }
 
-
-
-/* function addDataToTextArea() {
-    // Get the reservation data from local storage
-    let reservation = JSON.parse(localStorage.getItem("reservation"));
-
-    // get the reservation summary textarea element
-    let summaryTextarea = document.getElementById("summary");
-    let summaryText = "";
-
-
-    // check if the reservation id is 0
-    if (reservation.reservationID == 0) {
-        // create a formatted string with the reservation information
-        summaryText = `Location: ${reservation.location}
-    Guest Count: ${reservation.guestCount}
-    Room Selected: ${reservation.roomSelected}
-    Check-in Date: ${reservation.checkInDate}
-    Check-out Date: ${reservation.checkOutDate}
-    Amenities:
-      Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}
-      Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}
-      Parking: ${reservation.amenities.parking ? "Yes" : "No"}
-    Points: ${reservation.points}
-    Amenity Price: $ ${reservation.total_amenity_price}
-    Total Price:   $ ${reservation.total_price}`;
-    } else {
-        // create a formatted string with the reservation information
-        summaryText = `Reservation ID: ${reservation.reservationID}
-  Location: ${reservation.location}
-  Guest Count: ${reservation.guestCount}
-  Room Selected: ${reservation.roomSelected}
-  Check-in Date: ${reservation.checkInDate}
-  Check-out Date: ${reservation.checkOutDate}
-  Amenities:
-    Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}
-    Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}
-    Parking: ${reservation.amenities.parking ? "Yes" : "No"}
-  Points: ${reservation.points}
-  Amenity Price: $ ${reservation.total_amenity_price}
-  Total Price:   $ ${reservation.total_price}`;
-    }
-
-    // set the value of the summary textarea to the formatted string
-    summaryTextarea.value = summaryText;
-} */
-
 function enableLookupButton() {
 
     // check if the page has the lookup button
