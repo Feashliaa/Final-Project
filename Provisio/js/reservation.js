@@ -38,8 +38,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 function addDataToTextArea() {
+    // Get the reservation data from local storage
+    let reservation = JSON.parse(localStorage.getItem("reservation"));
+
+    // Get the reservation summary div element
+    let summaryDiv = document.getElementById("summary");
+    let summaryText = "";
+
+    // Check if the reservation id is 0
+    if (reservation.reservationID == 0) {
+        // Create a formatted string with the reservation information
+        summaryText = `<label>Location: </label><div>${reservation.location}</div>
+    <label>Guest Count: </label><div>${reservation.guestCount}</div>
+    <label>Room Selected: </label><div>${reservation.roomSelected}</div>
+    <label>Check-in Date: </label><div>${reservation.checkInDate}</div>
+    <label>Check-out Date: </label><div>${reservation.checkOutDate}</div>
+    <label>Amenities: </label><div>Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}, Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}, Parking: ${reservation.amenities.parking ? "Yes" : "No"}</div>
+    <label>Points Earned: </label><div>${reservation.points}</div>
+    <label>Total Amenity Price: </label><div>$ ${reservation.total_amenity_price}</div>
+    <label>Total Price: </label><div>$ ${reservation.total_price}</div>`;
+    } else {
+        // Create a formatted string with the reservation information
+        summaryText = `<label>Reservation ID: </label><div>${reservation.reservationID}</div>
+    <label>Location: </label><div>${reservation.location}</div>
+    <label>Guest Count: </label><div>${reservation.guestCount}</div>
+    <label>Room Selected: </label><div>${reservation.roomSelected}</div>
+    <label>Check-in Date: </label><div>${reservation.checkInDate}</div>
+    <label>Check-out Date: </label><div>${reservation.checkOutDate}</div>
+    <label>Amenities: </label><div>Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}, Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}, Parking: ${reservation.amenities.parking ? "Yes" : "No"}</div>
+    <label>Points Earned: </label><div>${reservation.points}</div>
+    <label>Total Amenity Price: </label><div>$ ${reservation.total_amenity_price}</div>
+    <label>Total Price: </label><div>$ ${reservation.total_price}</div>`;
+    }
+
+    // Set the innerHTML of the summary div to the formatted string
+    summaryDiv.innerHTML = summaryText;
+}
+
+
+
+/* function addDataToTextArea() {
     // Get the reservation data from local storage
     let reservation = JSON.parse(localStorage.getItem("reservation"));
 
@@ -82,7 +121,7 @@ function addDataToTextArea() {
 
     // set the value of the summary textarea to the formatted string
     summaryTextarea.value = summaryText;
-}
+} */
 
 function enableLookupButton() {
 
