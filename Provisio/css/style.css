@@ -678,13 +678,14 @@ img.align-left {
 
 .location-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(325px, 25%));
+  grid-template-columns: repeat(4, 1fr);
   justify-content: space-evenly;
   align-items: center;
   grid-row-gap: 20px;
   border: solid 3px teal;
   overflow: hidden;
 }
+
 
 
 .location-desc {
@@ -728,8 +729,6 @@ img.align-left {
 #locations-button:hover {
   background-color: white;
   color: teal;
-
-  /* make it hand cursor */
   cursor: pointer;
 }
 
