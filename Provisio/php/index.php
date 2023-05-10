@@ -91,7 +91,7 @@ session_start();
 
     <div id="locationcontainer">
         <h3 id="h3title">Beach Access, Shopping & Entertainment</h3>
-        <img id="imgcenter" src="../images/westpalmbeach.jpeg" alt="" style="width:1300px">
+        <img id="imgcenter" src="../images/westpalmbeach.jpeg" alt="" style="width:100%; height: 400px">
         <p id="details">Our West Palm Beach, Florida location offers guests
             access to exquisite shops, fine dining, art museums and more! Located along Florida's
             Atlantic Ocean coast, this location provides sandy beaches for those who love the water
@@ -104,7 +104,7 @@ session_start();
 
     <div id="roomscontainer">
         <h3 id="h3title">Style Fit For a King</h3>
-        <img id="imgcenter" src="../images/kingsuite.jpeg" alt="">
+        <img id="imgcenter" src="../images/kingsuite.jpeg" alt="" style="width:100%; height: 400px">
         <p id="details">Enjoy your stay in a room fit for a king! These rooms offer pillow-top
             beds with luxury hotel bedding, ensuring your slumber is well... fit for a king. Also
             available is our full-size sofa-sleeper for your extra guests and dedicated work desk
@@ -117,7 +117,7 @@ session_start();
 
     <div id="amenitiescontainer">
         <h3 id="h3title">Worked Up An Appetite?</h3>
-        <img id="imgcenter" src="../images/breakfast.jpeg" alt="" style="width:1300px">
+        <img id="imgcenter" src="../images/breakfast.jpeg" alt="" style="width:100%; height: 400px">
         <p id="details">Provisio offers guests several amenities to choose from when booking
             with our state-of-the-art reservation system. Our continental breakfast is available every morning for those
             looking for convenient on-site amenities.
