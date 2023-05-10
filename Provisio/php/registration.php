@@ -43,7 +43,7 @@ session_start();
             <a href="rooms.php">Rooms</a>
             <a href="amenities.php">Amenities</a>
 
-            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Reservation</button>
 
             <div class="login-container">
                 <button id="login-btn" class="login-btn" onclick="checkLogin()">
