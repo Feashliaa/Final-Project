@@ -251,6 +251,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Enable the submit-btn
             document.getElementById("submit-btn").disabled = false;
         }
+        // Check the source parameter and set the location accordingly
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get("source");
+        if (source === "Springfield" || source === "Mobile" || source === "West Palm Beach" || source === "Owego") {
+            document.getElementById("location").value = source;
+        }
     }
     setupDateValidation();
     setupValidation();

@@ -36,7 +36,7 @@ session_start();
             <a href="rooms.php">Rooms</a>
             <a href="amenities.php">Amenities</a>
 
-            <button onclick="window.location.href='../php/reservation.php';" class="book-now-btn">Book Now</button>
+            <button onclick="window.location.href='../php/reservation.php?source=book-now-btn';" class="book-now-btn">Reservation</button>
 
             <div class="login-container">
                 <button id="login-btn" class="login-btn" onclick="checkLogin()">
@@ -77,12 +77,13 @@ session_start();
     </div>
 
     <h1>Multiple Locations</h1>
+
     <div class="location-container">
         <div class="align-center">
             <div class="location-desc">
                 <img src="../images/owego_ny.jpg">
-                <p class="twn-desc"><b>The town that means "Where The<br>Valley Widens..."</b></p>
-                <h2>Owego, NY</h2>
+                <p class="twn-desc"><b>The town that means "Where The Valley Widens..."</b></p>
+                <h2 style="margin-top: auto;">Owego, NY</h2>
                 <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
@@ -94,13 +95,14 @@ session_start();
                     <a href="https://www.gobroomecounty.com/community/carousels" class="link" target="_blank">Broome County Carousels</a><br>
                     <a href="https://rossparkzoo.org/" class="link" target="_blank">Ross Park Zoo</a>
                 </p>
+                <button id="locations-button" onclick="window.location.href='reservation.php?source=Owego'" name="owego">Book Here</button>
             </div>
         </div>
         <div class="align-center">
             <div class="location-desc">
                 <img src="../images/springfield_ma.jpg">
-                <p class="twn-desc"><b>This "City of Firsts" has so much<br>history to explore!"</b></p>
-                <h2>Springfield, MA</h2>
+                <p class="twn-desc"><b>This "City of Firsts" has so much history to explore!</b></p>
+                <h2 style="margin-top: auto;">Springfield, MA</h2>
                 <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
@@ -111,13 +113,14 @@ session_start();
                     <a href="https://www.hoophall.com/" class="link" target="_blank">Naismith Memorial Basketball Hall of Fame</a><br>
                     <a href="https://indianofspringfield.com/" class="link" target="_blank">Indian Motorcycles</a><br>
                 </p>
+                <button id="locations-button" onclick="window.location.href='reservation.php?source=Springfield'" name="springfield">Book Here</button>
             </div>
         </div>
         <div class="align-center">
             <div class="location-desc">
                 <img src="../images/westpalmbeach.jpg">
                 <p class="twn-desc"><b>So much beach, so little time!</b></p>
-                <h2 style="padding-top: 17px;">West Palm Beach, FL</h2>
+                <h2 style="margin-top: 10%;">West Palm Beach, FL</h2>
                 <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
@@ -127,15 +130,16 @@ session_start();
                     <a href="https://www.norton.org/" class="link" target="_blank">The Norton Museum of Art</a><br>
                     <a href="https://www.rapidswaterpark.com/" class="link" target="_blank">The Rapids Waterpark</a><br>
                     <a href="https://www.lioncountrysafari.com/" class="link" target="_blank">Lion Country Safari</a>
-
                 </p>
+                <br>
+                <button id="locations-button" onclick="window.location.href='reservation.php?source=West Palm Beach'" name="west palm beach">Book Here</button>
             </div>
         </div>
         <div class="align-center">
             <div class="location-desc">
                 <img src="../images/mobile.jpg">
                 <p class="twn-desc"><b>This port city has so much to offer!</b></p>
-                <h2 style="padding-top: 17px;">Mobile, AL</h2>
+                <h2 style="margin-top: 10%;">Mobile, AL</h2>
                 <p>
                     <strong>Amenities Available:</strong><br>
                     High-Speed WI-FI<br>
@@ -146,6 +150,7 @@ session_start();
                     <a href="https://www.ussalabama.com/" class="link" target="_blank">USS Alabama Battleship Memorial Park</a><br>
                     <a href="https://www.mobilemuseumofart.com/" class="link" target="_blank">Mobile Museum of Art</a><br>
                 </p>
+                <button id="locations-button" onclick="window.location.href='reservation.php?source=Mobile'" name="mobile">Book Here</button>
             </div>
         </div>
     </div>
