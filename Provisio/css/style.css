@@ -164,6 +164,9 @@ header {
   cursor: pointer;
   outline: none;
   border-radius: inherit;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .nav a,
@@ -181,7 +184,7 @@ header {
   border-radius: 20px;
 
   /* give an outer shadow effect */
-  box-shadow: 0 0 10px teal;
+  box-shadow: 5px 5px 2.5px teal;
 }
 
 .nav .book-now-btn {
@@ -196,11 +199,45 @@ header {
 
   /* round the element's corners */
   border-radius: 20px;
+
+  /* give an outer shadow effect */
+  box-shadow: 0 0 10px teal !important;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .nav .book-now-btn:hover {
   background: #162541;
   cursor: pointer;
+
+  /* remove the outer shadow effect */
+  box-shadow: none !important;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
+}
+
+.nav .book-now-btn:not(:hover) {
+  /* give it an animation effect */
+  transition: all 0.5s ease;
+}
+
+.nav a:not(:hover) {
+  /* give it an animation effect */
+  transition: all 0.5s ease;
+}
+
+
+.nav a:hover {
+  background: #162541;
+  cursor: pointer;
+
+  /* remove the outer shadow effect */
+  box-shadow: none !important;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .nav .book-now-btn {
@@ -305,6 +342,9 @@ header {
   left: 0;
   right: 0;
   padding: 10px;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 #noAccount button[type="button"] {
@@ -322,10 +362,16 @@ header {
   cursor: pointer;
   outline: none;
   box-shadow: 0 0 10px teal;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 #noAccount button[type="button"]:hover {
   background-color: #162541;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 label {
@@ -369,6 +415,18 @@ input[type="password"] {
   box-shadow: 0 0 10px teal;
   font-size: 16px;
   box-sizing: border-box;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
+}
+
+.dropdown-form input[type="email"]:focus,
+.dropdown-form input[type="password"]:focus {
+
+  outline: 1px solid teal;
+  box-shadow: none;
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 
@@ -387,10 +445,16 @@ input[type="password"] {
   cursor: pointer;
   outline: none;
   box-shadow: 0 0 10px teal;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .dropdown-form button[type="submit"]:hover {
   background-color: #162541;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .login-container:hover,
@@ -447,11 +511,17 @@ input[type="password"] {
 
   /* round the element's corners */
   border-radius: 10px;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .rewards-btn:hover {
   background: #162541;
   cursor: pointer;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 .nav-border-bottom {
@@ -724,12 +794,18 @@ img.align-left {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 #locations-button:hover {
   background-color: white;
   color: teal;
   cursor: pointer;
+
+  /* give it an animation effect */
+  transition: all 0.5s ease;
 }
 
 @media (max-width: 1300px) {
