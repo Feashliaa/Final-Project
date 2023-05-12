@@ -747,8 +747,6 @@ img.align-left {
   overflow: hidden;
 }
 
-
-
 .location-desc {
   position: relative;
   background: gainsboro;
@@ -1060,14 +1058,209 @@ li span {
   color: black;
 }
 
+/* ----- */
+
 .res-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  /* adjust the minmax values */
-  grid-template-rows: 1fr 50px 150px;
+  display: flex;
+  flex-direction: column;
   gap: 15px;
   padding: 15px;
   border: solid 2px teal;
+}
+
+.res-box label {
+  font-size: 1rem;
+  color: teal;
+  font-weight: bold;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+@media screen and (max-width: 975px) {
+  .grid-container {
+    flex-direction: column;
+
+    /* center everything */
+    align-items: center;
+  }
+}
+
+/* at 460px, start squishing the grid items */
+@media screen and (max-width: 460px) {
+  .grid-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-container>* {
+    width: 100%;
+  }
+}
+
+.res-box>*:nth-child(3),
+.res-box>*:nth-child(4) {
+  width: 100%;
+}
+
+@media screen and (min-width: 975px) {
+  .res-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  #res-right-btn {
+    margin-top: auto;
+  }
+}
+
+.res-box input,
+.res-box select {
+  box-sizing: border-box;
+  border: solid 1px teal;
+  width: 450px;
+  max-width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.res-box input:hover,
+.res-box select:hover {
+  border: solid 1px rgb(0, 0, 0);
+  background-color: #e8e8e8;
+  cursor: pointer;
+}
+
+.res-box input:focus,
+.res-box select:focus {
+  border: solid 1px teal;
+  background-color: #ffffff;
+}
+
+
+#rescheck label {
+  display: inline-block;
+  padding-left: 15px;
+  text-indent: -15px;
+  max-width: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+#rescheck input {
+  width: auto;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  cursor: pointer;
+}
+
+#rescheck label:hover {
+  color: teal;
+}
+
+#rescheck input:checked+label {
+  color: teal;
+}
+
+
+#reservation_lookup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#reservation_lookup input {
+  width: 50%;
+  font-size: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background: teal;
+  border: medium none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+
+  height: 50px !important;
+  width: 50% !important;
+
+  /* center the button */
+  display: block;
+  margin: 0 auto;
+
+
+  /* round it */
+  border-radius: 20px;
+}
+
+.submit-btn:hover {
+  background: #162541;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 465px) {
+  #look-up-btn {
+    margin-top: -10px;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+
+/* reservation_lookup */
+
+#res-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#res-right textarea {
+  width: 100%;
+  resize: none;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  background-color: transparent;
+  color: inherit;
+  height: 300px;
+  min-width: 300px;
+  margin-top: 0%;
+}
+
+
+#res-right-btn {
+  margin-top: 0;
+  align-self: end;
 }
 
 .res-summary-box {
@@ -1142,61 +1335,6 @@ li span {
   grid-row: 2;
 }
 
-
-
-.res-box>*:nth-child(3) {
-  grid-column: 1 / span 2;
-  /* the 2nd row takes up only 1 column */
-}
-
-/* have the 3rd row take up the entire width of the grid */
-.res-box>*:nth-child(4) {
-  grid-column: 1 / span 2;
-}
-
-#res-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#res-right textarea {
-  width: 100%;
-  resize: none;
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-  background-color: transparent;
-  color: inherit;
-  height: 300px;
-  min-width: 300px;
-  margin-top: 0%;
-}
-
-
-#res-right-btn {
-  margin-top: 0;
-  align-self: end;
-  /* align element to the bottom of the grid */
-}
-
-@media screen and (min-width: 975px) {
-  .res-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: 1fr 50px 150px;
-    gap: 20px;
-  }
-
-  #res-right-btn {
-    margin-top: auto;
-    /* align element to the bottom of the grid */
-  }
-}
-
 .confirm-btn-reservation-confirmation {
   background-color: teal;
   color: white;
@@ -1221,62 +1359,6 @@ li span {
   text-align: left;
 }
 
-#reservation_lookup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#reservation_lookup input {
-  width: 50%;
-  font-size: 20px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-.res-box input,
-.res-box select {
-  border: solid 1px teal;
-  width: 450px;
-  max-width: 100%;
-  height: 25px;
-  margin-bottom: 25px;
-}
-
-@media screen and (max-width: 465px) {
-  #look-up-btn {
-    margin-top: -10px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-
-  .res-box input,
-  .res-box select {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-
-#rescheck label {
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
-}
-
-#rescheck input {
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  margin: 0;
-  vertical-align: bottom;
-  position: relative;
-  top: -1px;
-}
-
 .sum {
   border: solid 1px black;
   padding: 15px 15px 200px 15px;
@@ -1299,32 +1381,6 @@ li span {
 }
 
 .confirm-btn:hover {
-  background: #162541;
-  cursor: pointer;
-}
-
-.submit-btn {
-  background: teal;
-  border: medium none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-
-  height: 50px !important;
-  width: 50% !important;
-
-  /* center the button */
-  display: block;
-  margin: 0 auto;
-
-
-  /* round it */
-  border-radius: 20px;
-}
-
-.submit-btn:hover {
   background: #162541;
   cursor: pointer;
 }

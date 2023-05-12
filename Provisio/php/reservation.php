@@ -91,54 +91,61 @@ session_start();
     </div>
 
     <div class="res-box">
-        <div id="res-left">
+        <div class="grid-container">
+            <div id="res-left">
 
 
-            <label for="location">LOCATION:</label><br>
-            <select name="location" id="location">
-                <option hidden selected></option>
-                <option>Springfield</option>
-                <option>Mobile</option>
-                <option>West Palm Beach</option>
-                <option>Owego</option>
-            </select><br>
+                <label for="location">LOCATION:</label><br>
+                <select name="location" id="location">
+                    <option hidden selected></option>
+                    <option>Springfield</option>
+                    <option>Mobile</option>
+                    <option>West Palm Beach</option>
+                    <option>Owego</option>
+                </select><br>
 
-            <label for="guest">GUEST COUNT:</label><br>
-            <select name="guest" id="guest">
-                <option hidden selected></option>
-                <option>1-2 Guests</option>
-                <option>3-5 Guests</option>
-            </select><br>
+                <label for="guest">GUEST COUNT:</label><br>
+                <select name="guest" id="guest">
+                    <option hidden selected></option>
+                    <option>1-2 Guests</option>
+                    <option>3-5 Guests</option>
+                </select><br>
 
-            <label for="guest">ROOMS:</label><br>
-            <select name="Room" id="room">
-                <option hidden selected></option>
-                <option disabled>Holidays are subject to 5% increased rates</option>
-                <option>Double Full Beds - $115.50/night</option>
-                <option>Queen - $131.25/night</option>
-                <option>Double Queen Beds - $157.50/night</option>
-                <option>King - $173.25/night</option>
-            </select>
-        </div>
-
-        <div id="res-center">
-            <label for="checkin">CHECK IN DATE</label><br>
-            <input type="date" id="checkin" name="checkin"><br>
-
-            <label for="checkout">CHECK OUT DATE</label><br>
-            <input type="date" id="checkout" name="checkout"><br>
-
-            <div id="rescheck">
-                <label for="amenities">Choose your Amenities:</label><br>
-                <input type="checkbox" name="amenities" id="wifi" value="wifi"> WI-FI ($12.99)</input><br>
-                <input type="checkbox" name="amenities" id="breakfast" value="breakfast"> Breakfast ($8.99/night)</input><br>
-                <input type="checkbox" name="amenities" id="parking" value="parking"> Parking ($19.99/night)</input><br>
+                <label for="guest">ROOMS:</label><br>
+                <select name="Room" id="room">
+                    <option hidden selected></option>
+                    <option disabled>Holidays are subject to 5% increased rates</option>
+                    <option>Double Full Beds - $115.50/night</option>
+                    <option>Queen - $131.25/night</option>
+                    <option>Double Queen Beds - $157.50/night</option>
+                    <option>King - $173.25/night</option>
+                </select>
             </div>
 
-            <br>
-            <br>
+            <div id="res-center">
+                <label for="checkin">CHECK IN DATE</label><br>
+                <input type="date" id="checkin" name="checkin"><br>
 
-        </div>
+                <label for="checkout">CHECK OUT DATE</label><br>
+                <input type="date" id="checkout" name="checkout"><br>
+
+                <div id="rescheck">
+                    <label for="wifi">
+                        <input type="checkbox" name="amenities" id="wifi" value="wifi">
+                        WI-FI ($12.99)
+                    </label><br>
+                    <label for="breakfast">
+                        <input type="checkbox" name="amenities" id="breakfast" value="breakfast">
+                        Breakfast ($8.99/night)
+                    </label><br>
+                    <label for="parking">
+                        <input type="checkbox" name="amenities" id="parking" value="parking">
+                        Parking ($19.99/night)
+                    </label><br>
+                </div>
+
+            </div>
+        </div><!-- end grid-container -->
 
         <div>
             <button class="submit-btn" id="submit-btn" disabled>Submit</button>
