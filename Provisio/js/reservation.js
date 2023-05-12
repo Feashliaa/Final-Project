@@ -38,43 +38,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+function createSummaryEntry(label, value) {
+    return `<label>${label}: </label><div>${value}</div>`;
+}
+
+function createAmenitiesEntry(amenities) {
+    return Object.keys(amenities)
+        .map(amenity => `<div>${amenity.charAt(0).toUpperCase() + amenity.slice(1)}: ${amenities[amenity] ? "Yes" : "No"}</div>`)
+        .join("<br>");
+}
+
 function addDataToTextArea() {
     // Get the reservation data from local storage
     let reservation = JSON.parse(localStorage.getItem("reservation"));
 
     // Get the reservation summary div element
     let summaryDiv = document.getElementById("summary");
-    let summaryText = "";
 
-    // Check if the reservation id is 0
-    if (reservation.reservationID == 0) {
-        // Create a formatted string with the reservation information
-        summaryText = `<label>Location: </label><div>${reservation.location}</div>
-    <label>Guest Count: </label><div>${reservation.guestCount}</div>
-    <label>Room Selected: </label><div>${reservation.roomSelected}</div>
-    <label>Check-in Date: </label><div>${reservation.checkInDate}</div>
-    <label>Check-out Date: </label><div>${reservation.checkOutDate}</div>
-    <label>Amenities: </label><div>Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}, Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}, Parking: ${reservation.amenities.parking ? "Yes" : "No"}</div>
-    <label>Points Earned: </label><div>${reservation.points}</div>
-    <label>Total Amenity Price: </label><div>$ ${reservation.total_amenity_price}</div>
-    <label>Total Price: </label><div>$ ${reservation.total_price}</div>`;
-    } else {
-        // Create a formatted string with the reservation information
-        summaryText = `<label>Reservation ID: </label><div>${reservation.reservationID}</div>
-    <label>Location: </label><div>${reservation.location}</div>
-    <label>Guest Count: </label><div>${reservation.guestCount}</div>
-    <label>Room Selected: </label><div>${reservation.roomSelected}</div>
-    <label>Check-in Date: </label><div>${reservation.checkInDate}</div>
-    <label>Check-out Date: </label><div>${reservation.checkOutDate}</div>
-    <label>Amenities: </label><div>Wifi: ${reservation.amenities.wifi ? "Yes" : "No"}, Breakfast: ${reservation.amenities.breakfast ? "Yes" : "No"}, Parking: ${reservation.amenities.parking ? "Yes" : "No"}</div>
-    <label>Points Earned: </label><div>${reservation.points}</div>
-    <label>Total Amenity Price: </label><div>$ ${reservation.total_amenity_price}</div>
-    <label>Total Price: </label><div>$ ${reservation.total_price}</div>`;
-    }
+    // Create the summary text
+    let summaryText = [
+        reservation.reservationID !== 0 ? createSummaryEntry("Reservation ID", reservation.reservationID) : '',
+        createSummaryEntry("Location", reservation.location),
+        createSummaryEntry("Guest Count", reservation.guestCount),
+        createSummaryEntry("Room Selected", reservation.roomSelected),
+        createSummaryEntry("Check-in Date", reservation.checkInDate),
+        createSummaryEntry("Check-out Date", reservation.checkOutDate),
+        `<label>Amenities: </label>${createAmenitiesEntry(reservation.amenities)}`,
+        createSummaryEntry("Points Earned", reservation.points),
+        createSummaryEntry("Total Amenity Price", `$ ${reservation.total_amenity_price}`),
+        createSummaryEntry("Total Price", `$ ${reservation.total_price}`)
+    ].join('');
 
     // Set the innerHTML of the summary div to the formatted string
     summaryDiv.innerHTML = summaryText;
 }
+
 
 function enableLookupButton() {
 
@@ -218,19 +216,6 @@ function printReservation(response_object) {
         default:
             hotelString = "Unknown";
     }
-
-    /*     // print the reservation data to the console
-        console.log(`Reservation ID: ${reservationID}`);
-        console.log(`Hotel: ${hotelString}`);
-        console.log(`Wifi Amenity: ${wifiAmenity}`);
-        console.log(`Breakfast Amenity: ${breakfastAmenity}`);
-        console.log(`Parking Amenity: ${parkingAmenity}`);
-        console.log(`Check-in Date: ${checkInDate}`);
-        console.log(`Check-out Date: ${checkOutDate}`);
-        console.log(`Number of Guests: ${numberOfGuests}`);
-        console.log(`Points Earned: ${pointsEarned}`);
-        console.log(`Total Amenity Price: ${totalAmenityPrice}`);
-        console.log(`Total Room Price: ${totalRoomPrice}`); */
 
     console.log("Before redirect");
 

@@ -1264,18 +1264,18 @@ li span {
 }
 
 .res-summary-box {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 15px;
   padding: 15px;
   border: solid 2px teal;
   background-color: #fff;
   border-radius: 10px;
+  align-items: center;
 }
 
 #summary {
-  width: 50%;
+  width: 600px;
   min-height: 300px;
   font-size: 16px;
   font-family: Arial, sans-serif;
@@ -1284,23 +1284,26 @@ li span {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   white-space: pre-line;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 15px;
-  padding: 15px;
-  border: solid 2px teal;
-  background-color: #fff;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  /* center align the summary box */
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  #summary {
+    width: 90vw;
+  }
+}
+
+
 
 #summary>div {
   display: flex;
@@ -1310,7 +1313,7 @@ li span {
 #summary div {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
   flex-wrap: wrap;
   flex-direction: row;
   flex-grow: 1;
@@ -1319,17 +1322,19 @@ li span {
 }
 
 #summary label {
-  width: 200px;
   font-weight: bold;
   color: teal;
-  font: 20px Arial, sans-serif;
+  font-size: 20px;
+  /* remove the fixed width and use font-size instead */
+  font-family: Arial, sans-serif;
+  /* be specific with the font property */
   text-align: left;
 }
-
 
 #grid-item-1 {
   grid-row: 1;
 }
+
 
 #grid-item-2 {
   grid-row: 2;
