@@ -36,6 +36,20 @@ try {
 
     // Send the email
     $mail->send();
+
+    // Clear all addresses and attachments for the next mail
+    $mail->clearAddresses();
+    $mail->clearAttachments();
+
+    // Send a confirmation email to the user
+    $mail->setFrom('provisiobravo@gmail.com', 'Bravo Team');
+    $mail->addAddress($email, $name);
+    $mail->Subject = "Confirmation of Your Message";
+    $mail->Body = "Dear $name,\n\nYour message has been successfully transmitted. We will get back to you soon.\n\nBest Regards,\nBravo Team";
+    
+    // Send the confirmation email
+    $mail->send();
+    
     echo "Your message has been sent!";
 } catch (Exception $e) {
     http_response_code(500);
